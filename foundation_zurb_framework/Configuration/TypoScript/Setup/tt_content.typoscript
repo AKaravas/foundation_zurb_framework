@@ -1,0 +1,144 @@
+tt_content {
+	foundation_accordion < lib.contentElement
+	foundation_accordion {
+		templateRootPaths.30 = {$FoundationPrivate}Templates/
+		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateName = Accordion.html
+		
+		dataProcessing {
+			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			30 {
+				table = foundation_zurb_accordionsettings
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:accordion_settings_relation}
+
+				as = accordionsettings
+				dataProcessing {
+					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					50 {
+						if.isTrue.field = accordion_content_relation
+
+						table = foundation_zurb_accordioncontent
+
+						pidInList = this
+						where.field = uid
+						where.intval = 1
+						where.dataWrap = foundation_zurb_accordionsettings = |
+
+						as = accordionContents
+						dataProcessing {
+							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							70 {
+								references.fieldName = files
+								as = images
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	foundation_slider < lib.contentElement
+	foundation_slider {
+		templateRootPaths.30 = {$FoundationPrivate}Templates/
+		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateName = Slider.html
+		dataProcessing {
+			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			30 {
+				table = foundation_zurb_slidersettings
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:slider_settings_relation}
+				
+				as = sliderSettings
+				dataProcessing {
+					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					50 {
+						if.isTrue.field = slider_content_relation
+
+						table = foundation_zurb_slidercontent
+
+						pidInList = this
+						where.field = uid
+						where.intval = 1
+						where.dataWrap = foundation_zurb_slidersettings = |
+
+						as = sliderContents
+						dataProcessing {
+							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							70 {
+								references.fieldName = image
+								as = images
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	foundation_tabs < lib.contentElement
+	foundation_tabs {
+		templateRootPaths.30 = {$FoundationPrivate}Templates/
+		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateName = Tabs.html
+		
+		dataProcessing {
+			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			30 {
+				table = foundation_zurb_tabssettings
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:tabs_settings_relation}
+
+				as = tabssettings
+				dataProcessing {
+					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					50 {
+						if.isTrue.field = tabs_content_relation
+
+						table = foundation_zurb_tabscontent
+
+						pidInList = this
+						where.field = uid
+						where.intval = 1
+						where.dataWrap = foundation_zurb_tabssettings = |
+
+						as = tabsContents
+						dataProcessing {
+							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							70 {
+								references.fieldName = image
+								as = images
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	foundation_reveal < lib.contentElement
+	foundation_reveal {
+		templateRootPaths.30 = {$FoundationPrivate}Templates/
+		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateName = Reveal.html
+		dataProcessing {
+			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			30 {
+					table = foundation_zurb_revealcontent
+					pidInList = this
+					where.field = uid 
+					where.dataWrap = tt_content = |
+				as = revealContent
+				dataProcessing {
+							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							70 {
+								references.fieldName = files
+								as = images
+							}
+						}
+			}
+		}
+	}
+}

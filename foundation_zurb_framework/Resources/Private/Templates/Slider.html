@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+
+	<div class="grid-container">
+		<div class="grid-x">
+			<div class="cell">
+				<f:alias map="{
+					leftIn: sliderSettings.0.data.slide_direction_in_left, 
+					rightIn: sliderSettings.0.data.slide_direction_in_right, 
+					leftOut: sliderSettings.0.data.slide_direction_out_left, 
+					rightOut: sliderSettings.0.data.slide_direction_out_right, 
+					hideArrows: sliderSettings.0.data.hide_arrows, 
+					sliderContents: sliderSettings.0.sliderContents, 
+					hideBullets: sliderSettings.0.data.hide_bullets,
+					timerDelay: sliderSettings.0.data.timer_delay,
+					swipe: sliderSettings.0.data.swipe,
+					stopNavigation: sliderSettings.0.data.accessible_buttons,
+					stopOnHover: sliderSettings.0.data.pause_on_hover,
+					stopAutoPlay: sliderSettings.0.data.auto_play,
+					stopInfiniteWrap: sliderSettings.0.data.infinite_wrap,
+					doNotUseMUI: sliderSettings.0.data.use_m_u_i
+				}">
+				 	<f:render partial="Slider/Slider" arguments="{
+				 		leftIn: leftIn, 
+				 		rightIn: rightIn, 
+				 		leftOut: leftOut, 
+				 		rightOut: rightOut, 
+				 		hideArrows: hideArrows, 
+				 		sliderContents: sliderContents, 
+				 		hideBullets: hideBullets,
+				 		timerDelay: timerDelay,
+				 		swipe: swipe,
+				 		stopNavigation: stopNavigation,
+				 		stopOnHover:stopOnHover,
+				 		stopAutoPlay: stopAutoPlay,
+				 		doNotUseMUI:doNotUseMUI,
+				 		stopInfiniteWrap:stopInfiniteWrap
+				 	}"/>
+				</f:alias>
+			</div>
+		</div>
+	</div>
+</html>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-07-18T14:10:33Z" product-name="foundation_zurb_framework">
+        <header/>
+        <body>
+            <!--Foundation Zurb General-->
+            <trans-unit id="foundation.settings.main" xml:space="preserve">
+                <source>Main settings</source>
+            </trans-unit>
+            <trans-unit id="foundation.settings.advanced" xml:space="preserve">
+                <source>Advanced settings</source>
+            </trans-unit>
+        	<trans-unit id="foundation.elements" xml:space="preserve">
+                <source>Foundation Zurb Elements</source>
+            </trans-unit>
+
+             <!--Foundation Zurb Slider-->
+            <trans-unit id="foundation.slider.title" xml:space="preserve">
+                <source>Slider</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.description" xml:space="preserve">
+                <source>Create a Foundation slider element</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.settings" xml:space="preserve">
+                <source>Slider</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.second.modus" xml:space="preserve">
+                <source>Second modus</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.hide.arrows" xml:space="preserve">
+                <source>Hide arrows</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.hide.bullets" xml:space="preserve">
+                <source>Hide bullets</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slide_in_left" xml:space="preserve">
+                <source>Animation in left</source>
+            </trans-unit>
+             <trans-unit id="foundation.slider.slide_out_left" xml:space="preserve">
+                <source>Animation out left</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slide_in_right" xml:space="preserve">
+                <source>Animation in right</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slide_out_right" xml:space="preserve">
+                <source>Animation out right</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.auto.play" xml:space="preserve">
+                <source>Stop auto play</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.timer.delay" xml:space="preserve">
+                <source>Time to next slide (1s = 1000)</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.infinite.wrap" xml:space="preserve">
+                <source>Stop infinite Wrap</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.swipe" xml:space="preserve">
+                <source>Deactivate swipe (Mobile)</source>
+            </trans-unit>
+             <trans-unit id="foundation.slider.pause.on.hover" xml:space="preserve">
+                <source>Deactivate pause on mouse over the slider</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.keyboard.navigation" xml:space="preserve">
+                <source>Stop keyboard Navigation</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.use.mui" xml:space="preserve">
+                <source>Stop use m.u.i.</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.create.item" xml:space="preserve">
+                <source>Create a slider item</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.settings.advanced.animations" xml:space="preserve">
+                <source>Animations</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.settings.advanced.timer" xml:space="preserve">
+                <source>Timings</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slidercontents" xml:space="preserve">
+                <source>New slide</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slidercontent.title" xml:space="preserve">
+                <source>Slide title</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slidercontent.text" xml:space="preserve">
+                <source>Slide text</source>
+            </trans-unit>
+             <trans-unit id="foundation.slider.slidercontent.image" xml:space="preserve">
+                <source>Slide image</source>
+            </trans-unit>
+            
+            <!--Foundation Zurb Accordion-->
+            <trans-unit id="foundation.accordion.title" xml:space="preserve">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion.description" xml:space="preserve">
+                <source>Create a Foundation accordion element</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion.create.item" xml:space="preserve">
+                <source>Create an accordion element</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion.settings.main" xml:space="preserve">
+                <source>Accordion Settings</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion" xml:space="preserve">
+                <source>Create an accordion</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion.settings" xml:space="preserve">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion_speed" xml:space="preserve">
+                <source>Accordion speed</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion_multiexpand" xml:space="preserve">
+                <source>Accordion multiexpand</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion_all_closed" xml:space="preserve">
+                <source>Accordion all closed</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion_disabled" xml:space="preserve">
+                <source>Accordion disabled</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordion_content_relation" xml:space="preserve">
+                <source>Create a new item</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordioncontent" xml:space="preserve">
+                <source>Create a new item</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordioncontent.title" xml:space="preserve">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordioncontent.text" xml:space="preserve">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="foundation.accordioncontent.files" xml:space="preserve">
+                <source>File</source>
+            </trans-unit>
+
+            <!--Foundation Zurb Tabs-->
+             <trans-unit id="foundation.tabs.title" xml:space="preserve">
+                <source>Tabs</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.description" xml:space="preserve">
+                <source>Create a Foundation tabs element</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.settings" xml:space="preserve">
+                <source>Tabs</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabscontent" xml:space="preserve">
+                <source>Create a Foundation tabs element</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs" xml:space="preserve">
+                <source>Create a tabs element</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.settings.main" xml:space="preserve">
+                <source>Main settings</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs_vertical" xml:space="preserve">
+                <source>Vertical Tabs</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs_collapse" xml:space="preserve">
+                <source>Collapsed tabs</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs_deep_linking" xml:space="preserve">
+                <source>Deep Linking</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs_content_relation" xml:space="preserve">
+                <source>Create a new tab</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.title" xml:space="preserve">
+                <source>Tab</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.text" xml:space="preserve">
+                <source>Tab text</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.image" xml:space="preserve">
+                <source>Tab file</source>
+            </trans-unit>
+
+            <!--Foundation Zurb Reveal/Modal-->
+            <trans-unit id="foundation.revealcontent" xml:space="preserve">
+                <source>Create a reveal element</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.settings" xml:space="preserve">
+                <source>Reveal</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.description" xml:space="preserve">
+                <source>Create a Foundation reveal element</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.create.item" xml:space="preserve">
+                <source>Create a reveal item</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.settings.main.close" xml:space="preserve">
+                <source>Reveal Close</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.settings.main.position" xml:space="preserve">
+                <source>Reveal Position</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.settings.main.animations" xml:space="preserve">
+                <source>Reveal Animation</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.settings.main.no_animations" xml:space="preserve">
+                <source>Reveal No Animation</source>
+            </trans-unit>
+            <trans-unit id="foundation.reveal.title" xml:space="preserve">
+                <source>Reveal/Modal</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealcontent.title" xml:space="preserve">
+                <source>Reveal title</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealcontent.text" xml:space="preserve">
+                <source>Reveal text</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealcontent.files" xml:space="preserve">
+                <source>Reveal files</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.size" xml:space="preserve">
+                <source>Reveal size</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.full_screen" xml:space="preserve">
+                <source>Enable full screen</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.no_overlay" xml:space="preserve">
+                <source>Disable overlay</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.no_animation" xml:space="preserve">
+                <source>Do not use animation</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.animation_in" xml:space="preserve">
+                <source>Animation In</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.animation_out" xml:space="preserve">
+                <source>Animation Out</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.animation_speed_in" xml:space="preserve">
+                <source>Animation Speed In</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.animation_speed_out" xml:space="preserve">
+                <source>Animation Speed Out</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.show_delay" xml:space="preserve">
+                <source>Reveal show delay</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.hide_delay" xml:space="preserve">
+                <source>Reveal hide delay</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.close_on_click" xml:space="preserve">
+                <source>Disable Close-On-Click</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.close_on_esc" xml:space="preserve">
+                <source>Disable Close-On-ESC</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.v_offset" xml:space="preserve">
+                <source>Reveal V position</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.h_offset" xml:space="preserve">
+                <source>Reveal H position</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.reset_on_close" xml:space="preserve">
+                <source>Reset on close (Video, API, etc)</source>
+            </trans-unit>
+            <trans-unit id="foundation.revealsetting.deep_link" xml:space="preserve">
+                <source>Enable deep_link</source>
+            </trans-unit>
+
+            <!--Foundation Zurb Animations-->
+            <trans-unit id="foundation.slide" xml:space="preserve">
+                <source>Slide</source>
+            </trans-unit>
+            <trans-unit id="foundation.fade" xml:space="preserve">
+                <source>Fade</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge" xml:space="preserve">
+                <source>Hinge</source>
+            </trans-unit>
+            <trans-unit id="foundation.scale" xml:space="preserve">
+                <source>Scale</source>
+            </trans-unit>
+            <trans-unit id="foundation.spin" xml:space="preserve">
+                <source>Spin</source>
+            </trans-unit>
+            <trans-unit id="foundation.fade_in" xml:space="preserve">
+                <source>Fade In</source>
+            </trans-unit>
+            <trans-unit id="foundation.fade_out" xml:space="preserve">
+                <source>Fade Out</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_in_up" xml:space="preserve">
+                <source>Slide In Up</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_out_up" xml:space="preserve">
+                <source>Slide Out Up</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_in_right" xml:space="preserve">
+                <source>Slide In Right</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_out_right" xml:space="preserve">
+                <source>Slide Out Right</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_in_down" xml:space="preserve">
+                <source>Slide In Down</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_out_down" xml:space="preserve">
+                <source>Slide Out Down</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_in_left" xml:space="preserve">
+                <source>Slide In Left</source>
+            </trans-unit>
+            <trans-unit id="foundation.slide_out_left" xml:space="preserve">
+                <source>Slide Out Left</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slide.in.right" xml:space="preserve">
+                <source>slide-in-right</source>
+            </trans-unit>
+            <trans-unit id="foundation.slider.slide.out.right" xml:space="preserve">
+                <source>slide-out-right</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_in_from_top" xml:space="preserve">
+                <source>Hinge In From Top</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_out_from_top" xml:space="preserve">
+                <source>Hinge Out From Top</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_in_from_right" xml:space="preserve">
+                <source>Hinge In From Right</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_out_from_right" xml:space="preserve">
+                <source>Hinge Out From Right</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_in_from_bottom" xml:space="preserve">
+                <source>Hinge In From Bottom</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_out_from_bottom" xml:space="preserve">
+                <source>Hinge Out From Bottom</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_in_from_left" xml:space="preserve">
+                <source>Hinge In From Left</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_out_from_left" xml:space="preserve">
+                <source>Hinge Out From Left</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_in_from_middle_x" xml:space="preserve">
+                <source>Hinge In From Middle X</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_out_from_middle_x" xml:space="preserve">
+                <source>Hinge Out From Middle X</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_in_from_middle_y" xml:space="preserve">
+                <source>Hinge In From Middle Y</source>
+            </trans-unit>
+            <trans-unit id="foundation.hinge_out_from_middle_y" xml:space="preserve">
+                <source>Hinge Out From Middle Y</source>
+            </trans-unit>
+            <trans-unit id="foundation.scale_in_up" xml:space="preserve">
+                <source>Scale In Up</source>
+            </trans-unit>
+            <trans-unit id="foundation.scale_out_up" xml:space="preserve">
+                <source>Scale Out Up</source>
+            </trans-unit>
+            <trans-unit id="foundation.scale_in_bottom" xml:space="preserve">
+                <source>Scale In Bottom</source>
+            </trans-unit>
+            <trans-unit id="foundation.scale_out_bottom" xml:space="preserve">
+                <source>Scale Out Bottom</source>
+            </trans-unit>
+            <trans-unit id="foundation.spin_in" xml:space="preserve">
+                <source>Spin In</source>
+            </trans-unit>
+            <trans-unit id="foundation.spin_out" xml:space="preserve">
+                <source>Spin Out</source>
+            </trans-unit>
+            <trans-unit id="foundation.spin_in_ccw" xml:space="preserve">
+                <source>Spin In Ccw</source>
+            </trans-unit>
+            <trans-unit id="foundation.spin_out_ccw" xml:space="preserve">
+                <source>Spin Out Ccw</source>
+            </trans-unit>
+            <trans-unit id="foundation.slow" xml:space="preserve">
+                <source>Slow</source>
+            </trans-unit>
+            <trans-unit id="foundation.fast" xml:space="preserve">
+                <source>Fast</source>
+            </trans-unit>
+            <trans-unit id="foundation.tiny" xml:space="preserve">
+                <source>Tiny</source>
+            </trans-unit>
+            <trans-unit id="foundation.small" xml:space="preserve">
+                <source>Small</source>
+            </trans-unit>
+            <trans-unit id="foundation.large" xml:space="preserve">
+                <source>Large</source>
+            </trans-unit>
+            <trans-unit id="foundation.full" xml:space="preserve">
+                <source>Full</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

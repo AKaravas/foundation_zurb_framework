@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="auto_play.description">
+				<source>&lt;b&gt; Stop Auto Play&lt;/b&gt; &lt;br /&gt; If you activate this option, then the slider will no longer change between the items until the user says so. (bei clicking the arrows or pressing left and right key on his keyboard).</source>
+			</trans-unit>
+			<trans-unit id="infinite_wrap.description">
+				<source>&lt;b&gt;Stop Infinite Wrap&lt;/b&gt; &lt;br /&gt; If you activate this option, then the slider will not start over when the slide items are done.</source>
+			</trans-unit>
+			<trans-unit id="hide_arrows.description">
+				<source>&lt;b&gt;Hide Arrows&lt;/b&gt; &lt;br /&gt; If you activate this option, then the slider will no longer have the right and left arrow displayed.</source>
+			</trans-unit>
+			<trans-unit id="hide_bullets.description">
+				<source>&lt;b&gt;Hide Bulletes&lt;/b&gt; &lt;br /&gt; If you activate this option, then the slider will no longer have the bullet navigation displayed.</source>
+			</trans-unit>
+			<trans-unit id="swipe.description">
+				<source>&lt;b&gt;Deactivate swipe&lt;/b&gt; &lt;br /&gt; If you activate this option, then the user will not be able to swipe the Slider with his fingers when he uses his mobile device</source>
+			</trans-unit>
+			<trans-unit id="accessible_buttons.description">
+				<source>&lt;b&gt;Stop keyboard Navigation&lt;/b&gt; &lt;br /&gt; If you activate this option, then the user will not be able to use the computer keys to change the slide (right and left key on keyboard)</source>
+			</trans-unit>
+			<trans-unit id="pause_on_hover.description">
+				<source>&lt;b&gt;Pause on Hover&lt;/b&gt; &lt;br /&gt; If you activate this option, then the slide will not change/move while your mouse is pointing on the slider.</source>
+			</trans-unit>
+			<trans-unit id="use_m_u_i.description">
+				<source>&lt;b&gt;Stop M.U.I&lt;/b&gt; &lt;br /&gt; If you activate this option, then the slide animation will not be available anymore. (fade-in, slide-in-left e.t.c.)</source>
+			</trans-unit>
+			<trans-unit id="slide_direction_in_left.description">
+				<source>&lt;b&gt;Animation In Left&lt;/b&gt; &lt;br /&gt; Choose the animation you would like to be displayed when the slider is coming from the left side. (Or click the left key / button)</source>
+			</trans-unit>
+			<trans-unit id="slide_direction_out_left.description">
+				<source>&lt;b&gt;Animation Out Left&lt;/b&gt; &lt;br /&gt; Choose the animation you would like to be displayed when the slider is going away from the left side. (Or click the left key / button)</source>
+			</trans-unit>
+			<trans-unit id="slide_direction_in_right.description">
+				<source>&lt;b&gt;Animation In Right&lt;/b&gt; &lt;br /&gt; Choose the animation you would like to be displayed when the slider is coming from the right side. (Or click the right key / button)</source>
+			</trans-unit>
+			<trans-unit id="slide_direction_out_right.description">
+				<source>&lt;b&gt;Animation out Right&lt;/b&gt; &lt;br /&gt; Choose the animation you would like to be displayed when the slider is going away from the right side. (Or click the right key / button)</source>
+			</trans-unit>
+			<trans-unit id="timer_delay.description">
+				<source>&lt;b&gt;Timer Delay&lt;/b&gt; &lt;br /&gt; Choose the duration in miliseconds. That means how much time the slider will keep on display each item.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

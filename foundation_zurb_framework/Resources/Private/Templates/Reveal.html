@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+	<div class="grid-container">
+		<div class="grid-x">
+			<f:for each="{revealContent}" as="reveal">
+				<div class="cell auto">
+					<p><button class="button" data-open="modal-{reveal.data.uid}">{reveal.data.title}</button></p>
+					<div class="{reveal.data.size} reveal" 
+						id="modal-{reveal.data.uid}" 
+						data-reveal 
+						<f:if condition="{reveal.data.no_overlay}">data-overlay="false"</f:if>
+						<f:if condition="{reveal.data.close_on_click}">data-close-on-click="false"</f:if>
+						<f:if condition="{reveal.data.close_on_esc}">data-close-on-esc="false"</f:if>
+						<f:if condition="{reveal.data.reset_on_close}">data-reset-on-close="true"</f:if>
+						<f:if condition="{reveal.data.v_offset}">data-v-offset="{reveal.data.v_offset}"</f:if>
+						<f:if condition="{reveal.data.h_offset}">data-h-offset="{reveal.data.h_offset}"</f:if>
+						<f:if condition="{reveal.data.no_animation} != 1">
+							<f:then>
+								<f:if condition="{reveal.data.animation_in}">data-animation-in="{reveal.data.animation_in}"</f:if>
+								<f:if condition="{reveal.data.animation_out}">data-animation-out="{reveal.data.animation_out}"</f:if>
+							</f:then>
+							<f:else>
+								<f:if condition="{reveal.data.show_delay}">data-show-delay="{reveal.data.show_delay}"</f:if>
+								<f:if condition="{reveal.data.hide_delay}">data-hide-delay="{reveal.data.hide_delay}"</f:if>
+							</f:else>
+						</f:if>
+					>
+					  <f:format.html>{reveal.data.text}</f:format.html>
+					  <f:for each="{reveal.images}" as="image">
+							<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+						</f:for>
+					  <button class="close-button" data-close aria-label="Close modal" type="button">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+				</div>
+			</f:for>
+		</div>
+	</div>
+</html>
+
+
+
+

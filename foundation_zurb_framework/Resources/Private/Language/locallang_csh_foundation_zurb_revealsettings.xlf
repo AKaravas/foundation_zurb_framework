@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+        <header/>
+        <body>
+            <trans-unit id="size.description" xml:space="preserve">
+                <source>&lt;b&gt; Size&lt;/b&gt; &lt;br /&gt; Define the size of the button that opens the modal. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Tiny)</source>
+            </trans-unit>
+            <trans-unit id="no_overlay.description" xml:space="preserve">
+                <source>&lt;b&gt; No overlay&lt;/b&gt; &lt;br /&gt; If you activate this option, then modal will no longer have the dark background while it is activated.</source>
+            </trans-unit>
+            <trans-unit id="no_animation.description" xml:space="preserve">
+                <source>&lt;b&gt; No animation&lt;/b&gt; &lt;br /&gt; If you activate this option, then the modal will open without an animation</source>
+            </trans-unit>
+            <trans-unit id="animation_in.description" xml:space="preserve">
+                <source>&lt;b&gt; Animation in&lt;/b&gt; &lt;br /&gt; Define the animation that the modal should apply when it is opening.</source>
+            </trans-unit>
+            <trans-unit id="animation_out.description" xml:space="preserve">
+                <source>&lt;b&gt; Animation out&lt;/b&gt; &lt;br /&gt; Define the animation that the modal should apply when it is closing.</source>
+            </trans-unit>
+            <trans-unit id="animation_speed_in.description" xml:space="preserve">
+                <source>&lt;b&gt; Animation speed in&lt;/b&gt; &lt;br /&gt; Define the duration of the animation when the modal is opening</source>
+            </trans-unit>
+            <trans-unit id="animation_speed_out.description" xml:space="preserve">
+                <source>&lt;b&gt; Animation speed out&lt;/b&gt; &lt;br /&gt; Define the duration of the animation when the modal is closing</source>
+            </trans-unit>
+            <trans-unit id="show_delay.description" xml:space="preserve">
+                <source>&lt;b&gt; Show Delay&lt;/b&gt; &lt;br /&gt; Time, in ms, to delay the opening of a modal after a click if no animation used.</source>
+            </trans-unit>
+            <trans-unit id="hide_delay.description" xml:space="preserve">
+                <source>&lt;b&gt; Hide Delay&lt;/b&gt; &lt;br /&gt; Time, in ms, to delay the closing of a modal after a click if no animation used.</source>
+            </trans-unit>
+            <trans-unit id="close_on_click.description" xml:space="preserve">
+                <source>&lt;b&gt; Close on click&lt;/b&gt; &lt;br /&gt; If you activate this option, then the modal will no longer close when pressing somewhere inside the website.</source>
+            </trans-unit>
+            <trans-unit id="close_on_esc.description" xml:space="preserve">
+                <source>&lt;b&gt; close on esc&lt;/b&gt; &lt;br /&gt; If you activate this option, then the modal will no longer close when pressing ESC.</source>
+            </trans-unit>
+            <trans-unit id="v_offset.description" xml:space="preserve">
+                <source>&lt;b&gt; V-Offset&lt;/b&gt; &lt;br /&gt; Distance, in pixels, the modal should push down from the top of the screen. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; auto)</source>
+            </trans-unit>
+            <trans-unit id="h_offset.description" xml:space="preserve">
+                <source>&lt;b&gt; H-Offset&lt;/b&gt; &lt;br /&gt; Distance, in pixels, the modal should push in from the side of the screen. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; auto)</source>
+            </trans-unit>
+            <trans-unit id="reset_on_close.description" xml:space="preserve">
+                <source>&lt;b&gt; Reset on close&lt;/b&gt; &lt;br /&gt; Allows the modal to remove and reinject markup on close. Should be true if using video elements w/o using provider's api, otherwise, videos will continue to play in the background.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

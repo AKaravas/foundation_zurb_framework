@@ -1,0 +1,39 @@
+mod.wizards.newContentElement.wizardItems.foundation {
+    header = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.elements
+    after = common
+    elements {
+        foundation_slider {
+            iconIdentifier = Slider
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slider.title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slider.description
+            tt_content_defValues {
+                CType = foundation_slider
+            }
+        }
+        foundation_accordion {
+            iconIdentifier = Accordion
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.accordion.title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.accordion.description
+            tt_content_defValues {
+                CType = foundation_accordion
+            }
+        }
+        foundation_tabs {
+            iconIdentifier = Tabs
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.description
+            tt_content_defValues {
+                CType = foundation_tabs
+            }
+        }
+        foundation_reveal {
+            iconIdentifier = Reveal
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.description
+            tt_content_defValues {
+                CType = foundation_reveal
+            }
+        }
+    }
+    show := addToList(foundation_slider, foundation_accordion, foundation_button, foundation_tabs, foundation_reveal)
+}

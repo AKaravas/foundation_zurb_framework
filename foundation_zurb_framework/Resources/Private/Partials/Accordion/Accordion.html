@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">	
+
+	<ul class="accordion" 
+		data-accordion 
+		data-slide-speed="{speed}" 
+		<f:if condition="{multiexpand}">data-multi-expand='true'</f:if> 
+		<f:if condition="{allClosed}">data-allow-all-closed='true'</f:if> 
+		<f:if condition="{disabled}">disabled</f:if>
+	>
+		<f:for each="{accordionContents}" as="accordion" key="key">
+			<li class="accordion-item" data-accordion-item>
+				<a class="accordion-title">{accordion.data.title}</a>
+				<div class="accordion-content" data-tab-content>
+			      <p>{accordion.data.text -> f:format.html()}</p>
+			      <div class="image_wrapper">
+			      	<f:for each="{accordion.images}" as="image">
+			      		<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+					</f:for>
+			      </div>
+			    </div>
+			</li>
+		</f:for>
+	</ul>
+	
+</html>

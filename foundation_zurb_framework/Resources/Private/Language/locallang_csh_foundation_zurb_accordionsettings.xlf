@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="accordion_multiexpand.description">
+				<source>&lt;b&gt; Accordion multiexpand&lt;/b&gt; &lt;br /&gt; If you activate this option, then the accordion will let the user to keep all the tabs open. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; 1 Tab always opened)</source>
+			</trans-unit>
+			<trans-unit id="accordion_all_closed.description">
+				<source>&lt;b&gt; Accordion all closed&lt;/b&gt; &lt;br /&gt; If you activate this option, then the accordion will let the user to keep all the tabs closed. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; 1 Tab always opened)</source>
+			</trans-unit>
+			<trans-unit id="accordion_disabled.description">
+				<source>&lt;b&gt; Accordion all closed&lt;/b&gt; &lt;br /&gt; If you activate this option, then the accordion will be disabled and the user will not be able to open any tab. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; 1 Tab always opened)</source>
+			</trans-unit>
+			<trans-unit id="accordion_speed.description">
+				<source>&lt;b&gt; Accordion speed&lt;/b&gt; &lt;br /&gt; Define the time im ms in which the tab's content will be revealed. &lt;br /&gt;(&lt;b&gt;Tip:&lt;/b&gt; 1s = 1000ms)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

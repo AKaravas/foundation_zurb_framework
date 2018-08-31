@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+	<div class="grid-container <f:switch expression='{data.button_position}'><f:case value='1'>button_left</f:case><f:case value='2'>button_center</f:case><f:case value='3'>button_right</f:case><f:defaultCase></f:defaultCase></f:switch>">
+		<div class="grid-x">
+			<div class="cell">
+				<f:link.typolink parameter="{data.button_link}" class="button">{data.button_text}</f:link.typolink>
+			</div>
+		</div>
+	</div>
+</html>

@@ -1,0 +1,50 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+	<div class="orbit" 
+		role="region" 
+		aria-label="Favorite Space Pictures" 
+		data-orbit data-options="
+			animInFromLeft:{leftIn}; 
+			animInFromRight:{rightIn}; 
+			animOutToLeft:{leftOut}; 
+			animOutToRight:{rightOut}; 
+			timerDelay:{timerDelay}; 
+			<f:if condition ='{swipe} == 1'>swipe: false;</f:if>
+			<f:if condition ='{stopNavigation} == 1'>accessible: false;</f:if>
+			<f:if condition ='{stopOnHover} == 1'>pauseOnHover: false;</f:if>
+			<f:if condition ='{doNotUseMUI} == 1'>useMUI: false;</f:if>
+			<f:if condition ='{stopAutoPlay} == 1'>autoPlay: false;</f:if>
+			<f:if condition ='{stopInfiniteWrap} == 1'>infiniteWrap: false;</f:if>
+		">
+		<div class="orbit-wrapper">
+			<f:if condition="{hideArrows} != 1">
+				<div class="orbit-controls">
+					<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+					<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+				</div>
+			</f:if>
+			<ul class="orbit-container">
+				<f:for each="{sliderContents}" as="sliderContent">
+					<li class="orbit-slide">
+						<f:for each="{sliderContent.images}" as="image">
+							<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+						</f:for>
+						<f:if condition="{sliderContent.data.title}">
+							<p>{sliderContent.data.title -> f:format.html()}</p>
+						</f:if>
+						<f:if condition="{sliderContent.data.text}">
+							<figcaption>{sliderContent.data.text  -> f:format.html()}</figcaption>
+						</f:if>
+					</li>
+				</f:for>
+			</ul>
+		</div>
+		<f:if condition="{hideBullets} != 1">
+			<nav class="orbit-bullets">
+				<f:for each="{sliderContents}" as="sliderContent" key="key">
+					<button data-slide="{key}"><span class="show-for-sr">{sliderContent.data.title -> f:format.html()}</span></button>
+				</f:for>
+			</nav>
+		</f:if>
+	</div>
+</html>

@@ -1,0 +1,42 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">	
+
+	<div class="grid-container">
+		<div class="grid-x">
+			<div class="cell">
+				<ul class="tabs" 
+					data-tabs id="tabs-{uid}" 
+					<f:if condition="{collapsedTabs}">data-active-collapse="true"</f:if> 
+					<f:if condition="{deepLinking}"> 
+							data-deep-link="true" 
+							data-update-history="true" 
+							data-deep-link-smudge="true" 
+							data-deep-link-smudge-delay="500"
+					</f:if>
+				>
+					<f:for each="{tabsContents}" as="tabContent" iteration="iterator">
+						<li class="tabs-title">
+							<a data-tabs-target="panel_{uid}_{iterator.cycle}" href="#panel_{uid}_{iterator.cycle}">{tabContent.data.title}</a>
+						</li>
+					</f:for>
+				</ul>
+				<div class="tabs-content" data-tabs-content="tabs-{uid}">
+					<f:for each="{tabsContents}" as="tabContent" iteration="iterator">
+					  	<div class="tabs-panel" id="panel_{uid}_{iterator.cycle}">
+					  		<f:if condition="{tabContent.data.text}">
+					    		<f:format.html>{tabContent.data.text}</f:format.html>
+					    	</f:if>
+					    	<f:if condition="{tabContent.images}">
+					    		<div class="image_wrapper">
+							    	<f:for each="{tabContent.images}" as="image">
+								      	<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+									</f:for>
+								</div>
+							</f:if>
+					  	</div>
+				  	</f:for>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>
