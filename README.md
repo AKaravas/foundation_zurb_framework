@@ -5,10 +5,11 @@ Create Foundation content elements in TYPO3
 For adminstrators
 ------------------
 The extension needs to be installed as any other extension of TYPO3 CMS:
-	1. Switch on the **Extensions** module
-	2. On the upper left corner select the **"Get Extensions"** from the select menu
-	3. On the search bar, type: **foundation_zurb_framework**
-	4. Click on the cloud icon and download the extension
+
+1. Switch on the **Extensions** module
+2. On the upper left corner select the **"Get Extensions"** from the select menu
+3. On the search bar, type: **foundation_zurb_framework**
+4. Click on the cloud icon and download the extension
 
 Preparation: Include static TypoScript
 ----------------------
