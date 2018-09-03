@@ -1,8 +1,6 @@
-.. include:: Documentation/Includes.txt
-
 # Foundation Zurb Framework, TYPO3 Extension
 
-**Create Foundation content elements in TYPO3**
+Create Foundation content elements in TYPO3
 
 For adminstrators
 ------------------
@@ -33,8 +31,6 @@ Apply your own templates
 ----------------------
 
 Define on your TypoScript file the path that your templates are located.
-
-.. code-block:: typoscript
 
    	tt_content {
       	foundation_reveal {
