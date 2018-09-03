@@ -1,9 +1,15 @@
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. include:: ../../Includes.txt
+
 .. _howToStart:
 
 How to start
 ============
-This walkthrough will help you to implement the extension foundation_zurb_framework at your
-TYPO3 site.
+This walkthrough will help you to add a Foundation Zurb content element on your website
 
 .. only:: html
 
