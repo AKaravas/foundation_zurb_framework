@@ -21,9 +21,6 @@
             <trans-unit id="foundation.slider.description" xml:space="preserve">
                 <source>Create a Foundation slider element</source>
             </trans-unit>
-            <trans-unit id="foundation.slider.settings" xml:space="preserve">
-                <source>Slider</source>
-            </trans-unit>
             <trans-unit id="foundation.slider.second.modus" xml:space="preserve">
                 <source>Second modus</source>
             </trans-unit>
@@ -104,9 +101,6 @@
             <trans-unit id="foundation.accordion" xml:space="preserve">
                 <source>Create an accordion</source>
             </trans-unit>
-            <trans-unit id="foundation.accordion.settings" xml:space="preserve">
-                <source>Accordion</source>
-            </trans-unit>
             <trans-unit id="foundation.accordion_speed" xml:space="preserve">
                 <source>Accordion speed</source>
             </trans-unit>
@@ -142,9 +136,6 @@
             <trans-unit id="foundation.tabs.description" xml:space="preserve">
                 <source>Create a Foundation tabs element</source>
             </trans-unit>
-            <trans-unit id="foundation.tabs.settings" xml:space="preserve">
-                <source>Tabs</source>
-            </trans-unit>
             <trans-unit id="foundation.tabscontent" xml:space="preserve">
                 <source>Create a Foundation tabs element</source>
             </trans-unit>
@@ -176,12 +167,52 @@
                 <source>Tab file</source>
             </trans-unit>
 
+            <!--Foundation Zurb Card-->
+            <trans-unit id="foundation.card.title" xml:space="preserve">
+                <source>Card</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.description" xml:space="preserve">
+                <source>Create a Foundation card element</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.settings" xml:space="preserve">
+                <source>Create a Foundation card element</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.create.item" xml:space="preserve">
+                <source>Create a card item</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.small_items" xml:space="preserve">
+                <source>Items on mobile</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.medium_items" xml:space="preserve">
+                <source>Items on tablet</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.large_items" xml:space="preserve">
+                <source>Items on desktop</source>
+            </trans-unit>
+            <trans-unit id="foundation.tabs.use_container" xml:space="preserve">
+                <source>Remove container</source>
+            </trans-unit>
+            <trans-unit id="foundation.cardcontent.title" xml:space="preserve">
+                <source>Card title</source>
+            </trans-unit>
+            <trans-unit id="foundation.cardcontent.text" xml:space="preserve">
+                <source>Card text</source>
+            </trans-unit>
+            <trans-unit id="foundation.cardcontent.files" xml:space="preserve">
+                <source>Card files</source>
+            </trans-unit>
+            <trans-unit id="foundation.card.container" xml:space="preserve">
+                <source>Container</source>
+            </trans-unit>
+
+
+
+
+
+
             <!--Foundation Zurb Reveal/Modal-->
             <trans-unit id="foundation.revealcontent" xml:space="preserve">
                 <source>Create a reveal element</source>
-            </trans-unit>
-            <trans-unit id="foundation.reveal.settings" xml:space="preserve">
-                <source>Reveal</source>
             </trans-unit>
             <trans-unit id="foundation.reveal.description" xml:space="preserve">
                 <source>Create a Foundation reveal element</source>

@@ -4,7 +4,6 @@ tt_content {
 		templateRootPaths.30 = {$FoundationPrivate}Templates/
 		partialRootPaths.30 = {$FoundationPrivate}Partials/
 		templateName = Accordion.html
-		
 		dataProcessing {
 			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
 			30 {
@@ -126,19 +125,57 @@ tt_content {
 		dataProcessing {
 			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
 			30 {
-					table = foundation_zurb_revealcontent
-					pidInList = this
-					where.field = uid 
-					where.dataWrap = tt_content = |
+				table = foundation_zurb_revealcontent
+				pidInList = this
+				where.field = uid 
+				where.dataWrap = tt_content = |
 				as = revealContent
 				dataProcessing {
+					70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+					70 {
+						references.fieldName = files
+						as = images
+					}
+				}
+			}
+		}
+	}
+	foundation_card < lib.contentElement
+	foundation_card {
+		templateRootPaths.30 = {$FoundationPrivate}Templates/
+		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateName = Card.html
+		dataProcessing {
+			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			30 {
+				table = foundation_zurb_cardsettings
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:card_settings_relation}
+				
+				as = cardSettings
+				dataProcessing {
+					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					50 {
+						if.isTrue.field = card_content_relation
+
+						table = foundation_zurb_cardcontent
+
+						pidInList = this
+						where.field = uid
+						where.intval = 1
+						where.dataWrap = foundation_zurb_cardsettings = |
+
+						as = cardContents
+						dataProcessing {
 							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
 							70 {
 								references.fieldName = files
 								as = images
 							}
 						}
+					}
+				}
 			}
-		}
-	}
+		
 }

@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['types']['foundation_reveal'] = array(
   --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.settings,
+  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.title,
   --palette--;--linebreak--,reveal_content_relation,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,

@@ -33,13 +33,6 @@ return [
                 hidden, 
             ',
         ],
-        'slider_palette_1' => [
-            'showitem' => '
-                title, 
-                text, 
-                files,  
-            ',
-        ],
         'slider_palette_2' => [
             'showitem' => '
                 size, 

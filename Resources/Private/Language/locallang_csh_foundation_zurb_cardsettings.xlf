@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="small_items.description">
+				<source>&lt;b&gt; Items on mobile&lt;/b&gt; &lt;br /&gt; Choose how many items you would like to be displayed on the mobile view. &lt;br /&gt;&lt;b&gt;Attention:&lt;/b&gt; Take in consideration the default grid layout. By default Foundation seperates the layout to 12. So the max. items should be 12. If you have your layout seperated in 10 grids, then the max. should be 10.</source>
+			</trans-unit>
+			<trans-unit id="medium_items.description">
+				<source>&lt;b&gt; Items on tablet&lt;/b&gt; &lt;br /&gt; Choose how many items you would like to be displayed on the tablet view. &lt;br /&gt;&lt;b&gt;Attention:&lt;/b&gt; Take in consideration the default grid layout. By default Foundation seperates the layout to 12. So the max. items should be 12. If you have your layout seperated in 10 grids, then the max. should be 10.</source>
+			</trans-unit>
+			<trans-unit id="large_items.description">
+				<source>&lt;b&gt; Items on desktop&lt;/b&gt; &lt;br /&gt; Choose how many items you would like to be displayed on the desktop view. &lt;br /&gt;&lt;b&gt;Attention:&lt;/b&gt; Take in consideration the default grid layout. By default Foundation seperates the layout to 12. So the max. items should be 12. If you have your layout seperated in 10 grids, then the max. should be 10.</source>
+			</trans-unit>
+			<trans-unit id="use_container.description">
+				<source>&lt;b&gt;Remove container&lt;/b&gt; &lt;br /&gt; If you have only one item and you don't want to create a new row, then activate it. </source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,20 +1,20 @@
 <?php
 
 
-/*********************************************
-*                                            *
-*           Foundation tabs                  *
-*                                            *
-**********************************************/
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array('Foundation Tabs','foundation_tabs','EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/tabs.png'),'CType','foundation_zurb_framework');
+/******************************************
+*                                         *
+*           Foundation Slider             *
+*                                         *
+*******************************************/
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array('Foundation Card','foundation_card','EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/card.png'),'CType','foundation_zurb_framework');
 // Configure the default backend fields for the content element
-$GLOBALS['TCA']['tt_content']['types']['foundation_tabs'] = array(
+$GLOBALS['TCA']['tt_content']['types']['foundation_card'] = array(
   'showitem' => '
   --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.title,
-  --palette--;--linebreak--,tabs_settings_relation,
+  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.title,
+  --palette--;--linebreak--,card_settings_relation,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
@@ -22,22 +22,22 @@ $GLOBALS['TCA']['tt_content']['types']['foundation_tabs'] = array(
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.access;access,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.extended',
 );
-$originalTabsContent = $GLOBALS['TCA']['tt_content'];
-$overridesForTabsContent = [
+$originalCardContent = $GLOBALS['TCA']['tt_content'];
+$overridesForCardContent = [
   'ctrl' => [
     'typeicon_classes' => [
-      'foundation_tabs' => 'Tabs',
+      'foundation_card' => 'Card',
     ]
   ]
 ];
-$GLOBALS['TCA']['tt_content'] = array_merge_recursive($originalTabsContent, $overridesForTabsContent);
-$foundationTabsOptions = array( 
-  'tabs_settings_relation' => [
+$GLOBALS['TCA']['tt_content'] = array_merge_recursive($originalCardContent, $overridesForCardContent);
+$foundationCardOptions = array( 
+  'card_settings_relation' => [
     'exclude' => 1,
-    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabscontent',
+    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.description',
     'config' => [
       'type' => 'inline',
-      'foreign_table' => 'foundation_zurb_tabssettings',
+      'foreign_table' => 'foundation_zurb_cardsettings',
       'maxitems' => 1,
       'appearance' => [
           'collapseAll' => 0,
@@ -49,5 +49,5 @@ $foundationTabsOptions = array(
     ],
   ],
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$foundationTabsOptions);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$foundationCardOptions);
  ?>

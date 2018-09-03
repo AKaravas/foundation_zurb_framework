@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+<f:debug>{cardSettings}</f:debug>
+	<f:if condition="{cardSettings.0.data.use_container}">
+		<f:then>
+			<f:for each="{cardSettings}" as="card">
+				<f:for each="{cardSettings.0.cardContents}" as="cardContent">
+					<div class="card">
+						<f:for each="{cardContent.images}" as="image">
+							<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+						</f:for>
+						<div class="card-section">
+					        <h4>{cardContent.data.title}</h4>
+					        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
+					    </div>
+					</div>
+				</f:for>
+			</f:for>
+		</f:then>
+		<f:else>	
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x <f:if condition='{cardSettings.0.data.small_items}'>small-up-{cardSettings.0.data.small_items} </f:if><f:if condition='{cardSettings.0.data.medium_items}'>medium-up-{cardSettings.0.data.medium_items}</f:if> <f:if condition='{cardSettings.0.data.large_items}'>large-up-{cardSettings.0.data.large_items}</f:if>">
+					<f:for each="{cardSettings}" as="card">
+						<f:for each="{cardSettings.0.cardContents}" as="cardContent">
+							<div class="cell">
+								<div class="card">
+									<f:for each="{cardContent.images}" as="image">
+										<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+									</f:for>
+									<div class="card-section">
+								        <h4>{cardContent.data.title}</h4>
+								        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
+								    </div>
+								</div>
+							</div>
+						</f:for>
+					</f:for>
+				</div>
+			</div>
+		</f:else>
+	</f:if>
+
+</html>
+
+
+
+

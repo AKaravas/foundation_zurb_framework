@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['types']['foundation_slider'] = array(
   --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slider.settings,
+  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slider.title,
   --palette--;--linebreak--,slider_settings_relation,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
