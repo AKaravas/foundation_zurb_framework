@@ -1,7 +1,10 @@
+
+
 1.0.1 - 2018/09/03
 ------------------
 
 ::
+
 	* 2018-09-03 [DOC] Fixes README (Commit: c89286f)
 	* 2018-09-03 [DOC] Fixes README (Commit: 9c64d4c)
 	* 2018-09-03 [DOC] README edited (Commit: 661b393)
