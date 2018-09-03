@@ -29,12 +29,12 @@ Create an element
 5. Choose your content element
 
 
-.. figure:: ../../../Images/Introduction/newContent.png
+.. figure:: ../../Images/Introduction/newContent.png
    :width: 700px
    :align: left
    :alt: New Content
 
-.. figure:: ../../../Images/Introduction/choose.png
+.. figure:: ../../Images/Introduction/choose.png
    :width: 700px
    :align: left
    :alt: Choose
