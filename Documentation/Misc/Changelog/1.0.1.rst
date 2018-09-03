@@ -1,0 +1,14 @@
+1.0.1 - 2018/09/03
+------------------
+
+::
+	* 2018-09-03 [DOC] Fixes README (Commit: c89286f)
+	* 2018-09-03 [DOC] Fixes README (Commit: 9c64d4c)
+	* 2018-09-03 [DOC] README edited (Commit: 661b393)
+	* 2018-09-03 [DOC] Changed wrong paths (Commit: f390b39)
+	* 2018-09-03 [TASK] Card backend view added (Commit: 6569ef8)
+	* 2018-09-03 [Version] Version change (Commit: 79d3f54)
+	* 2018-09-03 [FEATURE] Foundation Card added (Commit: 4fd6b91)
+	* 2018-09-03 [DOC] Documentation edited (Commit: f6a62bd)
+	* 2018-09-03 [DOC] Documentation added (Commit: 32522b8)
+	* 2018-08-31 [DOC] Changed github structure (Commit: 6f2765b)

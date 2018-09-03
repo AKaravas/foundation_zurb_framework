@@ -60,5 +60,6 @@ Foundation Zurb Framework
         UsersManual/Index
         ForAdminstrators/Index
         ForDevelopers/Index
+        Misc/Index
         ToDoList/Index
         Links
