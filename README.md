@@ -23,6 +23,18 @@ The extension ships some TypoScript code which needs to be included.
 5. Choose the **Include Foundation Zurb** static template
 6. Save and close your settings
 
+Include PageTS
+----------------------
+
+The extension ships TSConfig too:
+
+1. Switch to your root page
+2. Edit the page
+3. Switch to Resources
+4. Include **Foundation Zurb - BackendLayouts (foundation_zurb_framework)**
+5. Include **Foundation Zurb - PageTS (foundation_zurb_framework)**
+6. Save
+
 Include your version of Foundation Zurb
 ----------------------
 
