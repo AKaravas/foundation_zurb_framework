@@ -21,3 +21,4 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php'][
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['foundation_accordion'] = \Vendor\FoundationZurbFramework\Hooks\PageLayoutView\AccordionPreviewRenderer::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['foundation_tabs'] = \Vendor\FoundationZurbFramework\Hooks\PageLayoutView\TabsPreviewRenderer::class;
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['foundation_reveal'] = \Vendor\FoundationZurbFramework\Hooks\PageLayoutView\RevealPreviewRenderer::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['foundation_card'] = \Vendor\FoundationZurbFramework\Hooks\PageLayoutView\CardPreviewRenderer::class;
