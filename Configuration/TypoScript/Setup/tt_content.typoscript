@@ -1,12 +1,12 @@
 tt_content {
 	foundation_accordion < lib.contentElement
 	foundation_accordion {
-		templateRootPaths.30 = {$FoundationPrivate}Templates/
-		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
 		templateName = Accordion.html
 		dataProcessing {
-			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-			30 {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
 				table = foundation_zurb_accordionsettings
 				pidInList = this
 				where = uid=
@@ -14,8 +14,8 @@ tt_content {
 
 				as = accordionsettings
 				dataProcessing {
-					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-					50 {
+					350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					350 {
 						if.isTrue.field = accordion_content_relation
 
 						table = foundation_zurb_accordioncontent
@@ -27,8 +27,8 @@ tt_content {
 
 						as = accordionContents
 						dataProcessing {
-							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-							70 {
+							370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							370 {
 								references.fieldName = files
 								as = images
 							}
@@ -40,12 +40,12 @@ tt_content {
 	}
 	foundation_slider < lib.contentElement
 	foundation_slider {
-		templateRootPaths.30 = {$FoundationPrivate}Templates/
-		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
 		templateName = Slider.html
 		dataProcessing {
-			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-			30 {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
 				table = foundation_zurb_slidersettings
 				pidInList = this
 				where = uid=
@@ -53,8 +53,8 @@ tt_content {
 				
 				as = sliderSettings
 				dataProcessing {
-					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-					50 {
+					350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					350 {
 						if.isTrue.field = slider_content_relation
 
 						table = foundation_zurb_slidercontent
@@ -66,8 +66,8 @@ tt_content {
 
 						as = sliderContents
 						dataProcessing {
-							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-							70 {
+							370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							370 {
 								references.fieldName = image
 								as = images
 							}
@@ -79,13 +79,13 @@ tt_content {
 	}
 	foundation_tabs < lib.contentElement
 	foundation_tabs {
-		templateRootPaths.30 = {$FoundationPrivate}Templates/
-		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
 		templateName = Tabs.html
 		
 		dataProcessing {
-			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-			30 {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
 				table = foundation_zurb_tabssettings
 				pidInList = this
 				where = uid=
@@ -93,8 +93,8 @@ tt_content {
 
 				as = tabssettings
 				dataProcessing {
-					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-					50 {
+					350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					350 {
 						if.isTrue.field = tabs_content_relation
 
 						table = foundation_zurb_tabscontent
@@ -106,8 +106,8 @@ tt_content {
 
 						as = tabsContents
 						dataProcessing {
-							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-							70 {
+							370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							370 {
 								references.fieldName = image
 								as = images
 							}
@@ -119,20 +119,20 @@ tt_content {
 	}
 	foundation_reveal < lib.contentElement
 	foundation_reveal {
-		templateRootPaths.30 = {$FoundationPrivate}Templates/
-		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
 		templateName = Reveal.html
 		dataProcessing {
-			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-			30 {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
 				table = foundation_zurb_revealcontent
 				pidInList = this
 				where.field = uid 
 				where.dataWrap = tt_content = |
 				as = revealContent
 				dataProcessing {
-					70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-					70 {
+					370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+					370 {
 						references.fieldName = files
 						as = images
 					}
@@ -142,12 +142,12 @@ tt_content {
 	}
 	foundation_card < lib.contentElement
 	foundation_card {
-		templateRootPaths.30 = {$FoundationPrivate}Templates/
-		partialRootPaths.30 = {$FoundationPrivate}Partials/
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
 		templateName = Card.html
 		dataProcessing {
-			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-			30 {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
 				table = foundation_zurb_cardsettings
 				pidInList = this
 				where = uid=
@@ -155,8 +155,8 @@ tt_content {
 				
 				as = cardSettings
 				dataProcessing {
-					50 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-					50 {
+					350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					350 {
 						if.isTrue.field = card_content_relation
 
 						table = foundation_zurb_cardcontent
@@ -168,8 +168,8 @@ tt_content {
 
 						as = cardContents
 						dataProcessing {
-							70 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-							70 {
+							370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+							370 {
 								references.fieldName = files
 								as = images
 							}
@@ -177,5 +177,6 @@ tt_content {
 					}
 				}
 			}
-		
+		}
+	}
 }
