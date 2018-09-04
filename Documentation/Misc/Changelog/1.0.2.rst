@@ -1,0 +1,15 @@
+
+
+1.0.2 - 2018/09/04
+------------------
+
+::
+
+	* 2018-09-03 [VERSION] Version changed to 1.0.2 (Commit: 3763454)
+	* 2018-09-04 [FIXES] Minor fixes and typos (Commit: a34d6e3)
+	* 2018-09-04 [LANGUAGE] Language completely renewed (Commit: a34d6e3)
+	* 2018-09-04 [FEATURE] Foundation Dropdown added (Commit: a34d6e3)
+	* 2018-09-04 [BUGFIX] TypoScript won't load (Commit: b399b7c)
+	* 2018-09-03 [DOC] Updated README (Commit: 494fda2)
+	* 2018-09-03 [Changelog] Changelog fixes (Commit: 3dfcf08)
+	* 2018-09-03 [Changelog] Changelog added (Commit: 63cda64)
