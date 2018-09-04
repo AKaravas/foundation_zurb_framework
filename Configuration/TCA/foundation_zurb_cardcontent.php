@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.title',
+        'title' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content',
         'label' => 'title',
         'sortby' => 'sorting',
         'tstamp' => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files',
     ],
     'palettes' => [
-        'slider_palette_0' => [
+        'card_palette_0' => [
             'showitem' => '
                 sys_language_uid, 
                 l10n_parent, 
@@ -37,8 +37,8 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.title,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.create.item;slider_palette_0,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_title,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation;card_palette_0,
                 title, text, files,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
@@ -135,7 +135,7 @@ return [
 
         'title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.cardcontent.title',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -144,7 +144,7 @@ return [
         ],
         'text' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.cardcontent.text',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_text',
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
@@ -162,7 +162,7 @@ return [
         ],
         'files' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.cardcontent.files',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_files',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'files',
                 [

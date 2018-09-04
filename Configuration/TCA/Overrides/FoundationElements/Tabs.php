@@ -3,7 +3,7 @@
 
 /*********************************************
 *                                            *
-*           Foundation tabs                  *
+*           Foundation Tabs                  *
 *                                            *
 **********************************************/
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array('Foundation Tabs','foundation_tabs','EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/tabs.png'),'CType','foundation_zurb_framework');
@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['types']['foundation_tabs'] = array(
   --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.title,
+  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_title,
   --palette--;--linebreak--,tabs_settings_relation,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
@@ -34,7 +34,7 @@ $GLOBALS['TCA']['tt_content'] = array_merge_recursive($originalTabsContent, $ove
 $foundationTabsOptions = array( 
   'tabs_settings_relation' => [
     'exclude' => 1,
-    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabscontent',
+    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_create_item',
     'config' => [
       'type' => 'inline',
       'foreign_table' => 'foundation_zurb_tabssettings',

@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs',
+        'title' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_title',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -45,11 +45,11 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.settings,
-            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.create.item;tabs_palette_0,
-            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.create.item;tabs_palette_1,
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.settings.main,
-            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.settings.main;tabs_palette_2,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_title,
+            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_create_item;tabs_palette_0,
+            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_create_tab;tabs_palette_1,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
+            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;tabs_palette_2,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime
         '],
     ],
@@ -144,7 +144,7 @@ return [
         ],
         'title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.title',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs.title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -153,7 +153,7 @@ return [
         ],
         'vertical_tabs' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs_vertical',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_vertical',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -167,7 +167,7 @@ return [
         ],
         'collapse_tabs' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs_collapse',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_collapse',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -181,7 +181,7 @@ return [
         ],
         'deep_linking' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs_deep_linking',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_deep_link',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -195,7 +195,7 @@ return [
         ],
         'tabs_content_relation' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs_content_relation',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_content_relation',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'foundation_zurb_tabscontent',

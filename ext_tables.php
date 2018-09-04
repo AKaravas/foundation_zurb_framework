@@ -20,6 +20,9 @@ $registerRevealImage->registerIcon('Reveal',\TYPO3\CMS\Core\Imaging\IconProvider
 $registerCardImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $registerCardImage->registerIcon('Card',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/card.png']);
 
+$registerDropdownImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$registerDropdownImage->registerIcon('Dropdown',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/dropdown.png']);
+
 #########################################
 #										#
 #				Help					#
@@ -31,6 +34,7 @@ $registerCardImage->registerIcon('Card',\TYPO3\CMS\Core\Imaging\IconProvider\Bit
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_tabssettings', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_tabssettings.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_revealcontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_revealsettings.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_cardsettings', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_cardsettings.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_dropdowncontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_dropdowncontent.xlf');
 
 #########################################
 #										#										
@@ -38,7 +42,7 @@ $registerCardImage->registerIcon('Card',\TYPO3\CMS\Core\Imaging\IconProvider\Bit
 #										#
 #########################################
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('foundation_zurb_slidersettings, foundation_zurb_accordionsettings, foundation_zurb_accordioncontent, foundation_zurb_slidercontent, foundation_zurb_tabssettings, foundation_zurb_tabscontent, foundation_zurb_revealsettings, foundation_zurb_revealcontent, foundation_zurb_reveal_content, foundation_zurb_cardsettings, foundation_zurb_cardcontent');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('foundation_zurb_slidersettings, foundation_zurb_accordionsettings, foundation_zurb_accordioncontent, foundation_zurb_slidercontent, foundation_zurb_tabssettings, foundation_zurb_tabscontent, foundation_zurb_revealsettings, foundation_zurb_revealcontent, foundation_zurb_cardsettings, foundation_zurb_cardcontent, foundation_zurb_dropdowncontent');
 
 #########################################
 #										#										

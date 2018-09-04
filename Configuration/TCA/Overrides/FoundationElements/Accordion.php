@@ -3,7 +3,7 @@
 
 /*********************************************
 *                                            *
-*           Foundation accordion             *
+*           Foundation Accordion             *
 *                                            *
 **********************************************/
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array('Foundation Accordion','foundation_accordion','EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/accordion.png'),'CType','foundation_zurb_framework');
@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['types']['foundation_accordion'] = array(
   --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.accordion.title,
+  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_accordion_title,
   --palette--;--linebreak--,accordion_settings_relation,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
@@ -34,7 +34,7 @@ $GLOBALS['TCA']['tt_content'] = array_merge_recursive($originalAccordionContent,
 $foundationAccordionOptions = array( 
   'accordion_settings_relation' => [
     'exclude' => 1,
-    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.accordioncontent',
+    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_accordion_description',
     'config' => [
       'type' => 'inline',
       'foreign_table' => 'foundation_zurb_accordionsettings',

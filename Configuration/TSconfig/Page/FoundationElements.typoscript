@@ -1,47 +1,55 @@
 mod.wizards.newContentElement.wizardItems.foundation {
-    header = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.elements
+    header = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_elements
     after = common
     elements {
         foundation_slider {
             iconIdentifier = Slider
-            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slider.title
-            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slider.description
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_description
             tt_content_defValues {
                 CType = foundation_slider
             }
         }
         foundation_accordion {
             iconIdentifier = Accordion
-            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.accordion.title
-            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.accordion.description
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_accordion_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_accordion_description
             tt_content_defValues {
                 CType = foundation_accordion
             }
         }
         foundation_tabs {
             iconIdentifier = Tabs
-            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.title
-            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tabs.description
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_description
             tt_content_defValues {
                 CType = foundation_tabs
             }
         }
         foundation_reveal {
             iconIdentifier = Reveal
-            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.title
-            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.description
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_description
             tt_content_defValues {
                 CType = foundation_reveal
             }
         }
         foundation_card {
             iconIdentifier = Card
-            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.title
-            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.card.description
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_description
             tt_content_defValues {
                 CType = foundation_card
             }
         }
+        foundation_dropdown {
+            iconIdentifier = Dropdown
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_dropdown_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_dropdown_description
+            tt_content_defValues {
+                CType = foundation_dropdown
+            }
+        }
     }
-    show := addToList(foundation_slider, foundation_accordion, foundation_button, foundation_tabs, foundation_reveal, foundation_card)
+    show := addToList(foundation_slider, foundation_accordion, foundation_button, foundation_tabs, foundation_reveal, foundation_card, foundation_dropdown)
 }

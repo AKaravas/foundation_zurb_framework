@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+	<div class="grid-container">
+		<div class="grid-x">
+			<f:for each="{dropdownContent}" as="dropdown">
+			<f:Debug>{dropdown}</f:Debug>
+				<div class="cell small-6">
+					<button class="button" type="button" data-toggle="dropdown-{dropdown.data.uid}">{dropdown.data.title}</button>
+					<div 
+						class="dropdown-pane" 
+						data-position="{dropdown.data.position}" 
+						data-alignment="{dropdown.data.alignment}" 
+						id="dropdown-{dropdown.data.uid}" 
+						data-dropdown 
+						data-hover-delay ="{dropdown.data.hover_delay}" 
+						<f:if condition="{dropdown.data.hover}">data-hover="true"</f:if>
+						<f:if condition="{dropdown.data.auto_focus}">data-auto-focus="true"</f:if>
+						<f:if condition="{dropdown.data.allow_overlap}">data-allow-overlap="true"</f:if>
+						<f:if condition="{dropdown.data.hover_panel}">data-hover-pane="true"</f:if>
+						<f:if condition="{dropdown.data.allow_bottom_overlap} != 1">data-allow-bottom-overlap="false"</f:if>
+						<f:if condition="{dropdown.data.allow_bottom_container}">data-parent-class</f:if>
+						<f:if condition="{dropdown.data.v_offset}">data-v-offset="{dropdown.data.v_offset}"</f:if>
+						<f:if condition="{dropdown.data.h_offset}">data-h-offset="{dropdown.data.h_offset}"</f:if>
+						<f:if condition="{dropdown.data.close_on_click}">data-close-on-click="true"</f:if>
+					>
+					  	<f:format.html>{dropdown.data.text}</f:format.html>
+					  	<f:for each="{dropdown.images}" as="image">
+							<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+						</f:for>
+					</div>
+				</div>
+			</f:for>
+		</div>
+	</div>
+</html>
+
+
+
+

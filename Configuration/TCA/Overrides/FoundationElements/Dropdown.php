@@ -3,18 +3,18 @@
 
 /******************************************
 *                                         *
-*           Foundation Reveal             *
+*           Foundation Dropdown           *
 *                                         *
 *******************************************/
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array('Foundation Reveal','foundation_reveal','EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/reveal.png'),'CType','foundation_zurb_framework');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array('Foundation Dropdown','foundation_dropdown','EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/dropdown.png'),'CType','foundation_zurb_framework');
 // Configure the default backend fields for the content element
-$GLOBALS['TCA']['tt_content']['types']['foundation_reveal'] = array(
+$GLOBALS['TCA']['tt_content']['types']['foundation_dropdown'] = array(
   'showitem' => '
   --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_title,
-  --palette--;--linebreak--,reveal_content_relation,
+  --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_dropdown_title,
+  --palette--;--linebreak--,dropdown_content_relation,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
@@ -22,22 +22,22 @@ $GLOBALS['TCA']['tt_content']['types']['foundation_reveal'] = array(
   --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.access;access,
   --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.extended',
 );
-$originalRevealContent = $GLOBALS['TCA']['tt_content'];
-$overridesForRevealContent = [
+$originalDropdownContent = $GLOBALS['TCA']['tt_content'];
+$overridesForDropdownContent = [
   'ctrl' => [
     'typeicon_classes' => [
-      'foundation_reveal' => 'Reveal',
+      'foundation_dropdown' => 'Dropdown',
     ]
   ]
 ];
-$GLOBALS['TCA']['tt_content'] = array_merge_recursive($originalRevealContent, $overridesForRevealContent);
-$foundationRevealOptions = array( 
-  'reveal_content_relation' => [
+$GLOBALS['TCA']['tt_content'] = array_merge_recursive($originalDropdownContent, $overridesForDropdownContent);
+$foundationDropdownOptions = array( 
+  'dropdown_content_relation' => [
     'exclude' => 1,
-    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_description',
+    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_dropdown_description',
     'config' => [
       'type' => 'inline',
-      'foreign_table' => 'foundation_zurb_revealcontent',
+      'foreign_table' => 'foundation_zurb_dropdowncontent',
       'foreign_field' => 'tt_content',
       'maxitems' => 999,
       'appearance' => [
@@ -60,5 +60,5 @@ $foundationRevealOptions = array(
     ],
   ],
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$foundationRevealOptions);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$foundationDropdownOptions);
  ?>

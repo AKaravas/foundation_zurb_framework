@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealcontent',
+        'title' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_content',
         'label' => 'title',
         'sortby' => 'sorting',
         'tstamp' => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, size,no_overlay,no_animation,animation_in,animation_out,animation_speed_in,animation_speed_out, show_delay,hide_delay,close_on_click,close_on_esc,v_offset,h_offset,reset_on_close,',
     ],
     'palettes' => [
-        'slider_palette_0' => [
+        'reveal_palette_0' => [
             'showitem' => '
                 sys_language_uid, 
                 l10n_parent, 
@@ -33,26 +33,26 @@ return [
                 hidden, 
             ',
         ],
-        'slider_palette_2' => [
+        'reveal_palette_2' => [
             'showitem' => '
                 size, 
                 no_overlay, 
                 reset_on_close, 
             ',
         ],
-        'slider_palette_3' => [
+        'reveal_palette_3' => [
             'showitem' => '
                 close_on_click, 
                 close_on_esc,
             ',
         ],
-        'slider_palette_4' => [
+        'reveal_palette_4' => [
             'showitem' => '
                 v_offset, 
                 h_offset, 
             ',
         ],
-        'slider_palette_5' => [
+        'reveal_palette_5' => [
             'showitem' => '
                 animation_in, 
                 animation_out, 
@@ -60,7 +60,7 @@ return [
                 animation_speed_out,
             ',
         ],
-        'slider_palette_6' => [
+        'reveal_palette_6' => [
             'showitem' => '
                 no_animation, 
                 show_delay, 
@@ -71,16 +71,16 @@ return [
     'types' => [
         '1' => [
             'showitem' => '
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.settings,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.create.item;slider_palette_0,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_title,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_create_item;reveal_palette_0,
                 title, text, files,  
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.settings.main,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.settings.main;slider_palette_2,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.settings.main.close;slider_palette_3,
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.settings.advanced,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.settings.main.position;slider_palette_4,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.settings.main.animations;slider_palette_5,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.reveal.settings.main.no_animations;slider_palette_6,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;reveal_palette_2,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main_reveal_close;reveal_palette_3,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_advanced,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_positions;reveal_palette_4,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animations;reveal_palette_5,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_disable_animations;reveal_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
@@ -176,7 +176,7 @@ return [
 
         'title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealcontent.title',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_content_title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -185,7 +185,7 @@ return [
         ],
         'text' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealcontent.text',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_content_text',
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
@@ -203,7 +203,7 @@ return [
         ],
         'files' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealcontent.files',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_content_files',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'files',
                 [
@@ -248,16 +248,16 @@ return [
         ],
         'size' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.size',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_settings_size',
             'config' => [
                 'type' => 'select',
                 'default' => 'tiny',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.tiny', 'tiny'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.small', 'small'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.large', 'large'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.full', 'full'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tiny', 'tiny'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_small', 'small'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_large', 'large'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_full', 'full'],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -266,7 +266,7 @@ return [
         ],
         'no_overlay' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.no_overlay',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_settings_no_overlay',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -280,7 +280,7 @@ return [
         ],
         'no_animation' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.no_animation',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_no_animation',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -294,32 +294,32 @@ return [
         ],
         'animation_in' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.animation_in',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animation_in',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [' ', ''],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_in_up', 'slide-in-up'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_in_right', 'slide-in-right'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_in_down', 'slide-in-down'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_in_left', 'slide-in-left'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.fade', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.fade_in', 'fade-in'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_in_from_top', 'hinge-in-from-top'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_in_from_right', 'hinge-in-from-right'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_in_from_bottom', 'hinge-in-from-bottom'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_in_from_left', 'hinge-in-from-left'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_in_from_middle_x', 'hinge-in-from-middle-x'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_in_from_middle_y', 'hinge-in-from-middle-y'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.scale', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.scale_in_up', 'scale-in-up'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.scale_in_bottom', 'scale-in-down'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.spin', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.spin_in', 'spin-in'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.spin_in_ccw', 'spin-in-ccw'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_in_up', 'slide-in-up'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_in_right', 'slide-in-right'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_in_down', 'slide-in-down'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_in_left', 'slide-in-left'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_fade', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_fade_in', 'fade-in'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_in_from_top', 'hinge-in-from-top'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_in_from_right', 'hinge-in-from-right'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_in_from_bottom', 'hinge-in-from-bottom'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_in_from_left', 'hinge-in-from-left'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_in_from_middle_x', 'hinge-in-from-middle-x'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_in_from_middle_y', 'hinge-in-from-middle-y'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_scale', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_scale_in_up', 'scale-in-up'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_scale_in_bottom', 'scale-in-down'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_spin', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_spin_in', 'spin-in'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_spin_in_ccw', 'spin-in-ccw'],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -328,32 +328,32 @@ return [
         ],
         'animation_out' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.animation_out',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animation_out',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [' ', ''],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_out_up', 'slide-out-up'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_out_right', 'slide-out-right'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_out_down', 'slide-out-down'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slide_out_left', 'slide-out-left'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.fade', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.fade_out', 'fade-out'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_out_from_top', 'hinge-out-from-top'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_out_from_right', 'hinge-out-from-right'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_out_from_bottom', 'hinge-out-from-bottom'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_out_from_left', 'hinge-out-from-left'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_out_from_middle_x', 'hinge-out-from-middle-x'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.hinge_out_from_middle_y', 'hinge-out-from-middle-y'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.scale', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.scale_out_up', 'scale-out-up'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.scale_out_bottom', 'scale-out-down'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.spin', '--div--'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.spin_out', 'spin-out'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.spin_out_ccw', 'spin-out-ccw'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_out_up', 'slide-out-up'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_out_right', 'slide-out-right'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_out_down', 'slide-out-down'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slide_out_left', 'slide-out-left'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_fade', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_fade_out', 'fade-out'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_out_from_top', 'hinge-out-from-top'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_out_from_right', 'hinge-out-from-right'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_out_from_bottom', 'hinge-out-from-bottom'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_out_from_left', 'hinge-out-from-left'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_out_from_middle_x', 'hinge-out-from-middle-x'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hinge_out_from_middle_y', 'hinge-out-from-middle-y'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_scale', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_scale_out_up', 'scale-out-up'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_scale_out_bottom', 'scale-out-down'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_spin', '--div--'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_spin_out', 'spin-out'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_spin_out_ccw', 'spin-out-ccw'],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -362,14 +362,14 @@ return [
         ],
         'animation_speed_in' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.animation_speed_in',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_speed_in',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [' ', ''],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slow', 'slow'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.fast', 'fast'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slow', 'slow'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_fast', 'fast'],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -378,14 +378,14 @@ return [
         ],
         'animation_speed_out' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.animation_speed_out',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_speed_out',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [' ', ''],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.slow', 'slow'],
-                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.fast', 'fast'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slow', 'slow'],
+                    ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_fast', 'fast'],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -394,7 +394,7 @@ return [
         ],
         'show_delay' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.show_delay',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_show_delay',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -412,7 +412,7 @@ return [
         ],
         'hide_delay' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.hide_delay',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_delay',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -430,7 +430,7 @@ return [
         ],
         'close_on_click' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.close_on_click',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_close_on_click',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -444,7 +444,7 @@ return [
         ],
         'close_on_esc' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.close_on_esc',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_close_on_esc',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -458,7 +458,7 @@ return [
         ],
         'v_offset' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.v_offset',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_v_offset',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -467,7 +467,7 @@ return [
         ],
         'h_offset' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.h_offset',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_h_offset',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -476,7 +476,7 @@ return [
         ],
         'reset_on_close' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation.revealsetting.reset_on_close',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_reveal_settings_reset_on_close',
             'config' => [
                 'type' => 'check',
                 'items' => [

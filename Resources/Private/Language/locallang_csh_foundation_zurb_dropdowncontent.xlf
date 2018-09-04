@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="hover.description">
+				<source>&lt;b&gt; Hover&lt;/b&gt; &lt;br /&gt; If you activate this option, then the dropdown will be activated when the user moves his mouse on the button.</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>&lt;b&gt; Position&lt;/b&gt; &lt;br /&gt; Position of dropdown. Can be left, right, bottom, top, or auto. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; auto)</source>
+			</trans-unit>
+			<trans-unit id="alignment.description">
+				<source>&lt;b&gt; Alignment&lt;/b&gt; &lt;br /&gt; Alignment of dropdown relative to anchor. Can be left, right, bottom, top, center, or auto. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; auto)</source>
+			</trans-unit>
+			<trans-unit id="hover_panel.description">
+				<source>&lt;b&gt; Hover pane&lt;/b&gt; &lt;br /&gt; If you activate this option, then the dropdown pane will not close by hover.</source>
+			</trans-unit>
+			<trans-unit id="hover_delay.description">
+				<source>&lt;b&gt; Hover delay&lt;/b&gt; &lt;br /&gt; Time in ms in which the dropdown pane will open. &lt;br /&gt;(&lt;b&gt;Tip:&lt;/b&gt; 1s = 1000ms)</source>
+			</trans-unit>
+			<trans-unit id="allow_overlap.description">
+				<source>&lt;b&gt; Allow overlap&lt;/b&gt; &lt;br /&gt; Allow overlap of container/window. If false, dropdown will first try to position as defined by data-position and data-alignment, but reposition if it would cause an overflow.</source>
+			</trans-unit>
+			<trans-unit id="allow_bottom_overlap.description">
+				<source>&lt;b&gt; Hover overlap pane&lt;/b&gt; &lt;br /&gt; Allow overlap of only the bottom of the container. This is the most common behavior for dropdowns, allowing the dropdown to extend the bottom of the screen but not otherwise influence or break out of the container.</source>
+			</trans-unit>
+			<trans-unit id="trap_focus.description">
+				<source>&lt;b&gt; Trap focus&lt;/b&gt; &lt;br /&gt; Allow the plugin to trap focus to the dropdown pane if opened with keyboard commands.</source>
+			</trans-unit>
+			<trans-unit id="hover_panel.description">
+				<source>&lt;b&gt; Hover pane&lt;/b&gt; &lt;br /&gt; If you activate this option, then the dropdown pane will not close by hover.</source>
+			</trans-unit>
+			<trans-unit id="auto_focus.description">
+				<source>&lt;b&gt; Auto focus&lt;/b&gt; &lt;br /&gt; Allow the plugin to set focus to the first focusable element within the pane, regardless of method of opening.</source>
+			</trans-unit>
+			<trans-unit id="v_offset.description">
+				<source>&lt;b&gt; V-Offset&lt;/b&gt; &lt;br /&gt; Number of pixels between the dropdown pane and the triggering element on open.</source>
+			</trans-unit>
+			<trans-unit id="h_offset.description">
+				<source>&lt;b&gt; H-Offset&lt;/b&gt; &lt;br /&gt; Number of pixels between the dropdown pane and the triggering element on open.</source>
+			</trans-unit>
+			<trans-unit id="close_on_click.description">
+				<source>&lt;b&gt; Close on Click&lt;/b&gt; &lt;br /&gt; Allows a click on the body to close the dropdown.</source>
+			</trans-unit>
+			<trans-unit id="container.description">
+				<source>&lt;b&gt; Parent Class&lt;/b&gt; &lt;br /&gt; Class that designates bounding container of Dropdown (default: window)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

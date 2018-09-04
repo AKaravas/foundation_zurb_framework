@@ -179,4 +179,27 @@ tt_content {
 			}
 		}
 	}
+	foundation_dropdown < lib.contentElement
+	foundation_dropdown {
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateName = Dropdown.html
+		dataProcessing {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
+				table = foundation_zurb_dropdowncontent
+				pidInList = this
+				where.field = uid 
+				where.dataWrap = tt_content = |
+				as = dropdownContent
+				dataProcessing {
+					370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+					370 {
+						references.fieldName = files
+						as = images
+					}
+				}
+			}
+		}
+	}
 }
