@@ -1,10 +1,21 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 data-namespace-typo3-fluid="true">
-	<div class="grid-container <f:switch expression='{data.button_position}'><f:case value='1'>button_left</f:case><f:case value='2'>button_center</f:case><f:case value='3'>button_right</f:case><f:defaultCase></f:defaultCase></f:switch>">
-		<div class="grid-x">
-			<div class="cell">
-				<f:link.typolink parameter="{data.button_link}" class="button">{data.button_text}</f:link.typolink>
+	<!-- Do not touch the variables otherwise the validation won't work-->
+	<f:variable name="disabled" value="<f:if condition='{buttonContent.0.data.disabled}'>disabled</f:if>"/>
+	<f:variable name="aligned" value="<f:if condition='{buttonContent.0.data.small_size} != \' \' || {buttonContent.0.data.medium_size} != \' \' ||{buttonContent.0.data.large_size}!= \' \''><f:then></f:then><f:else>shrink</f:else></f:if>"/>
+
+	<f:if condition="{buttonContent.0.data.container}">
+		<f:then>
+			<div class="grid-container">
+				<div class="grid-x {buttonContent.0.data.position}">
+					<div class="cell {aligned}">
+						<f:link.typolink parameter="{buttonContent.0.data.link}" class="button {buttonContent.0.data.color} {buttonContent.0.data.size} {buttonContent.0.data.small_size} {buttonContent.0.data.medium_size} {buttonContent.0.data.large_size} <f:if condition='{buttonContent.0.data.hollow}'>hollow</f:if> <f:if condition='{buttonContent.0.data.clear}'>clear</f:if>" additionalAttributes="{disabled: '{disabled}'}" title="{buttonContent.0.data.title}">{buttonContent.0.data.title}</f:link.typolink>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
+		</f:then>
+		<f:else>
+			<f:link.typolink parameter="{buttonContent.0.data.link}" class="button {buttonContent.0.data.color} {buttonContent.0.data.size} {buttonContent.0.data.small_size} {buttonContent.0.data.medium_size} {buttonContent.0.data.large_size} <f:if condition='{buttonContent.0.data.hollow}'>hollow</f:if> <f:if condition='{buttonContent.0.data.clear}'>clear</f:if>" additionalAttributes="{disabled: '{disabled}'}" title="{buttonContent.0.data.title}">{buttonContent.0.data.title}</f:link.typolink>
+		</f:else>
+	</f:if>
 </html>

@@ -202,4 +202,20 @@ tt_content {
 			}
 		}
 	}
+	foundation_button < lib.contentElement
+	foundation_button {
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateName = Button.html
+		dataProcessing {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
+				table = foundation_zurb_button
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:button_content_relation}
+				as = buttonContent
+			}
+		}
+	}
 }

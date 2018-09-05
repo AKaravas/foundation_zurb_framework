@@ -23,6 +23,9 @@ $registerCardImage->registerIcon('Card',\TYPO3\CMS\Core\Imaging\IconProvider\Bit
 $registerDropdownImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $registerDropdownImage->registerIcon('Dropdown',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/dropdown.png']);
 
+$registerButtonImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$registerButtonImage->registerIcon('Button',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/button.png']);
+
 #########################################
 #										#
 #				Help					#
@@ -42,7 +45,20 @@ $registerDropdownImage->registerIcon('Dropdown',\TYPO3\CMS\Core\Imaging\IconProv
 #										#
 #########################################
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('foundation_zurb_slidersettings, foundation_zurb_accordionsettings, foundation_zurb_accordioncontent, foundation_zurb_slidercontent, foundation_zurb_tabssettings, foundation_zurb_tabscontent, foundation_zurb_revealsettings, foundation_zurb_revealcontent, foundation_zurb_cardsettings, foundation_zurb_cardcontent, foundation_zurb_dropdowncontent');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('
+			foundation_zurb_slidersettings, 
+			foundation_zurb_accordionsettings, 
+			foundation_zurb_accordioncontent, 
+			foundation_zurb_slidercontent, 
+			foundation_zurb_tabssettings, 
+			foundation_zurb_tabscontent, 
+			foundation_zurb_revealsettings, 
+			foundation_zurb_revealcontent, 
+			foundation_zurb_cardsettings, 
+			foundation_zurb_cardcontent, 
+			foundation_zurb_dropdowncontent, 
+			foundation_zurb_button
+');
 
 #########################################
 #										#										

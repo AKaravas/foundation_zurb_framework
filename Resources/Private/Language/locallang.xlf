@@ -14,12 +14,6 @@
         	<trans-unit id="foundation_elements" xml:space="preserve">
                 <source>Foundation Zurb Elements</source>
             </trans-unit>
-            <trans-unit id="foundation_animations" xml:space="preserve">
-                <source>Animations</source>
-            </trans-unit>
-            <trans-unit id="foundation_disable_animations" xml:space="preserve">
-                <source>No Animation</source>
-            </trans-unit>
             <trans-unit id="foundation_create_item" xml:space="preserve">
                 <source>Create a new item</source>
             </trans-unit>
@@ -41,7 +35,29 @@
             <trans-unit id="foundation_hovering" xml:space="preserve">
                 <source>Hover settings</source>
             </trans-unit>
-            
+            <trans-unit id="foundation_disabled" xml:space="preserve">
+                <source>Disabled</source>
+            </trans-unit>
+
+            <!--Foundation Zurb Viewports-->
+            <trans-unit id="foundation_viewport_small_size" xml:space="preserve">
+                <source>Mobile</source>
+            </trans-unit>
+            <trans-unit id="foundation_viewport_medium_size" xml:space="preserve">
+                <source>Tablet</source>
+            </trans-unit>
+            <trans-unit id="foundation_viewport_large_size" xml:space="preserve">
+                <source>Desktop</source>
+            </trans-unit>
+            <trans-unit id="foundation_viewport_xlarge_size" xml:space="preserve">
+                <source>XL Desktop</source>
+            </trans-unit>
+            <trans-unit id="foundation_viewport_xxlarge_size" xml:space="preserve">
+                <source>XXL Desktop</source>
+            </trans-unit>
+            <trans-unit id="foundation_viewport_xxxlarge_size" xml:space="preserve">
+                <source>XXXL Desktop</source>
+            </trans-unit>
 
              <!--Foundation Zurb Slider-->
             <trans-unit id="foundation_slider_title" xml:space="preserve">
@@ -253,6 +269,20 @@
                 <source>Enable auto focus</source>
             </trans-unit>
 
+            <!--Foundation Zurb Button-->
+            <trans-unit id="foundation_button_title" xml:space="preserve">
+                <source>Button</source>
+            </trans-unit>
+            <trans-unit id="foundation_button_description" xml:space="preserve">
+                <source>Create a singe Foundation button element</source>
+            </trans-unit>
+            <trans-unit id="foundation_button_content_title" xml:space="preserve">
+                <source>Button title</source>
+            </trans-unit>
+            <trans-unit id="foundation_button_content_link" xml:space="preserve">
+                <source>Button link</source>
+            </trans-unit>
+
             <!-- Timings -->
             <trans-unit id="foundation_timer" xml:space="preserve">
                 <source>Timings</source>
@@ -298,9 +328,102 @@
             <trans-unit id="foundation_center" xml:space="preserve">
                 <source>Center</source>
             </trans-unit>
+            <trans-unit id="foundation_align_justify" xml:space="preserve">
+                <source>Align justify</source>
+            </trans-unit>
+            <trans-unit id="foundation_align_spaced" xml:space="preserve">
+                <source>Align spaced</source>
+            </trans-unit>
+            <trans-unit id="foundation_align_left" xml:space="preserve">
+                <source>Align left</source>
+            </trans-unit>
+            <trans-unit id="foundation_align_center" xml:space="preserve">
+                <source>Align center</source>
+            </trans-unit>
+            <trans-unit id="foundation_align_right" xml:space="preserve">
+                <source>Align right</source>
+            </trans-unit>
+
+            <!--Foundation Zurb Styling-->
+            <trans-unit id="foundation_styling" xml:space="preserve">
+                <source>Styling</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_primary" xml:space="preserve">
+                <source>Primary color</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_secondary" xml:space="preserve">
+                <source>Secondary color</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_success" xml:space="preserve">
+                <source>Success color</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_alert" xml:space="preserve">
+                <source>Alert color</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_warning" xml:space="preserve">
+                <source>Warning color</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_hollow" xml:space="preserve">
+                <source>Hollow</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_clear" xml:space="preserve">
+                <source>Clear</source>
+            </trans-unit>
+
+            <!--Foundation Zurb Sizing-->
+            <trans-unit id="foundation_sizing" xml:space="preserve">
+                <source>Sizing</source>
+            </trans-unit>
+            <trans-unit id="foundation_sizing_tiny" xml:space="preserve">
+                <source>Tiny</source>
+            </trans-unit>
+            <trans-unit id="foundation_sizing_small" xml:space="preserve">
+                <source>Small</source>
+            </trans-unit>
+            <trans-unit id="foundation_sizing_medium" xml:space="preserve">
+                <source>Medium</source>
+            </trans-unit>
+            <trans-unit id="foundation_sizing_large" xml:space="preserve">
+                <source>Large</source>
+            </trans-unit>
+            <trans-unit id="foundation_sizing_full" xml:space="preserve">
+                <source>Full</source>
+            </trans-unit>
+
+             <!--Foundation Zurb Resizing-->
+            <trans-unit id="foundation_resizing_expanded" xml:space="preserve">
+                <source>Expanded</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_small_only" xml:space="preserve">
+                <source>Expanded only on mobile</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_medium" xml:space="preserve">
+                <source>Expanded from medium and up</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_medium_only" xml:space="preserve">
+                <source>Expanded only for medium</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_medium_down" xml:space="preserve">
+                <source>Expanded from medium and down</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_large" xml:space="preserve">
+                <source>Expanded from large and up</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_large_only" xml:space="preserve">
+                <source>Expanded only for large</source>
+            </trans-unit>
+            <trans-unit id="foundation_resizing_expanded_large_down" xml:space="preserve">
+                <source>Expanded from large and down</source>
+            </trans-unit>
 
 
             <!--Foundation Zurb Animations-->
+            <trans-unit id="foundation_animations" xml:space="preserve">
+                <source>Animations</source>
+            </trans-unit>
+            <trans-unit id="foundation_disable_animations" xml:space="preserve">
+                <source>No Animation</source>
+            </trans-unit>
             <trans-unit id="foundation_animation_in" xml:space="preserve">
                 <source>Animation In</source>
             </trans-unit>
@@ -438,18 +561,6 @@
             </trans-unit>
             <trans-unit id="foundation_fast" xml:space="preserve">
                 <source>Fast</source>
-            </trans-unit>
-            <trans-unit id="foundation_tiny" xml:space="preserve">
-                <source>Tiny</source>
-            </trans-unit>
-            <trans-unit id="foundation_small" xml:space="preserve">
-                <source>Small</source>
-            </trans-unit>
-            <trans-unit id="foundation_large" xml:space="preserve">
-                <source>Large</source>
-            </trans-unit>
-            <trans-unit id="foundation_full" xml:space="preserve">
-                <source>Full</source>
             </trans-unit>
         </body>
     </file>
