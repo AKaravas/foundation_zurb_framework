@@ -38,6 +38,7 @@ $registerButtonImage->registerIcon('Button',\TYPO3\CMS\Core\Imaging\IconProvider
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_revealcontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_revealsettings.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_cardsettings', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_cardsettings.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_dropdowncontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_dropdowncontent.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_button', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_button.xlf');
 
 #########################################
 #										#										

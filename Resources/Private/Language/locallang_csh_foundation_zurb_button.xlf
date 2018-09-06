@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="size.description">
+				<source>&lt;b&gt; Size&lt;/b&gt; &lt;br /&gt; Choose the size of the button. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Normal)</source>
+			</trans-unit>
+			<trans-unit id="small_size.description">
+				<source>&lt;b&gt; Mobile&lt;/b&gt; &lt;br /&gt; Choose the width of your button: &lt;br /&gt; Options: &lt;br /&gt; 
+					&lt;ul&gt; 
+						&lt;li&gt;&lt;b&gt;Expanded:&lt;/b&gt; From small until no end, the button will take the full width of its container.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Expanded only for mobile:&lt;/b&gt; It will take the full width of its container but only for the mobile.&lt;/li&gt;
+					&lt;ul&gt;
+					&lt;br /&gt;
+				If nothing is chosen, then the button will have the contents' width.
+				</source>
+			</trans-unit>
+			<trans-unit id="medium_size.description">
+				<source>&lt;b&gt; Tablet&lt;/b&gt; &lt;br /&gt; Choose the width of your button: &lt;br /&gt; Options: &lt;br /&gt; 
+					&lt;ul&gt; 
+						&lt;li&gt;&lt;b&gt;Expanded from medium and up:&lt;/b&gt; For medium, desktop and larger, the button will take the full width of its container. On mobile, the button will have the contents' width.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Expanded only for medium:&lt;/b&gt; It will take the full width of its container but only for the tablet.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Expanded from medium and down:&lt;/b&gt; For medium and small, the button will take the full width of its container. On desktop and larger, the button will have the contents' width.&lt;/li&gt;
+					&lt;ul&gt;
+					&lt;br /&gt;
+				If nothing is chosen, then the button will have the contents' width.
+				</source>
+			</trans-unit>
+			<trans-unit id="large_size.description">
+				<source>&lt;b&gt; Mobile&lt;/b&gt; &lt;br /&gt; Choose the width of your button: &lt;br /&gt; Options: &lt;br /&gt; 
+					&lt;ul&gt; 
+						&lt;li&gt;&lt;b&gt;Expanded from large and up:&lt;/b&gt; For desktop and larger, the button will take the full width of its container. On mobile and tablet, the button will have the contents' width.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Expanded only for large:&lt;/b&gt; It will take the full width of its container but only for the desktop.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Expanded from large and down:&lt;/b&gt; For desktop, medium and small, the button will take the full width of its container. On larger than desktop, the button will have the contents' width.&lt;/li&gt;
+					&lt;ul&gt;
+					&lt;br /&gt;
+				If nothing is chosen, then the button will have the contents' width.
+				</source>
+			</trans-unit>
+			<trans-unit id="color.description">
+				<source>&lt;b&gt; Style&lt;/b&gt; &lt;br /&gt; Choose the color of the button. The colors have been predefined from the programmer.&lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Primary)</source>
+			</trans-unit>
+			<trans-unit id="hollow.description">
+				<source>&lt;b&gt; Hollow&lt;/b&gt; &lt;br /&gt; Choose whether the button has the hollow style or not.</source>
+			</trans-unit>
+			<trans-unit id="clear.description">
+				<source>&lt;b&gt; Clear&lt;/b&gt; &lt;br /&gt; Choose whether the button has the clear style or not.</source>
+			</trans-unit>
+			<trans-unit id="disabled.description">
+				<source>&lt;b&gt; Disabled&lt;/b&gt; &lt;br /&gt; Choose whether the button is disabled or not.</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>&lt;b&gt; Position&lt;/b&gt; &lt;br /&gt; Positioning will only be activated if the &lt;b&gt;container&lt;/b&gt; option is active.&lt;br /&gt; Options:
+					&lt;ul&gt; 
+						&lt;li&gt;&lt;b&gt;Align center:&lt;/b&gt; The button will be aligned to the center.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Align center:&lt;/b&gt; The button will be aligned to the right.&lt;/li&gt;
+					&lt;ul&gt;
+					&lt;br /&gt;
+				If nothing is chosen, then the button will be aligned to the left.
+				</source>
+			</trans-unit>
+			<trans-unit id="container.description">
+				<source>&lt;b&gt; Container&lt;/b&gt; &lt;br /&gt; If you activate this option, then the button will get the &lt;b&gt;grid-container&lt;/b&gt; wrapped around it.
+				</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
