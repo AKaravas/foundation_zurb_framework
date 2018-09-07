@@ -26,6 +26,9 @@ $registerDropdownImage->registerIcon('Dropdown',\TYPO3\CMS\Core\Imaging\IconProv
 $registerButtonImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $registerButtonImage->registerIcon('Button',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/button.png']);
 
+$registerGroupButtonImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$registerGroupButtonImage->registerIcon('GroupButton',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/group_button.jpg']);
+
 #########################################
 #										#
 #				Help					#
@@ -39,6 +42,8 @@ $registerButtonImage->registerIcon('Button',\TYPO3\CMS\Core\Imaging\IconProvider
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_cardsettings', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_cardsettings.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_dropdowncontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_dropdowncontent.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_button', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_button.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_buttongroupsettings', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_buttongroupsettings.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_buttongroupcontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_buttongroupcontent.xlf');
 
 #########################################
 #										#										
@@ -58,7 +63,9 @@ $registerButtonImage->registerIcon('Button',\TYPO3\CMS\Core\Imaging\IconProvider
 			foundation_zurb_cardsettings, 
 			foundation_zurb_cardcontent, 
 			foundation_zurb_dropdowncontent, 
-			foundation_zurb_button
+			foundation_zurb_button,
+			foundation_zurb_buttongroupcontent,
+			foundation_zurb_buttongroupsettings
 ');
 
 #########################################

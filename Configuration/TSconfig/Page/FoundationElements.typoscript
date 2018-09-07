@@ -58,6 +58,14 @@ mod.wizards.newContentElement.wizardItems.foundation {
                 CType = foundation_button
             }
         }
+        foundation_group_button {
+            iconIdentifier = GroupButton
+            title = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_group_button_title
+            description = LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_group_button_description
+            tt_content_defValues {
+                CType = foundation_group_button
+            }
+        }
     }
-    show := addToList(foundation_slider, foundation_accordion, foundation_button, foundation_tabs, foundation_reveal, foundation_card, foundation_dropdown, foundation_button)
+    show := addToList(foundation_slider, foundation_accordion, foundation_button, foundation_tabs, foundation_reveal, foundation_card, foundation_dropdown, foundation_button, foundation_group_button)
 }

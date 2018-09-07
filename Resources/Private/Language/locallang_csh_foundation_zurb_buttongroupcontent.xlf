@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="color.description">
+				<source>&lt;b&gt; Style&lt;/b&gt; &lt;br /&gt; Choose the color of the button. The colors have been predefined from the programmer.&lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Primary)</source>
+			</trans-unit>
+
+			<trans-unit id="hollow.description">
+				<source>&lt;b&gt; Hollow&lt;/b&gt; &lt;br /&gt; Choose whether the button has the hollow style or not.</source>
+			</trans-unit>
+
+			<trans-unit id="clear.description">
+				<source>&lt;b&gt; Clear&lt;/b&gt; &lt;br /&gt; Choose whether the button has the clear style or not.</source>
+			</trans-unit>
+			
+			<trans-unit id="disabled.description">
+				<source>&lt;b&gt; Disabled&lt;/b&gt; &lt;br /&gt; Choose whether the button is disabled or not.</source>
+			</trans-unit>		
+		</body>
+	</file>
+</xliff>

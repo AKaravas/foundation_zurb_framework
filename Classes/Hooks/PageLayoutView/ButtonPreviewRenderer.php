@@ -35,7 +35,6 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
     $buttonColor = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'color');
     $buttonHollow = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'hollow');
     $buttonDisabled = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'disabled');
-    $buttonHollow = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'hollow');
     $buttonClear = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'clear');
     $buttonContainer = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'container');
     $buttonAlignment = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['button_content_relation'], 'position');

@@ -218,4 +218,36 @@ tt_content {
 			}
 		}
 	}
+	foundation_group_button < lib.contentElement
+	foundation_group_button {
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateName = ButtonGroup.html
+		dataProcessing {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
+				table = foundation_zurb_buttongroupsettings
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:buttongroup_settings_relation}
+				
+				as = buttonGroupSettings
+				dataProcessing {
+					350 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+					350 {
+						if.isTrue.field = buttongroup_content_relation
+
+						table = foundation_zurb_buttongroupcontent
+
+						pidInList = this
+						where.field = uid
+						where.intval = 1
+						where.dataWrap = foundation_zurb_buttongroupsettings = |
+
+						as = buttonGroupContents
+					}
+				}
+			}
+		}
+	}
 }

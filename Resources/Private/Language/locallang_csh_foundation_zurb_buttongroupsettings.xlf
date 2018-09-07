@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="size.description">
+				<source>&lt;b&gt; Size&lt;/b&gt; &lt;br /&gt; Choose the size of the button. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Normal)</source>
+			</trans-unit>
+			<trans-unit id="color.description">
+				<source>&lt;b&gt; Color&lt;/b&gt; &lt;br /&gt; Choose the color of all the buttons. The colors have been predefined from the programmer. &lt;br /&gt;(&lt;b&gt;Attenstion:&lt;/b&gt; If you define a color here, then you can not define a color for each element individually. If you want diffferent colors for the buttons, define it directly on the button settngs.)</source>
+			</trans-unit>
+			<trans-unit id="stacked.description">
+				<source>&lt;b&gt; Stacked&lt;/b&gt; &lt;br /&gt; Choose whether the buttons should align vertically: &lt;br /&gt; Options: &lt;br /&gt; 
+					&lt;ul&gt; 
+						&lt;li&gt;&lt;b&gt;Stacked for all screens:&lt;/b&gt; From mobile until no end, the buttons will be align vertically.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Stacked for mobile:&lt;/b&gt; The buttons be align vertically only on mobile.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Stacked for mobile:&lt;/b&gt; From mobile until tablet, the buttons will be align vertically.&lt;/li&gt;
+					&lt;ul&gt;
+					&lt;br /&gt; If nothing is chosen, then the buttons will not be vertically aligned
+				</source>
+			</trans-unit>
+			<trans-unit id="expanded.description">
+				<source>&lt;b&gt; Expanded&lt;/b&gt; &lt;br /&gt; If you activate this option then the buttons will be equaly split and take the complete width of their container.
+				</source>
+			</trans-unit>
+			<trans-unit id="container.description">
+				<source>&lt;b&gt; Container&lt;/b&gt; &lt;br /&gt; If you activate this option, then the button group will get the &lt;b&gt;grid-container&lt;/b&gt; wrapped around it.
+				</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>&lt;b&gt; Position&lt;/b&gt; &lt;br /&gt; Positioning will only be activated if the &lt;b&gt;container&lt;/b&gt; option is active.&lt;br /&gt; Options:
+					&lt;ul&gt; 
+						&lt;li&gt;&lt;b&gt;Align center:&lt;/b&gt; The button will be aligned to the center.&lt;/li&gt;
+						&lt;li&gt;&lt;b&gt;Align center:&lt;/b&gt; The button will be aligned to the right.&lt;/li&gt;
+					&lt;ul&gt;
+					&lt;br /&gt;
+				If nothing is chosen, then the button will be aligned to the left.
+				</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

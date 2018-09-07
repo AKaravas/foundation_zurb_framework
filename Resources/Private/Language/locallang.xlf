@@ -283,6 +283,14 @@
                 <source>Button link</source>
             </trans-unit>
 
+            <!--Foundation Zurb Button Group-->
+            <trans-unit id="foundation_group_button_title" xml:space="preserve">
+                <source>Button Group</source>
+            </trans-unit>
+            <trans-unit id="foundation_group_button_description" xml:space="preserve">
+                <source>Create a Foundation button group element</source>
+            </trans-unit>
+
             <!-- Timings -->
             <trans-unit id="foundation_timer" xml:space="preserve">
                 <source>Timings</source>
@@ -374,6 +382,9 @@
             <trans-unit id="foundation_sizing" xml:space="preserve">
                 <source>Sizing</source>
             </trans-unit>
+            <trans-unit id="foundation_size" xml:space="preserve">
+                <source>Size</source>
+            </trans-unit>
             <trans-unit id="foundation_sizing_tiny" xml:space="preserve">
                 <source>Tiny</source>
             </trans-unit>
@@ -415,6 +426,19 @@
             <trans-unit id="foundation_resizing_expanded_large_down" xml:space="preserve">
                 <source>Expanded from large and down</source>
             </trans-unit>
+            <trans-unit id="foundation_stacked" xml:space="preserve">
+                <source>Stacked</source>
+            </trans-unit>
+            <trans-unit id="foundation_stacked_all" xml:space="preserve">
+                <source>Stacked for all screens</source>
+            </trans-unit>
+            <trans-unit id="foundation_stacked_for_small" xml:space="preserve">
+                <source>Stacked for mobile</source>
+            </trans-unit>
+            <trans-unit id="foundation_stacked_for_medium" xml:space="preserve">
+                <source>Stacked for tablet and mobile</source>
+            </trans-unit>
+
 
 
             <!--Foundation Zurb Animations-->

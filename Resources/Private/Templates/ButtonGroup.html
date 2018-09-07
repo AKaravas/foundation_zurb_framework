@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+<f:variable name="aligned" value="<f:if condition='{buttonContent.0.data.small_size} != \' \' || {buttonContent.0.data.medium_size} != \' \' ||{buttonContent.0.data.large_size}!= \' \''><f:then></f:then><f:else>shrink</f:else></f:if>"/>
+	<f:if condition="{buttonGroupSettings.0.data.container}">
+		<f:then>
+			<div class="grid-container">
+				<div class="grid-x {buttonGroupSettings.0.data.position}">
+					<div class="cell {aligned}">
+						<div class="button-group {buttonGroupSettings.0.data.color} {buttonGroupSettings.0.data.size} {buttonGroupSettings.0.data.stacked} <f:if condition='{buttonGroupSettings.0.data.expanded}'>expanded</f:if>">
+							<f:for each="{buttonGroupSettings.0.buttonGroupContents}" as="buttonGroup">
+								<f:link.typolink parameter="{buttonGroup.data.link}" class="button {buttonGroup.data.color} <f:if condition='{buttonGroup.data.hollow}'>hollow</f:if> <f:if condition='{buttonGroup.data.clear}'>clear</f:if> <f:if condition='{buttonGroup.data.disabled}'>disabled</f:if>"title="{buttonGroup.data.title}">{buttonGroup.data.title}</f:link.typolink>
+							</f:for>
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:then>
+		<f:else>
+			<div class="button-group">
+				<f:for each="{buttonGroupSettings.0.buttonGroupContents}" as="buttonGroup">
+					<f:link.typolink parameter="{buttonGroup.data.link}" class="button {buttonGroup.data.color} <f:if condition='{buttonGroup.data.hollow}'>hollow</f:if> <f:if condition='{buttonGroup.data.clear}'>clear</f:if> <f:if condition='{buttonGroup.data.disabled}'>disabled</f:if>"title="{buttonGroup.data.title}">{buttonGroup.data.title}</f:link.typolink>
+				</f:for>
+			</div>
+		</f:else>
+	</f:if>
+
+</html>
+
+
+
+

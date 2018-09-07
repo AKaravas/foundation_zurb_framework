@@ -6,6 +6,7 @@ CREATE TABLE tt_content (
 	card_settings_relation int(11) unsigned DEFAULT '0' NOT NULL,
 	dropdown_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
 	button_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
+	buttongroup_settings_relation int(11) unsigned DEFAULT '0',
 );
 
 
@@ -562,5 +563,104 @@ CREATE TABLE foundation_zurb_button (
 CREATE TABLE foundation_zurb_button (
 
 	tt_content int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+CREATE TABLE foundation_zurb_buttongroupsettings (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	title varchar(255) DEFAULT 'Foundation Group Button' NOT NULL,
+	size varchar(255) DEFAULT '' NOT NULL,
+	color varchar(255) DEFAULT '' NOT NULL,
+	stacked varchar(255) DEFAULT '' NOT NULL,
+	expanded smallint(5) unsigned DEFAULT '0' NOT NULL,
+	container smallint(5) unsigned DEFAULT '0' NOT NULL,
+	position varchar(255) DEFAULT '' NOT NULL,
+
+	buttongroup_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted smallint(5) unsigned DEFAULT '0' NOT NULL,
+	hidden smallint(5) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state smallint(6) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+	l10n_state text,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+CREATE TABLE foundation_zurb_buttongroupcontent (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	foundation_zurb_buttongroupsettings int(11) unsigned DEFAULT '0' NOT NULL,
+
+	title varchar(255) DEFAULT '' NOT NULL,
+	color varchar(255) DEFAULT '' NOT NULL,
+	link varchar(255) DEFAULT '' NOT NULL,
+	hollow smallint(5) unsigned DEFAULT '0' NOT NULL,
+	disabled smallint(5) unsigned DEFAULT '0' NOT NULL,
+	clear smallint(5) unsigned DEFAULT '0' NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted smallint(5) unsigned DEFAULT '0' NOT NULL,
+	hidden smallint(5) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state smallint(6) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+	l10n_state text,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'tx_foundationslider_domain_model_slidercontent'
+#
+CREATE TABLE foundation_zurb_buttongroupcontent (
+
+	foundation_zurb_buttongroupsettings int(11) unsigned DEFAULT '0' NOT NULL,
 
 );

@@ -1,7 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 data-namespace-typo3-fluid="true">
 	<!-- Do not touch the variables otherwise the validation won't work-->
-	<f:variable name="disabled" value="<f:if condition='{buttonContent.0.data.disabled}'>disabled</f:if>"/>
 	<f:variable name="aligned" value="<f:if condition='{buttonContent.0.data.small_size} != \' \' || {buttonContent.0.data.medium_size} != \' \' ||{buttonContent.0.data.large_size}!= \' \''><f:then></f:then><f:else>shrink</f:else></f:if>"/>
 
 	<f:if condition="{buttonContent.0.data.container}">
@@ -9,13 +8,13 @@ data-namespace-typo3-fluid="true">
 			<div class="grid-container">
 				<div class="grid-x {buttonContent.0.data.position}">
 					<div class="cell {aligned}">
-						<f:link.typolink parameter="{buttonContent.0.data.link}" class="button {buttonContent.0.data.color} {buttonContent.0.data.size} {buttonContent.0.data.small_size} {buttonContent.0.data.medium_size} {buttonContent.0.data.large_size} <f:if condition='{buttonContent.0.data.hollow}'>hollow</f:if> <f:if condition='{buttonContent.0.data.clear}'>clear</f:if>" additionalAttributes="{disabled: '{disabled}'}" title="{buttonContent.0.data.title}">{buttonContent.0.data.title}</f:link.typolink>
+						<f:link.typolink parameter="{buttonContent.0.data.link}" class="button {buttonContent.0.data.color} {buttonContent.0.data.size} {buttonContent.0.data.small_size} {buttonContent.0.data.medium_size} {buttonContent.0.data.large_size} <f:if condition='{buttonContent.0.data.hollow}'>hollow</f:if> <f:if condition='{buttonContent.0.data.clear}'>clear</f:if> <f:if condition='{buttonContent.0.data.disabled}'>disabled</f:if>" title="{buttonContent.0.data.title}">{buttonContent.0.data.title}</f:link.typolink>
 					</div>
 				</div>
 			</div>
 		</f:then>
 		<f:else>
-			<f:link.typolink parameter="{buttonContent.0.data.link}" class="button {buttonContent.0.data.color} {buttonContent.0.data.size} {buttonContent.0.data.small_size} {buttonContent.0.data.medium_size} {buttonContent.0.data.large_size} <f:if condition='{buttonContent.0.data.hollow}'>hollow</f:if> <f:if condition='{buttonContent.0.data.clear}'>clear</f:if>" additionalAttributes="{disabled: '{disabled}'}" title="{buttonContent.0.data.title}">{buttonContent.0.data.title}</f:link.typolink>
+			<f:link.typolink parameter="{buttonContent.0.data.link}" class="button {buttonContent.0.data.color} {buttonContent.0.data.size} {buttonContent.0.data.small_size} {buttonContent.0.data.medium_size} {buttonContent.0.data.large_size} <f:if condition='{buttonContent.0.data.hollow}'>hollow</f:if> <f:if condition='{buttonContent.0.data.clear}'>clear</f:if> <f:if condition='{buttonContent.0.data.disabled}'>disabled</f:if>" title="{buttonContent.0.data.title}">{buttonContent.0.data.title}</f:link.typolink>
 		</f:else>
 	</f:if>
 </html>
