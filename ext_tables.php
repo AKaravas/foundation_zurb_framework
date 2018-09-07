@@ -29,6 +29,9 @@ $registerButtonImage->registerIcon('Button',\TYPO3\CMS\Core\Imaging\IconProvider
 $registerGroupButtonImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $registerGroupButtonImage->registerIcon('GroupButton',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/group_button.jpg']);
 
+$registerGroupCalloutImage = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$registerGroupCalloutImage->registerIcon('Callout',\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,['source' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/callout.png']);
+
 #########################################
 #										#
 #				Help					#
@@ -44,6 +47,7 @@ $registerGroupButtonImage->registerIcon('GroupButton',\TYPO3\CMS\Core\Imaging\Ic
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_button', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_button.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_buttongroupsettings', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_buttongroupsettings.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_buttongroupcontent', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_buttongroupcontent.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('foundation_zurb_callout', 'EXT:foundation_zurb_framework/Resources/Private/Language/locallang_csh_foundation_zurb_callout.xlf');
 
 #########################################
 #										#										
@@ -65,7 +69,8 @@ $registerGroupButtonImage->registerIcon('GroupButton',\TYPO3\CMS\Core\Imaging\Ic
 			foundation_zurb_dropdowncontent, 
 			foundation_zurb_button,
 			foundation_zurb_buttongroupcontent,
-			foundation_zurb_buttongroupsettings
+			foundation_zurb_buttongroupsettings,
+			foundation_zurb_callout
 ');
 
 #########################################

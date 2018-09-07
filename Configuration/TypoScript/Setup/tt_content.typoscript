@@ -250,4 +250,20 @@ tt_content {
 			}
 		}
 	}
+	foundation_callout < lib.contentElement
+	foundation_callout {
+		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
+		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateName = Callout.html
+		dataProcessing {
+			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			330 {
+				table = foundation_zurb_callout
+				pidInList = this
+				where = uid=
+				where.dataWrap = |{field:callout_content_relation}
+				as = calloutContent
+			}
+		}
+	}
 }

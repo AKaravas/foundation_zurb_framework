@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+data-namespace-typo3-fluid="true">
+
+	<f:if condition="{calloutContent.0.data.container}">
+		<f:then>
+			<div class="grid-container">
+				<div class="grid-x">
+					<div class="cell">
+						<f:if condition="{calloutContent.0.data.is_closable}">
+							<f:then>
+								<div class="callout {calloutContent.0.data.color} {calloutContent.0.data.size}" data-closable="{calloutContent.0.data.animation_out}">
+								  <h5>{calloutContent.0.data.title}</h5>
+								  <f:format.html>{calloutContent.0.data.text}</f:format.html>
+								  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+								    <span aria-hidden="true">&times;</span>
+								  </button>
+								</div>
+							</f:then>
+							<f:else>
+								<div class="callout {calloutContent.0.data.color} {calloutContent.0.data.size}">
+								  <h5>{calloutContent.0.data.title}</h5>
+								  <f:format.html>{calloutContent.0.data.text}</f:format.html>
+								</div>
+							</f:else>
+						</f:if>
+					</div>
+				</div>
+			</div>
+		</f:then>
+		<f:else>
+			<f:if condition="{calloutContent.0.data.is_closable}">
+				<f:then>
+					<div class="callout {calloutContent.0.data.color} {calloutContent.0.data.size}" data-closable="{calloutContent.0.data.animation_out}">
+					  <h5>{calloutContent.0.data.title}</h5>
+					  <f:format.html>{calloutContent.0.data.text}</f:format.html>
+					  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="callout {calloutContent.0.data.color} {calloutContent.0.data.size}">
+					  <h5>{calloutContent.0.data.title}</h5>
+					  <f:format.html>{calloutContent.0.data.text}</f:format.html>
+					</div>
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+
+</html>

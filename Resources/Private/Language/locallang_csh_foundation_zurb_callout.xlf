@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814856" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="size.description">
+				<source>&lt;b&gt; Size&lt;/b&gt; &lt;br /&gt; Choose the size of the callout. &lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Normal)</source>
+			</trans-unit>
+			<trans-unit id="color.description">
+				<source>&lt;b&gt; Style&lt;/b&gt; &lt;br /&gt; Choose the background color of the callout. The colors have been predefined from the programmer.&lt;br /&gt;(&lt;b&gt;Default:&lt;/b&gt; Primary)</source>
+			</trans-unit>
+			<trans-unit id="animation_out.description">
+				<source>&lt;b&gt; Animation Out&lt;/b&gt; &lt;br /&gt; Choose the animation you want to display when you close the callout. &lt;b&gt;Default&lt;/b&gt; fadeOut.
+				</source>
+			</trans-unit>
+			<trans-unit id="is_closable.description">
+				<source>&lt;b&gt; Closable&lt;/b&gt; &lt;br /&gt; Choose whether the callout is closable or not.
+				</source>
+			</trans-unit>
+			<trans-unit id="container.description">
+				<source>&lt;b&gt; Container&lt;/b&gt; &lt;br /&gt; If you activate this option, then the callout will get the &lt;b&gt;grid-container&lt;/b&gt; wrapped around it.
+				</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
