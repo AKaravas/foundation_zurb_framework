@@ -3,6 +3,8 @@ namespace Vendor\FoundationZurbFramework\Hooks\PageLayoutView;
 
 use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * Contains a preview rendering for the page module of CType="foundation_tabs"
@@ -29,18 +31,45 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       array &$row
    )
    {
-
-    $verticalTabs = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_tabssettings', $row['tabs_settings_relation'], 'vertical_tabs');
-    $collapsedTabs = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_tabssettings', $row['tabs_settings_relation'], 'collapse_tabs');
-    $deepTabs = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_tabssettings', $row['tabs_settings_relation'], 'deep_linking');
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabssettings');
+    $verticalTabs = $queryBuilder
+        ->select('vertical_tabs')
+        ->from('foundation_zurb_tabssettings')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $collapsedTabs = $queryBuilder
+        ->select('collapse_tabs')
+        ->from('foundation_zurb_tabssettings')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $deepTabs = $queryBuilder
+        ->select('deep_linking')
+        ->from('foundation_zurb_tabssettings')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
 
     if ($row['CType'] === 'foundation_tabs') {
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table">';
       $itemContent .= '<tbody>';
-      $itemContent .= ($verticalTabs['vertical_tabs']===1 ? '<tr><th>Vertical Tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Vertical Tabs</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($collapsedTabs['collapse_tabs']===1 ? '<tr><th>Collapsed tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Collapsed tabs</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($deepTabs['deep_linking']===1 ? '<tr><th>Deep linking</th> <td> &#10004;</td></tr>' : '<tr><th>Deep linking</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($verticalTabs ===1 ? '<tr><th>Vertical Tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Vertical Tabs</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($collapsedTabs ===1 ? '<tr><th>Collapsed tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Collapsed tabs</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($deepTabs ===1 ? '<tr><th>Deep linking</th> <td> &#10004;</td></tr>' : '<tr><th>Deep linking</th> <td> &#10008;</td></tr>');
       $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $drawItem = false;

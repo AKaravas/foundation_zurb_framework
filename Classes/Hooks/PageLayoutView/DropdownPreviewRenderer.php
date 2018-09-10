@@ -3,6 +3,8 @@ namespace Vendor\FoundationZurbFramework\Hooks\PageLayoutView;
 
 use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * Contains a preview rendering for the page module of CType="foundation_reveal"
@@ -30,10 +32,18 @@ class DropdownPreviewRenderer implements PageLayoutViewDrawItemHookInterface
    )
    {
 
-
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_dropdowncontent');
+    $dropDownInfos = $queryBuilder
+           ->select('*')
+           ->from('foundation_zurb_dropdowncontent')
+           ->where(
+               $queryBuilder->expr()->eq('tt_content', $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)),
+               $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+               $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+           )
+           ->execute();
     if ($row['CType'] === 'foundation_dropdown') {
       
-      $dropDownInfos = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecordsByField('foundation_zurb_dropdowncontent', 'tt_content', $row['uid'], 'AND hidden=0 AND deleted=0');
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table one_table">';
       $itemContent .= '<tbody>';

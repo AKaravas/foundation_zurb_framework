@@ -3,6 +3,8 @@ namespace Vendor\FoundationZurbFramework\Hooks\PageLayoutView;
 
 use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * Contains a preview rendering for the page module of CType="foundation_callout"
@@ -30,12 +32,67 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
    )
    {
 
-    $calloutTitle = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_callout', $row['callout_content_relation'], 'title');
-    $calloutSize = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_callout', $row['callout_content_relation'], 'size');
-    $calloutColor = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_callout', $row['callout_content_relation'], 'color');
-    $calloutClosable = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_callout', $row['callout_content_relation'], 'is_closable');
-    $calloutAnimationOut = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_callout', $row['callout_content_relation'], 'animation_out');
-    $calloutContainer = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('foundation_zurb_button', $row['callout_content_relation'], 'container');
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_callout');
+    $calloutTitle = $queryBuilder
+        ->select('title')
+        ->from('foundation_zurb_callout')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $calloutSize = $queryBuilder
+        ->select('size')
+        ->from('foundation_zurb_callout')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $calloutColor = $queryBuilder
+        ->select('color')
+        ->from('foundation_zurb_callout')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $calloutClosable = $queryBuilder
+        ->select('is_closable')
+        ->from('foundation_zurb_callout')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $calloutAnimationOut = $queryBuilder
+        ->select('animation_out')
+        ->from('foundation_zurb_callout')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
+    $calloutContainer = $queryBuilder
+        ->select('container')
+        ->from('foundation_zurb_callout')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchColumn(0);
 
       if ($row['CType'] === 'foundation_callout') {
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
@@ -43,12 +100,12 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $itemContent .= '<tbody>';
         $itemContent .= '<tr><th>Title</th><th>Size</th><th>Color</th><th>Animation</th><th>Closable</th><th>Container</th></tr>';
         $itemContent .= '<tr>';
-        $itemContent .= '<td> '. $calloutTitle['title'] .'</td>';
-        $itemContent .= ($calloutSize['size']==='' ? '<td> Normal</td>' : '<td>'.$calloutSize['size'].'</td>');
-        $itemContent .= '<td> '. $calloutColor['color'] .'</td>';
-        $itemContent .= ($calloutAnimationOut['animation_out']==='' ? '<td> fade-out</td>' : '<td>'.$calloutAnimationOut['animation_out'].'</td>');
-        $itemContent .= ($calloutClosable['is_closable']===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($calloutContainer['container']===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+        $itemContent .= '<td> '. $calloutTitle .'</td>';
+        $itemContent .= ($calloutSize ==='' ? '<td> Normal</td>' : '<td>'.$calloutSize.'</td>');
+        $itemContent .= '<td> '. $calloutColor .'</td>';
+        $itemContent .= ($calloutAnimationOut ==='' ? '<td> fade-out</td>' : '<td>'.$calloutAnimationOut .'</td>');
+        $itemContent .= ($calloutClosable ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+        $itemContent .= ($calloutContainer ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
         $itemContent .= '</tr>';
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';
