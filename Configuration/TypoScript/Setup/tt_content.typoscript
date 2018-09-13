@@ -1,8 +1,8 @@
 tt_content {
 	foundation_accordion < lib.contentElement
 	foundation_accordion {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Accordion.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -40,8 +40,8 @@ tt_content {
 	}
 	foundation_slider < lib.contentElement
 	foundation_slider {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Slider.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -79,8 +79,8 @@ tt_content {
 	}
 	foundation_tabs < lib.contentElement
 	foundation_tabs {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Tabs.html
 		
 		dataProcessing {
@@ -119,8 +119,8 @@ tt_content {
 	}
 	foundation_reveal < lib.contentElement
 	foundation_reveal {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Reveal.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -142,8 +142,8 @@ tt_content {
 	}
 	foundation_card < lib.contentElement
 	foundation_card {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Card.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -181,8 +181,8 @@ tt_content {
 	}
 	foundation_dropdown < lib.contentElement
 	foundation_dropdown {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Dropdown.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -204,8 +204,8 @@ tt_content {
 	}
 	foundation_button < lib.contentElement
 	foundation_button {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Button.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -220,8 +220,8 @@ tt_content {
 	}
 	foundation_group_button < lib.contentElement
 	foundation_group_button {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = ButtonGroup.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
@@ -252,8 +252,8 @@ tt_content {
 	}
 	foundation_callout < lib.contentElement
 	foundation_callout {
-		templateRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Templates/
-		partialRootPaths.300 = EXT:foundation_zurb_framework/Resources/Private/Partials/
+		templateRootPaths.10 = {$FoundationPrivate}/Templates/ContentElements/
+		partialRootPaths.10 = {$FoundationPrivate}/Partials/ContentElements/
 		templateName = Callout.html
 		dataProcessing {
 			330 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor

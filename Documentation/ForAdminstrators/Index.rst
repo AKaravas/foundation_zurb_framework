@@ -20,3 +20,4 @@ For administrators
 
 	Installation/Index
 	Templates/Index
+	Navigation/Index

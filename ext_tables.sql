@@ -1,3 +1,12 @@
+CREATE TABLE pages (
+	magellan_id varchar(255) DEFAULT '' NOT NULL,
+	magellan_offset int(11) unsigned DEFAULT '0' NOT NULL,
+	magellan_animation_time int(11) unsigned DEFAULT '0' NOT NULL,
+	nav_icon varchar(255) DEFAULT '' NOT NULL,
+	nav_image int(11) unsigned NOT NULL default '0',
+);
+
+
 CREATE TABLE tt_content (
 	slider_settings_relation int(11) unsigned DEFAULT '0',
 	accordion_settings_relation int(11) unsigned DEFAULT '0',

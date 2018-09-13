@@ -69,3 +69,10 @@ Attention
 For the foundation Button, the **expanded** classes are not yet implemeted with the Foundation Zurb 6.4.3 so if you really want to use it you should include the following CSS to your project:
 
 https://gist.github.com/rafibomb/2497ca75ceedfa3f5ccf3ba146eae295
+
+
+Include a navigation menu
+------------------
+
+The version 1.0.6 brings the Foundation Zurb responsive navigation. How you can use it:
+

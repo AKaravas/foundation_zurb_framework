@@ -1,3 +1,4 @@
-FoundationPublic = EXT:foundation_zurb_framework/Resources/Public/
-FoundationPublicRelative = /typo3conf/ext/foundation_zurb_framework/Resources/Public/
-FoundationPrivate = EXT:foundation_zurb_framework/Resources/Private/
+FoundationPublic = EXT:foundation_zurb_framework/Resources/Public
+FoundationPublicRelative = /typo3conf/ext/foundation_zurb_framework/Resources/Public
+FoundationPrivate = EXT:foundation_zurb_framework/Resources/Private
+

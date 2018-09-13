@@ -1,0 +1,97 @@
+<f:spaceless>
+    <div class="title-bar" data-responsive-toggle="responsive_nav" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="responsive_nav"></button>
+        <div class="title-bar-title">Menu</div>
+    </div>
+    <div id="responsive_nav" class="top-bar">
+        <div class="top-bar-left">
+            <a class="title_bar_logo" href="{f:uri.page(pageUid:1)}">
+                <f:image src="fileadmin/logo.svg" class="hide-for-small-only"/>
+            </a>
+        </div>
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <f:for each="{mainnavigation}" as="mainnavigationItem" iteration="i">
+                     <li class="{f:if(condition: mainnavigationItem.active, then:'active')} shrink">
+                        <a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}">
+                            <f:if condition="{mainnavigationItem.data.nav_icon} || {mainnavigationItem.data.nav_image}">
+                                <f:then>
+                                    <f:if condition="{mainnavigationItem.data.nav_icon}">
+                                        <f:then>
+                                            <i class="{mainnavigationItem.data.nav_icon}"></i> <span> {mainnavigationItem.title}</span>
+                                        </f:then>
+                                        <f:else>
+                                            <f:for each="{mainnavigationItem.files}" as="image">
+                                                <f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+                                                <span> {mainnavigationItem.title}</span>
+                                            </f:for>
+                                        </f:else>
+                                    </f:if>
+                                </f:then>
+                                <f:else>
+                                    {mainnavigationItem.title}
+                                </f:else>
+                            </f:if>
+                        </a>
+                        <f:if condition="{mainnavigationItem.children}">
+                            <ul class="menu vertical menu--level2">
+                                <f:for each="{mainnavigationItem.children}" as="child">
+                                    <li class="{f:if(condition: child.active, then:'active')}">
+                                        <a href="{child.link}" target="{child.target}" title="{child.title}">
+                                            <f:if condition="{child.data.nav_icon} || {child.data.nav_image}">
+                                                <f:then>
+                                                    <f:if condition="{child.data.nav_icon}">
+                                                        <f:then>
+                                                            <i class="{child.data.nav_icon}"></i> <span> {child.title}</span>
+                                                        </f:then>
+                                                        <f:else>
+                                                            <f:for each="{child.files}" as="image">
+                                                                <f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop" style="width:10%"/>
+                                                                 {child.title}
+                                                            </f:for>
+                                                        </f:else>
+                                                    </f:if>
+                                                </f:then>
+                                                <f:else>
+                                                    {child.title}
+                                                </f:else>
+                                            </f:if>
+                                        </a>
+                                        <f:if condition="{child.children}">
+                                            <ul class="menu vertical menu--level3">
+                                                <f:for each="{child.children}" as="child2">
+                                                    <li class="{f:if(condition: child2.active, then:'active')}">
+                                                        <a href="{child2.link}" target="{child2.target}" title="{child2.title}">
+                                                            <f:if condition="{child2.data.nav_icon} || {child2.data.nav_image}">
+                                                                <f:then>
+                                                                    <f:if condition="{child2.data.nav_icon}">
+                                                                        <f:then>
+                                                                            <i class="{child2.data.nav_icon}"></i> <span> {child2.title}</span>
+                                                                        </f:then>
+                                                                        <f:else>
+                                                                            <f:for each="{child2.files}" as="image">
+                                                                                <f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop" style="width:10%"/>
+                                                                                 {child2.title}
+                                                                            </f:for>
+                                                                        </f:else>
+                                                                    </f:if>
+                                                                </f:then>
+                                                                <f:else>
+                                                                    {child2.title}
+                                                                </f:else>
+                                                            </f:if>
+                                                        </a>
+                                                    </li>
+                                                </f:for>
+                                            </ul>
+                                        </f:if>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                     </li>
+                </f:for>
+            </ul>
+        </div>
+    </div>
+</f:spaceless>

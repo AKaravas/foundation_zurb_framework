@@ -1,0 +1,8 @@
+
+
+1.0.5 - 2018/09/07
+------------------
+
+::
+
+	* 2018-09-07 [FEATURE] Foundation Callout added (Commit: 9986b66)

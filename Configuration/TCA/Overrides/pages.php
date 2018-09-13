@@ -14,3 +14,5 @@ $_EXTKEY = $GLOBALS['_EXTKEY'] = 'foundation_zurb_framework';
     'Configuration/TSconfig/Page.typoscript',
     'Foundation Zurb - PageTS'
 );
+
+include 'General/Pages.php';

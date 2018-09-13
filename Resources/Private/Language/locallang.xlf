@@ -41,6 +41,30 @@
             <trans-unit id="foundation_is_closable" xml:space="preserve">
                 <source>Closable</source>
             </trans-unit>
+            <trans-unit id="magellan_id" xml:space="preserve">
+                <source>Magellan ID (example: #header)</source>
+            </trans-unit>
+            <trans-unit id="magellan" xml:space="preserve">
+                <source>Magellan Settings</source>
+            </trans-unit>
+            <trans-unit id="magellan_offset" xml:space="preserve">
+                <source>Magellan offset</source>
+            </trans-unit>
+            <trans-unit id="magellan_animation_time" xml:space="preserve">
+                <source>Magellan animation time</source>
+            </trans-unit>
+            <trans-unit id="foundation_general" xml:space="preserve">
+                <source>Foundation</source>
+            </trans-unit>
+            <trans-unit id="menu_icons" xml:space="preserve">
+                <source>Icons / Images</source>
+            </trans-unit>
+            <trans-unit id="nav_icon" xml:space="preserve">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="nav_image" xml:space="preserve">
+                <source>Image</source>
+            </trans-unit>
 
             <!--Foundation Zurb Viewports-->
             <trans-unit id="foundation_viewport_small_size" xml:space="preserve">
