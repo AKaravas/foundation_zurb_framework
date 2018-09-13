@@ -1,0 +1,8 @@
+
+
+1.0.5 - 2018/09/13
+------------------
+
+::
+
+	* 2018-09-13 [FEATURE] Foundation Responsive Navigation added (Commit: 69cf339)

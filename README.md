@@ -76,3 +76,5 @@ Include a navigation menu
 
 The version 1.0.6 brings the Foundation Zurb responsive navigation. How you can use it:
 
+https://github.com/AKaravas/foundation_zurb_framework/blob/master/Documentation/ForAdminstrators/Navigation/Index.rst
+

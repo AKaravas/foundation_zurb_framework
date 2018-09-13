@@ -16,7 +16,9 @@ Please use https://stackoverflow.com to get best support. Tags you should use ar
 
 Slack
 -----
-Later on, a slack channel will be created. I first need to find the time to do so.
+Find the new channel here:
+
+https://typo3.slack.com/messages/CCN525Q66/
 
 .. note::
 
