@@ -13,6 +13,34 @@ $magelan = array(
       'max' => 255
     ),
   ),
+  'magellan_animation_easing' => [
+    'exclude' => true,
+    'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:magellan_animation_easing',
+    'config' => [
+      'type' => 'select',
+      'renderType' => 'selectSingle',
+      'items' => [
+          ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animation_easing_linear', 'linear'],
+          ['LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animation_easing_swing', 'swing'],
+      ],
+      'size' => 1,
+      'maxitems' => 1,
+      'eval' => '',
+    ]
+  ],
+  'magellan_deep_linking' => [
+      'exclude' => true,
+      'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:magellan_deep_linking',
+      'config' => [
+          'type' => 'check',
+          'items' => [
+              '1' => [
+                  '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+              ]
+          ],
+          'default' => 0,
+      ]       
+  ],
   'magellan_offset' => array(
     'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:magellan_offset',
     'exclude' => 1,
@@ -89,12 +117,17 @@ $magelan = array(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $magelan);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
   'pages', // Table name
-  '--div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_general, --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:magellan;magellan, --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:menu_icons;menu_icons',
+  '--div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_general, --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:magellan;magellan,
+    --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:magellan_animation;magellan_animation,
+    --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:menu_icons;menu_icons',
   '1'
 );
 
 $GLOBALS['TCA']['pages']['palettes']['magellan'] = array(
-  'showitem' => 'magellan_id, magellan_offset, magellan_animation_time',
+  'showitem' => 'magellan_id, magellan_offset, magellan_deep_linking',
+);
+$GLOBALS['TCA']['pages']['palettes']['magellan_animation'] = array(
+  'showitem' => 'magellan_animation_time, magellan_animation_easing',
 );
 $GLOBALS['TCA']['pages']['palettes']['menu_icons'] = array(
   'showitem' => 'nav_icon, nav_image',

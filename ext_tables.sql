@@ -2,6 +2,8 @@ CREATE TABLE pages (
 	magellan_id varchar(255) DEFAULT '' NOT NULL,
 	magellan_offset int(11) unsigned DEFAULT '0' NOT NULL,
 	magellan_animation_time int(11) unsigned DEFAULT '0' NOT NULL,
+	magellan_animation_easing varchar(255) DEFAULT '' NOT NULL,
+	magellan_deep_linking smallint(5) unsigned DEFAULT '0' NOT NULL,
 	nav_icon varchar(255) DEFAULT '' NOT NULL,
 	nav_image int(11) unsigned NOT NULL default '0',
 );

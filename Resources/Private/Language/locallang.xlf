@@ -65,6 +65,15 @@
             <trans-unit id="nav_image" xml:space="preserve">
                 <source>Image</source>
             </trans-unit>
+            <trans-unit id="magellan_animation_easing" xml:space="preserve">
+                <source>Magellan anim-easing</source>
+            </trans-unit>
+            <trans-unit id="magellan_deep_linking" xml:space="preserve">
+                <source>Enable magellan deep linking</source>
+            </trans-unit>
+            <trans-unit id="magellan_animation" xml:space="preserve">
+                <source>Magellan animations</source>
+            </trans-unit>
 
             <!--Foundation Zurb Viewports-->
             <trans-unit id="foundation_viewport_small_size" xml:space="preserve">
@@ -626,6 +635,12 @@
             </trans-unit>
             <trans-unit id="foundation_fast" xml:space="preserve">
                 <source>Fast</source>
+            </trans-unit>
+            <trans-unit id="foundation_animation_easing_linear" xml:space="preserve">
+                <source>Linear</source>
+            </trans-unit>
+            <trans-unit id="foundation_animation_easing_swing" xml:space="preserve">
+                <source>Swing</source>
             </trans-unit>
         </body>
     </file>

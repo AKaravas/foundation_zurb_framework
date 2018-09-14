@@ -61,8 +61,16 @@ You first need some small TypoScript. The TypoScript after the dataProcessing ha
 Copying the template:
 ----------------------
 
+**Foundation Zurb responsive navigation menu**
+
 Copy the **foundation_zurb_framework/Resources/Private/Partials/Menu/ResponsiveNavigation.html** on your extenstion
 and include it on your template. You can edited however you want.
+
+**Foundation Zurb magellan navigation menu**
+
+Copy the **foundation_zurb_framework/Resources/Private/Partials/Menu/MagellanNavigation.html** on your extenstion
+and include it on your template. You can edited however you want.
+
 
 .. _icons:
 
@@ -78,8 +86,11 @@ When the configuration and the copying is done:
 4. On the icon field, insert the full class of your element. (Example: fab fa-apple)
 
 
-IMPORTANT
+Magellan Settings
 ----------------------
 
-On the **Foundation Tab** you will find some magellan settings. They are not yet implemented. They will be soon though.
+1. Create the pages on the tree page.
+2. Once this is done, switch to the **page properties**
+3. On the **Foundation** tab you ll find the **Magellan Settings** and in the **magellan ID** put the archor name that it links to.
+4. If you are on the **root** page you can configure the rest of the magellan settings. **These settings will not be applied if they are configured on pages other than the root**
    

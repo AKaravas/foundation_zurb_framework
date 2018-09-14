@@ -1,0 +1,45 @@
+<f:spaceless>
+    <div class="sticky">
+        <div class="title-bar" data-responsive-toggle="magellan_nav" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="magellan_nav"></button>
+            <div class="title-bar-title">Menu</div>
+        </div>
+    </div>
+    <div data-sticky-container>
+      <div class="top-bar" data-sticky id="magellan_nav" data-margin-top="0">
+        <div class="top-bar-left">
+          <a class="title_bar_logo" href="{f:uri.page(pageUid:1)}">
+                <f:image src="fileadmin/logo.svg" class="hide-for-small-only"/>
+            </a>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu" data-magellan data-animation-duration="{data.magellan_animation_time}" data-offset="{data.magellan_offset}" data-active-class="active" data-animation-easing="{data.magellan_animation_easing}" {f:if(condition: data.magellan_deep_linking, then:'data-deep-linking=\'true\'')}>
+             <f:for each="{mainnavigation}" as="mainnavigationItem" iteration="i">
+                <li>
+                    <a href="#{mainnavigationItem.data.magellan_id}" title="{mainnavigationItem.title}">
+                        <f:if condition="{mainnavigationItem.data.nav_icon} || {mainnavigationItem.data.nav_image}">
+                            <f:then>
+                                <f:if condition="{mainnavigationItem.data.nav_icon}">
+                                    <f:then>
+                                        <i class="{mainnavigationItem.data.nav_icon}"></i> <span> {mainnavigationItem.title}</span>
+                                    </f:then>
+                                    <f:else>
+                                        <f:for each="{mainnavigationItem.files}" as="image">
+                                            <f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+                                            <span> {mainnavigationItem.title}</span>
+                                        </f:for>
+                                    </f:else>
+                                </f:if>
+                            </f:then>
+                            <f:else>
+                                {mainnavigationItem.title}
+                            </f:else>
+                        </f:if>
+                    </a>
+                </li>
+             </f:for>
+          </ul>
+        </div>
+      </div>
+    </div>
+</f:spaceless>
