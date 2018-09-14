@@ -22,38 +22,45 @@ This walkthrough will help you to implement a menu on your website
 TypoScript
 ------------------
 
-You first need some small TypoScript. The TypoScript after the dataProcessing has to be identical. A simple example:
+You first need some small TypoScript. The TypoScript after the dataProcessing has to be identical (except the 7000 etc). A simple example:
 
   .. code-block:: typoscript 
 
       page = PAGE
       page {
-          10 = FLUIDTEMPLATE
-          10 {
-              template = FILE
-              template.file = EXT:yourExtension/Resources/Private/Templates/index.html
-              partialRootPath = EXT:yourExtension/Resources/Private/Partials/
-              layoutRootPath =  EXT:yourExtension/Resources/Private/Layouts/
-              variables {
-                  ContentElement10 < styles.content.get
-                  ContentElement10.select.where = colPos=10
-              }
-              dataProcessing {
-                  100 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-                  100 {
-                      levels = 3
-                      includeSpacer = 1
-                      as = mainnavigation
-                      entryLevel = 0
-                      dataProcessing {
-                          10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                          10 {
-                              references.fieldName = nav_image
-                          }
-                      }
-                  }
-              }
+        10 = FLUIDTEMPLATE
+        10 {
+          template = FILE
+          template.file = EXT:yourExtension/Resources/Private/Templates/index.html
+          partialRootPath = EXT:yourExtension/Resources/Private/Partials/
+          layoutRootPath =  EXT:yourExtension/Resources/Private/Layouts/
+          variables {
+              ContentElement10 < styles.content.get
+              ContentElement10.select.where = colPos=10
           }
+          dataProcessing {
+            7000 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            7000 {
+                levels = 3
+                includeSpacer = 1
+                as = mainnavigation
+                entryLevel = 0
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_image
+                    }
+                }
+            }
+            7010 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            7010 {
+              special = rootline
+              special.range = 0|-1
+              includeNotInMenu = 1
+              as = menuBreadcrumb
+            }
+          }
+        }
       }
 
 .. _menuTemplate:
