@@ -2,7 +2,6 @@
     <nav aria-label="You are here:" role="navigation">
         <ul class="breadcrumbs">
             <f:for each="{menuBreadcrumb}" as="menuItem">
-            <f:Debug>{menuItem}</f:Debug>
              <f:if condition="{menuItem.current} != 1">
                 <f:then>
                     <li><a href="{menuItem.link}">{menuItem.title}</a></li>
