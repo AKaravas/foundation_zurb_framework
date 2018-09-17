@@ -31,77 +31,28 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       array &$row
    )
    {
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_buttongroupsettings');
-    $buttonGroupSize = $queryBuilder
-            ->select('size')
-            ->from('foundation_zurb_buttongroupsettings')
-            ->where( 
-              $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute()
-           ->fetchColumn(0);
-      $buttonGroupColor = $queryBuilder
-            ->select('color')
-            ->from('foundation_zurb_buttongroupsettings')
-            ->where( 
-              $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute()
-           ->fetchColumn(0);
-      $buttonGroupStacked = $queryBuilder
-            ->select('stacked')
-            ->from('foundation_zurb_buttongroupsettings')
-            ->where( 
-              $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute()
-           ->fetchColumn(0);
-      $buttonGroupExpanded = $queryBuilder
-            ->select('expanded')
-            ->from('foundation_zurb_buttongroupsettings')
-            ->where( 
-              $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute()
-           ->fetchColumn(0);
-      $buttonGroupContainer = $queryBuilder
-            ->select('container')
-            ->from('foundation_zurb_buttongroupsettings')
-            ->where( 
-              $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute()
-           ->fetchColumn(0);
-      $buttonGroupAlignment = $queryBuilder
-            ->select('position')
-            ->from('foundation_zurb_buttongroupsettings')
-            ->where( 
-              $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-              $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute()
-           ->fetchColumn(0);
-
       if ($row['CType'] === 'foundation_group_button') {
+
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_buttongroupsettings');
+        $groupButtonSettings = $queryBuilder
+          ->select('position', 'container', 'expanded', 'stacked', 'color', 'size')
+          ->from('foundation_zurb_buttongroupsettings')
+          ->where( 
+            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
+            $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+            $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
         $itemContent .= '<table class="foundation_table one_table">';
         $itemContent .= '<tbody>';
         $itemContent .= '<tr><th>Size</th><th>Color</th><th>Stacked</th></tr>';
         $itemContent .= '<tr>';
-        $itemContent .= ($buttonGroupSize ==='' ? '<td> Normal</td>' : '<td>'.$buttonGroupSize.'</td>');
-        $itemContent .= ($buttonGroupColor ==='' ? '<td> Normal</td>' : '<td>'.$buttonGroupColor.'</td>');
-        $itemContent .= ($buttonGroupExpanded ==='' ? '<td>'.$buttonGroupExpanded.'</td>' : '<td> &#10008;</td>');
+        $itemContent .= ($groupButtonSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$groupButtonSettings[0]['size'].'</td>');
+        $itemContent .= ($groupButtonSettings[0]['color'] ==='' ? '<td> Normal</td>' : '<td>'.$groupButtonSettings[0]['color'].'</td>');
+        $itemContent .= ($groupButtonSettings[0]['expanded'] ==='' ? '<td>'.$groupButtonSettings[0]['expanded'].'</td>' : '<td> &#10008;</td>');
         $itemContent .= '</tr>';
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';
@@ -110,8 +61,8 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $itemContent .= '<tbody>';
         $itemContent .= '<tr><th>Container</th><th>Align</th>';
         $itemContent .= '<tr>';
-        $itemContent .= ($buttonGroupContainer ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($buttonGroupContainer !=1 ? '<td>Container not active</td>' : ($buttonGroupAlignment === '' ? '<td> align-left</td>' : '<td>'.$buttonGroupAlignment.'</td>'));
+        $itemContent .= ($groupButtonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+        $itemContent .= ($groupButtonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($groupButtonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$groupButtonSettings[0]['position'].'</td>'));
         $itemContent .= '</tr>';
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';

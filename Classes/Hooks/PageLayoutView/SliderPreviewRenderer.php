@@ -31,166 +31,47 @@ class SliderPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       array &$row
    )
    {
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_slidersettings');
-    $sliderHideArrow = $queryBuilder
-        ->select('hide_arrows')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderHideBullets = $queryBuilder
-        ->select('hide_bullets')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderAutoPlay = $queryBuilder
-        ->select('auto_play')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderInfiniteWrap = $queryBuilder
-        ->select('infinite_wrap')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderSwipe = $queryBuilder
-        ->select('swipe')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderPauseOnHover = $queryBuilder
-        ->select('pause_on_hover')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderAccess = $queryBuilder
-        ->select('accessible_buttons')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderMui = $queryBuilder
-        ->select('use_m_u_i')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderInLeft = $queryBuilder
-        ->select('slide_direction_in_left')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderOutLeft = $queryBuilder
-        ->select('slide_direction_out_left')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderOutRight = $queryBuilder
-        ->select('slide_direction_out_right')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderInRight = $queryBuilder
-        ->select('slide_direction_in_right')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $sliderTimerDelay = $queryBuilder
-        ->select('timer_delay')
-        ->from('foundation_zurb_slidersettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    
     if ($row['CType'] === 'foundation_slider') {
+
+      $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_slidersettings');
+      $sliderSettings = $queryBuilder
+        ->select('hide_arrows', 'hide_bullets', 'auto_play', 'infinite_wrap', 'swipe', 'pause_on_hover', 'timer_delay', 'slide_direction_in_right', 'slide_direction_out_right', 'slide_direction_out_left', 'slide_direction_in_left', 'use_m_u_i', 'accessible_buttons')
+        ->from('foundation_zurb_slidersettings')
+        ->where( 
+          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table">';
       $itemContent .= '<tbody>';
-      $itemContent .= ($sliderHideArrow ===1 ? '<tr><th>Hide arrows</th> <td> &#10004;</td>' : '<tr><th>Hide arrows</th> <td> &#10008;</td>');
-      $itemContent .= ($sliderHideBullets ===1 ? '<th>Hide bullets</th> <td> &#10004;</td></tr>' : '<th>Hide bullets</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($sliderAutoPlay ===1 ? '<tr><th>Disable auto play</th> <td> &#10004;</td>' : '<tr><th>Disable auto play</th> <td> &#10008;</td>');
-      $itemContent .= ($sliderInfiniteWrap ===1 ? '<th>Disable infinite wrap</th> <td> &#10004;</td></tr>' : '<th>Disable infinite wrap</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($sliderSwipe ===1 ? '<tr><th>Disable swipe</th> <td> &#10004;</td>' : '<tr><th>Disable swipe</th> <td> &#10008;</td>');
-      $itemContent .= ($sliderPauseOnHover ===1 ? '<th>Disable pause on hover</th> <td> &#10004;</td></tr>' : '<th>Disable pause on hover</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($sliderAccess ===1 ? '<tr><th>Disable keyboard navigation</th> <td> &#10004;</td>' : '<tr><th>Disable keyboard navigation</th> <td> &#10008;</td>');
-      $itemContent .= ($sliderMui ===1 ? '<th>Disable MUI</th> <td> &#10004;</td></tr>' : '<th>Disable MUI</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($sliderSettings[0]['hide_arrows'] ===1 ? '<tr><th>Hide arrows</th> <td> &#10004;</td>' : '<tr><th>Hide arrows</th> <td> &#10008;</td>');
+      $itemContent .= ($sliderSettings[0]['hide_bullets'] ===1 ? '<th>Hide bullets</th> <td> &#10004;</td></tr>' : '<th>Hide bullets</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($sliderSettings[0]['auto_play'] ===1 ? '<tr><th>Disable auto play</th> <td> &#10004;</td>' : '<tr><th>Disable auto play</th> <td> &#10008;</td>');
+      $itemContent .= ($sliderSettings[0]['infinite_wrap'] ===1 ? '<th>Disable infinite wrap</th> <td> &#10004;</td></tr>' : '<th>Disable infinite wrap</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($sliderSettings[0]['swipe'] ===1 ? '<tr><th>Disable swipe</th> <td> &#10004;</td>' : '<tr><th>Disable swipe</th> <td> &#10008;</td>');
+      $itemContent .= ($sliderSettings[0]['pause_on_hover'] ===1 ? '<th>Disable pause on hover</th> <td> &#10004;</td></tr>' : '<th>Disable pause on hover</th> <td> &#10008;</td></tr>');
+      $itemContent .= ($sliderSettings[0]['accessible_buttons'] ===1 ? '<tr><th>Disable keyboard navigation</th> <td> &#10004;</td>' : '<tr><th>Disable keyboard navigation</th> <td> &#10008;</td>');
+      $itemContent .= ($sliderSettings[0]['use_m_u_i'] ===1 ? '<th>Disable MUI</th> <td> &#10004;</td></tr>' : '<th>Disable MUI</th> <td> &#10008;</td></tr>');
       $itemContent .= '</tbody>';
       $itemContent .= '</table>';
       $itemContent .= '<strong class="foundation_subtitle">Animations</strong>';
       $itemContent .= '<table class="foundation_table">';
         $itemContent .= '<tbody>';
-          $itemContent .= '<tr><th>Animation in left</th> <td> '.$sliderInLeft .'</td>';
-          $itemContent .= '<th>Animation out left</th> <td>'.$sliderOutLeft .'</td></tr>';
-          $itemContent .= '<tr><th>Animation in right</th> <td> '.$sliderInRight .'</td>';
-          $itemContent .= '<th>Animation out right</th> <td>'.$sliderOutRight .'</td></tr>';
+          $itemContent .= '<tr><th>Animation in left</th> <td> '.$sliderSettings[0]['slide_direction_in_left'].'</td>';
+          $itemContent .= '<th>Animation out left</th> <td>'.$sliderSettings[0]['slide_direction_out_left'] .'</td></tr>';
+          $itemContent .= '<tr><th>Animation in right</th> <td> '.$sliderSettings[0]['slide_direction_in_right'] .'</td>';
+          $itemContent .= '<th>Animation out right</th> <td>'.$sliderSettings[0]['slide_direction_out_right'] .'</td></tr>';
         $itemContent .= '</tbody>';
       $itemContent .= '</table>';
       
       $itemContent .= '<strong class="foundation_subtitle">Timings</strong>';
       $itemContent .= '<table class="foundation_table">';
       $itemContent .= '<tbody>';
-      $itemContent .= '<tr><th>Timer Delay in ms</th> <td> '.$sliderTimerDelay .'</td></tr>';
+      $itemContent .= '<tr><th>Timer Delay in ms</th> <td> '.$sliderSettings[0]['timer_delay'] .'</td></tr>';
       $itemContent .= '</tbody>';
       $itemContent .= '</table>';
       $drawItem = false;

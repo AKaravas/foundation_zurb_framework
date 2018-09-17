@@ -32,80 +32,32 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
    )
    {
 
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_callout');
-    $calloutTitle = $queryBuilder
-        ->select('title')
-        ->from('foundation_zurb_callout')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $calloutSize = $queryBuilder
-        ->select('size')
-        ->from('foundation_zurb_callout')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $calloutColor = $queryBuilder
-        ->select('color')
-        ->from('foundation_zurb_callout')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $calloutClosable = $queryBuilder
-        ->select('is_closable')
-        ->from('foundation_zurb_callout')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $calloutAnimationOut = $queryBuilder
-        ->select('animation_out')
-        ->from('foundation_zurb_callout')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $calloutContainer = $queryBuilder
-        ->select('container')
-        ->from('foundation_zurb_callout')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
 
       if ($row['CType'] === 'foundation_callout') {
+
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_callout');
+        $calloutSettings = $queryBuilder
+          ->select('container', 'animation_out', 'is_closable', 'size', 'title', 'color')
+          ->from('foundation_zurb_callout')
+          ->where( 
+            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
+            $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+            $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
         $itemContent .= '<table class="foundation_table one_table">';
         $itemContent .= '<tbody>';
         $itemContent .= '<tr><th>Title</th><th>Size</th><th>Color</th><th>Animation</th><th>Closable</th><th>Container</th></tr>';
         $itemContent .= '<tr>';
-        $itemContent .= '<td> '. $calloutTitle .'</td>';
-        $itemContent .= ($calloutSize ==='' ? '<td> Normal</td>' : '<td>'.$calloutSize.'</td>');
-        $itemContent .= '<td> '. $calloutColor .'</td>';
-        $itemContent .= ($calloutAnimationOut ==='' ? '<td> fade-out</td>' : '<td>'.$calloutAnimationOut .'</td>');
-        $itemContent .= ($calloutClosable ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($calloutContainer ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+        $itemContent .= '<td> '. $calloutSettings[0]['title'] .'</td>';
+        $itemContent .= ($calloutSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$calloutSettings[0]['size'].'</td>');
+        $itemContent .= '<td> '. $calloutSettings[0]['color'] .'</td>';
+        $itemContent .= ($calloutSettings[0]['animation_out'] ==='' ? '<td> fade-out</td>' : '<td>'.$calloutSettings[0]['animation_out'] .'</td>');
+        $itemContent .= ($calloutSettings[0]['is_closable'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+        $itemContent .= ($calloutSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
         $itemContent .= '</tr>';
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';

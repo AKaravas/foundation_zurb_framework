@@ -31,62 +31,33 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       array &$row
    )
    {
-
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardsettings');
-    $removeContainer = $queryBuilder
-        ->select('use_container')
-        ->from('foundation_zurb_cardsettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $smallItems = $queryBuilder
-        ->select('small_items')
-        ->from('foundation_zurb_cardsettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $mediumItems = $queryBuilder
-        ->select('medium_items')
-        ->from('foundation_zurb_cardsettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
-    $largeItems = $queryBuilder
-        ->select('large_items')
-        ->from('foundation_zurb_cardsettings')
-        ->where( 
-          $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchColumn(0);
     
       if ($row['CType'] === 'foundation_card') {
+
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardsettings');
+        $cardSettings = $queryBuilder
+          ->select('large_items', 'medium_items', 'small_items', 'use_container')
+          ->from('foundation_zurb_cardsettings')
+          ->where( 
+            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
+            $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+            $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
         $itemContent .= '<table class="foundation_table">';
         $itemContent .= '<tbody>';
-        $itemContent .= '<tr><th>Items on small</th> <td> '. $smallItems .'</td></tr>';
-        $itemContent .= '<tr><th>Items on medium</th> <td> '. $mediumItems .'</td></tr>';
-        $itemContent .= '<tr><th>Items on large</th> <td> '. $largeItems .'</td></tr>';
+        $itemContent .= '<tr><th>Items on small</th> <td> '. $cardSettings[0]['small_items'] .'</td></tr>';
+        $itemContent .= '<tr><th>Items on medium</th> <td> '. $cardSettings[0]['medium_items']  .'</td></tr>';
+        $itemContent .= '<tr><th>Items on large</th> <td> '. $cardSettings[0]['large_items'] .'</td></tr>';
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $itemContent .= '<strong class="foundation_subtitle">Card container</strong>';
         $itemContent .= '<table class="foundation_table">';
         $itemContent .= '<tbody>';
-        $itemContent .= ($removeContainer===1 ? '<th>Remove container</th> <td> &#10004;</td></tr>' : '<th>Remove container</th> <td> &#10008;</td></tr>');
+        $itemContent .= ($cardSettings[0]['use_container']===1 ? '<th>Remove container</th> <td> &#10004;</td></tr>' : '<th>Remove container</th> <td> &#10008;</td></tr>');
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $drawItem = false;

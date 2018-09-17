@@ -32,17 +32,18 @@ class DropdownPreviewRenderer implements PageLayoutViewDrawItemHookInterface
    )
    {
 
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_dropdowncontent');
-    $dropDownInfos = $queryBuilder
-           ->select('*')
-           ->from('foundation_zurb_dropdowncontent')
-           ->where(
-               $queryBuilder->expr()->eq('tt_content', $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)),
-               $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-               $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-           )
-           ->execute();
     if ($row['CType'] === 'foundation_dropdown') {
+
+      $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_dropdowncontent');
+      $dropDownInfos = $queryBuilder
+        ->select('*')
+        ->from('foundation_zurb_dropdowncontent')
+        ->where(
+          $queryBuilder->expr()->eq('tt_content', $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+          $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+       )
+       ->execute();
       
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table one_table">';
