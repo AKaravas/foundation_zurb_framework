@@ -70,7 +70,7 @@ Copying the template:
 
 **Foundation Zurb responsive navigation menu**
 
-Copy the **foundation_zurb_framework/Resources/Private/Partials/Menu/ResponsiveNavigation.html** on your extenstion
+Copy the **foundation_zurb_framework/Resources/Private/Partials/Menu/ResponsiveNavigation.html** on your extension
 and include it on your template. You can edited however you want.
 
 **Foundation Zurb magellan navigation menu**

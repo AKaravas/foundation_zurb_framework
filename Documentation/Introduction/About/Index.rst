@@ -10,7 +10,7 @@
 What does it do?
 ================
 
-Normally you would have to use another Extension to create your own content elements and apply frameworks on them. Now, with the foundation_zurb_framework extenstion, the content elements are already created for you and all you have to do is to add them on your website. 
+Normally you would have to use another Extension to create your own content elements and apply frameworks on them. Now, with the foundation_zurb_framework extension, the content elements are already created for you and all you have to do is to add them on your website. 
 You can also edit the Templates if you want. 
 The content elements are inspired from `Foundation Zurb <https://foundation.zurb.com/>`_
 
