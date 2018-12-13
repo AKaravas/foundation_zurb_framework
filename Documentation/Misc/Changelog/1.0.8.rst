@@ -1,0 +1,8 @@
+
+
+1.0.8 - 2018/09/14
+------------------
+
+::
+
+	* 2018-09-14 [FEATURE] Foundation Breadcrumb Navigation added (Commit: b3f28a3)

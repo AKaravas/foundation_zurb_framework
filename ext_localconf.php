@@ -11,10 +11,6 @@ defined('TYPO3_MODE') or die();
     [global]
 ');
 
-/***************
- * Add RTE configuration
- */
-$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['seitenameDefault'] = 'EXT:' . $_EXTKEY . '/Configuration/RTE/Default.yaml';
 
 // Register for hook to show preview of tt_content element of CType="foundation_slider" in page module
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['foundation_slider'] = \Vendor\FoundationZurbFramework\Hooks\PageLayoutView\SliderPreviewRenderer::class;

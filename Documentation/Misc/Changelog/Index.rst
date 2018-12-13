@@ -20,6 +20,11 @@ List of versions
    :titlesonly:
    :glob:
 
+   9.0.2
+   9.0.1
+   9.0.0
+   1.0.8
+   1.0.7
    1.0.6
    1.0.5
    1.0.4

@@ -1,0 +1,8 @@
+
+
+9.0.1 - 2018/10/08
+------------------
+
+::
+
+	* 2018-10-01 [COMPATIBILITY] Compatibility with typo3 v9.5.x (Commit: 6cb27d8)

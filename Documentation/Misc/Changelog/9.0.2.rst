@@ -1,0 +1,10 @@
+
+
+9.0.2 - 2018/12/13
+------------------
+
+::
+
+	* 2018-10-11 [VERSIONING] Version changed to 9.0.2
+	* 2018-10-11 [DOC] Spelling correction thanks to @TehTux (Commit: e5ddbb3)
+	* 2018-10-11 [DOC] Spelling correction thanks to @TehTux (Commit: ab9d109)

@@ -1,0 +1,8 @@
+
+
+1.0.7 - 2018/09/14
+------------------
+
+::
+
+	* 2018-09-14 [FEATURE] Foundation Magellan Navigation added (Commit: 21b4384)

@@ -1,0 +1,10 @@
+
+
+9.0.0 - 2018/10/01
+------------------
+
+::
+
+	* 2018-10-01 [COMPATIBILITY] Compatibility with typo3 v9.4.0 (Commit: d3fded)
+	* 2018-10-01 [MIGRATION] Migration on TCA from "foreign_tables" to "overrideChildTca" (Commit: d16dbe3)
+	* 2018-09-17 Connection with ConnectioPool happens now only once, retrieving all the data with one request (Commit: f0872e6)

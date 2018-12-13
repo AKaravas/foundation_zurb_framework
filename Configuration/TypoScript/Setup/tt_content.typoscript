@@ -24,6 +24,7 @@ tt_content {
 						where.field = uid
 						where.intval = 1
 						where.dataWrap = foundation_zurb_accordionsettings = |
+						orderBy = sorting
 
 						as = accordionContents
 						dataProcessing {
@@ -63,6 +64,7 @@ tt_content {
 						where.field = uid
 						where.intval = 1
 						where.dataWrap = foundation_zurb_slidersettings = |
+						orderBy = sorting
 
 						as = sliderContents
 						dataProcessing {
@@ -103,6 +105,7 @@ tt_content {
 						where.field = uid
 						where.intval = 1
 						where.dataWrap = foundation_zurb_tabssettings = |
+						orderBy = sorting
 
 						as = tabsContents
 						dataProcessing {
@@ -129,6 +132,7 @@ tt_content {
 				pidInList = this
 				where.field = uid 
 				where.dataWrap = tt_content = |
+				orderBy = sorting
 				as = revealContent
 				dataProcessing {
 					370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
@@ -165,6 +169,7 @@ tt_content {
 						where.field = uid
 						where.intval = 1
 						where.dataWrap = foundation_zurb_cardsettings = |
+						orderBy = sorting
 
 						as = cardContents
 						dataProcessing {
@@ -191,6 +196,7 @@ tt_content {
 				pidInList = this
 				where.field = uid 
 				where.dataWrap = tt_content = |
+				orderBy = sorting
 				as = dropdownContent
 				dataProcessing {
 					370 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
@@ -243,6 +249,7 @@ tt_content {
 						where.field = uid
 						where.intval = 1
 						where.dataWrap = foundation_zurb_buttongroupsettings = |
+						orderBy = sorting
 
 						as = buttonGroupContents
 					}
