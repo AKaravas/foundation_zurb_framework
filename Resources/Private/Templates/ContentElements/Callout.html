@@ -9,11 +9,14 @@ data-namespace-typo3-fluid="true">
 						<f:if condition="{calloutContent.0.data.is_closable}">
 							<f:then>
 								<div class="callout {calloutContent.0.data.color} {calloutContent.0.data.size}" data-closable="{calloutContent.0.data.animation_out}">
-								  <h5>{calloutContent.0.data.title}</h5>
-								  <f:format.html>{calloutContent.0.data.text}</f:format.html>
-								  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+								  	<h5>{calloutContent.0.data.title}</h5>
+								  	<f:format.html>{calloutContent.0.data.text}</f:format.html>
+								  	<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
 								    <span aria-hidden="true">&times;</span>
-								  </button>
+								  	</button>
+								  	<f:for each="{calloutContent.0.images}" as="image">
+										<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+									</f:for>
 								</div>
 							</f:then>
 							<f:else>
@@ -21,6 +24,9 @@ data-namespace-typo3-fluid="true">
 								  <h5>{calloutContent.0.data.title}</h5>
 								  <f:format.html>{calloutContent.0.data.text}</f:format.html>
 								</div>
+								<f:for each="{calloutContent.0.images}" as="image">
+										<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+								</f:for>
 							</f:else>
 						</f:if>
 					</div>
@@ -37,12 +43,18 @@ data-namespace-typo3-fluid="true">
 					    <span aria-hidden="true">&times;</span>
 					  </button>
 					</div>
+					<f:for each="{calloutContent.0.images}" as="image">
+						<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+					</f:for>
 				</f:then>
 				<f:else>
 					<div class="callout {calloutContent.0.data.color} {calloutContent.0.data.size}">
 					  <h5>{calloutContent.0.data.title}</h5>
 					  <f:format.html>{calloutContent.0.data.text}</f:format.html>
 					</div>
+					<f:for each="{calloutContent.0.images}" as="image">
+						<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+					</f:for>
 				</f:else>
 			</f:if>
 		</f:else>

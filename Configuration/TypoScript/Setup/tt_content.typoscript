@@ -270,6 +270,13 @@ tt_content {
 				where = uid=
 				where.dataWrap = |{field:callout_content_relation}
 				as = calloutContent
+				dataProcessing {
+					350 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+					350 {
+						references.fieldName = files
+						as = images
+					}
+				}
 			}
 		}
 	}

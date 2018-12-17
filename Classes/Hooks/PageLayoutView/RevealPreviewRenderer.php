@@ -46,9 +46,12 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table one_table">';
       $itemContent .= '<tbody>';
-      $itemContent .= '<tr><th>Title</th><th>Size</th><th>Dis. Overlay</th><th>Reset on close</th><th>Animation In</th><th>Animation out</th></tr>';
+      $itemContent .= '<tr><th class="listing"></th><th>Title</th><th>Size</th><th>Dis. Overlay</th><th>Reset on close</th><th>Animation In</th><th>Animation out</th></tr>';
+      $listNumber = 0;
       foreach ($revealInfos as $reveal) {
+        $listNumber++;
         $itemContent .= '<tr>';
+        $itemContent .= '<td>'.$listNumber .'.</td>';
         $itemContent .= '<td>'.$reveal['title'].'</td>';
         $itemContent .= '<td>'.$reveal['size'].'</td>';
         $itemContent .= '<td>'.($reveal['no_overlay']===1 ? '&#10004; </td>' : '&#10008; </td>');

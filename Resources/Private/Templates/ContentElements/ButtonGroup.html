@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 data-namespace-typo3-fluid="true">
-<f:variable name="aligned" value="<f:if condition='{buttonContent.0.data.small_size} != \' \' || {buttonContent.0.data.medium_size} != \' \' ||{buttonContent.0.data.large_size}!= \' \''><f:then></f:then><f:else>shrink</f:else></f:if>"/>
+<f:variable name="aligned" value="<f:if condition='{buttonGroupSettings.0.data.position} == \'\''><f:then></f:then><f:else>shrink</f:else></f:if>"/>
 	<f:if condition="{buttonGroupSettings.0.data.container}">
 		<f:then>
 			<div class="grid-container">

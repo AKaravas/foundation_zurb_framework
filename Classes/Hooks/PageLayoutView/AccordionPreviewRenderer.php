@@ -36,7 +36,7 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_accordionsettings');
         $accordionSettings = $queryBuilder
-          ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed')
+          ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed', 'uid')
           ->from('foundation_zurb_accordionsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['accordion_settings_relation'],\PDO::PARAM_INT)),
@@ -46,6 +46,17 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         ->execute()
         ->fetchAll();
 
+        $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_accordioncontent');
+        $accordionContent = $queryBuilderContent 
+        ->select('title', 'text', 'files', 'uid')
+        ->from('foundation_zurb_accordioncontent')
+        ->where(
+          $queryBuilderContent->expr()->eq('foundation_zurb_accordionsettings',  $queryBuilderContent->createNamedParameter($accordionSettings[0]['uid'], \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
+
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table">';
       $itemContent .= '<tbody>';
@@ -54,6 +65,23 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       $itemContent .= ($accordionSettings[0]['accordion_all_closed'] ===1 ? '<tr><th>Accordion all closed</th> <td> &#10004;</td></tr>' : '<tr><th>Accordion all closed</th> <td> &#10008;</td></tr>');
       $itemContent .= ($accordionSettings[0]['accordion_disabled'] ===1 ? '<tr><th>Accordion disabled</th> <td> &#10004;</td></tr>' : '<tr><th>Accordion disabled</th> <td> &#10008;</td></tr>');
       $itemContent .= '</tbody>';
+      $itemContent .= '</table>';
+      $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+      $itemContent .= '<table class="foundation_table content_table">';
+        $itemContent .= '<tbody>';
+         $itemContent .= '<tr><th class="listing"></th><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
+          $listNumber = 0;
+          foreach ($accordionContent as $accContent) {
+            $listNumber++;
+            if($accContent['files']==1) {
+              $fileExist = 'File exists';
+            }
+            else {
+              $fileExist = 'File does not exist';
+            }
+            $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($accContent['title'], 0, 30) .'</td><td>'.substr($accContent['text'], 0, 30).'</td><td>'. $fileExist .'</td></tr>';
+            }
+        $itemContent .= '</tbody>';
       $itemContent .= '</table>';
       $drawItem = false;
     }

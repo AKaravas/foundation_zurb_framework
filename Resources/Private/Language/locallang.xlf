@@ -11,7 +11,10 @@
             <trans-unit id="foundation_settings_advanced" xml:space="preserve">
                 <source>Advanced settings</source>
             </trans-unit>
-        	<trans-unit id="foundation_elements" xml:space="preserve">
+            <trans-unit id="foundation_settings_backend" xml:space="preserve">
+                <source>Backend settings</source>
+            </trans-unit>
+            <trans-unit id="foundation_elements" xml:space="preserve">
                 <source>Foundation Zurb Elements</source>
             </trans-unit>
             <trans-unit id="foundation_create_item" xml:space="preserve">
@@ -405,6 +408,9 @@
             <!--Foundation Zurb Styling-->
             <trans-unit id="foundation_styling" xml:space="preserve">
                 <source>Styling</source>
+            </trans-unit>
+            <trans-unit id="foundation_styling_not_defined" xml:space="preserve">
+                <source>Not Defined</source>
             </trans-unit>
             <trans-unit id="foundation_styling_primary" xml:space="preserve">
                 <source>Primary color</source>

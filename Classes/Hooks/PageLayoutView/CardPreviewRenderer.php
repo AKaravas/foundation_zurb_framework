@@ -36,12 +36,22 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardsettings');
         $cardSettings = $queryBuilder
-          ->select('large_items', 'medium_items', 'small_items', 'use_container')
+          ->select('large_items', 'medium_items', 'small_items', 'use_container','uid')
           ->from('foundation_zurb_cardsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
             $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
             $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
+        $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardcontent');
+        $cardContent = $queryBuilderContent 
+        ->select('title', 'text', 'files', 'uid')
+        ->from('foundation_zurb_cardcontent')
+        ->where(
+          $queryBuilderContent->expr()->eq('foundation_zurb_cardsettings',  $queryBuilderContent->createNamedParameter($cardSettings[0]['uid'], \PDO::PARAM_INT))
         )
         ->execute()
         ->fetchAll();
@@ -59,6 +69,23 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $itemContent .= '<tbody>';
         $itemContent .= ($cardSettings[0]['use_container']===1 ? '<th>Remove container</th> <td> &#10004;</td></tr>' : '<th>Remove container</th> <td> &#10008;</td></tr>');
         $itemContent .= '</tbody>';
+        $itemContent .= '</table>';
+        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+        $itemContent .= '<table class="foundation_table content_table">';
+          $itemContent .= '<tbody>';
+           $itemContent .= '<tr><th class="listing"></th><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
+            $listNumber = 0;
+            foreach ($cardContent as $caContent) {
+              $listNumber++;
+              if($caContent['files']==1) {
+                $fileExist = 'File exists';
+              }
+              else {
+                $fileExist = 'File does not exist';
+              }
+              $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($caContent['title'], 0, 30) .'</td><td>'.substr($caContent['text'], 0, 60).'</td><td>'. $fileExist .'</td></tr>';
+              }
+          $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $drawItem = false;
     }

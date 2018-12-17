@@ -43,15 +43,21 @@ class DropdownPreviewRenderer implements PageLayoutViewDrawItemHookInterface
           $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
           $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
        )
-       ->execute();
+       ->execute()
+       ->fetchAll();
+
       
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table one_table">';
       $itemContent .= '<tbody>';
-      $itemContent .= '<tr><th>Title</th><th>Position</th><th>Aligment</th><th>Hover</th></tr>';
+      $itemContent .= '<tr><th class="listing"></th><th>Title</th><th>Text</th><th>Position</th><th>Aligment</th><th>Hover</th></tr>';
+      $listNumber = 0;
       foreach ($dropDownInfos as $dropdown) {
+        $listNumber++;
         $itemContent .= '<tr>';
+        $itemContent .= '<td>'.$listNumber .'.</td>';
         $itemContent .= '<td>'.$dropdown['title'].'</td>';
+        $itemContent .= '<td>'.substr($dropdown['text'], 0, 30).'</td>';
         $itemContent .= '<td>'.$dropdown['position'].'</td>';
         $itemContent .= '<td>'.$dropdown['alignment'].'</td>';
         $itemContent .= '<td>'.($dropdown['hover']===1 ? '&#10004; </td>' : '&#10008; </td>');

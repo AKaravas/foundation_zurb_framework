@@ -37,7 +37,7 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_button');
         $buttonSettings = $queryBuilder
-          ->select('position', 'container', 'clear', 'disabled', 'hollow', 'color', 'size', 'title')
+          ->select('position', 'container', 'clear', 'disabled', 'hollow', 'color', 'size', 'title', 'link')
           ->from('foundation_zurb_button')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['button_content_relation'],\PDO::PARAM_INT)),
@@ -49,9 +49,8 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
         $itemContent .= '<table class="foundation_table one_table">';
         $itemContent .= '<tbody>';
-        $itemContent .= '<tr><th>Title</th><th>Size</th><th>Color</th><th>Hollow</th><th>Clear</th><th>Disabled</th></tr>';
+        $itemContent .= '<tr><th>Size</th><th>Color</th><th>Hollow</th><th>Clear</th><th>Disabled</th></tr>';
         $itemContent .= '<tr>';
-        $itemContent .= '<td> '. $buttonSettings[0]['title'] .'</td>';
         $itemContent .= '<td> '. $buttonSettings[0]['size'] .'</td>';
         $itemContent .= '<td> '. $buttonColor .'</td>';
         $itemContent .= ($buttonSettings[0]['hollow'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
@@ -68,6 +67,16 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $itemContent .= ($buttonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
         $itemContent .= ($buttonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$buttonAlignment .'</td>'));
         $itemContent .= '</tr>';
+        $itemContent .= '</tbody>';
+        $itemContent .= '</table>';
+        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+        $itemContent .= '<table class="foundation_table content_table">';
+        $itemContent .= '<tbody>';
+         $itemContent .= '<tr><th>Title</th><th>Link</th></tr>';
+          $itemContent .= '<tr>';
+        $itemContent .= '<td> '. $buttonSettings[0]['title'] .'</td>';
+        $itemContent .= '<td> '. $buttonSettings[0]['link'] .'</td>';
+         $itemContent .= '</tr>';
         $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $drawItem = false;

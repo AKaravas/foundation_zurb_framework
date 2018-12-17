@@ -38,7 +38,7 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabssettings');
       $tabsSettings = $queryBuilder
-        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs')
+        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'uid')
         ->from('foundation_zurb_tabssettings')
         ->where( 
           $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
@@ -48,6 +48,18 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       ->execute()
       ->fetchAll();
 
+      $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabscontent');
+        $tabsContent = $queryBuilderContent 
+        ->select('title', 'text', 'image', 'uid')
+        ->from('foundation_zurb_tabscontent')
+        ->where(
+          $queryBuilderContent->expr()->eq('foundation_zurb_tabssettings',  $queryBuilderContent->createNamedParameter($tabsSettings[0]['uid'], \PDO::PARAM_INT))
+        )
+        ->execute()
+        ->fetchAll();
+
+
+
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table">';
       $itemContent .= '<tbody>';
@@ -55,6 +67,23 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
       $itemContent .= ($tabsSettings[0]['collapse_tabs'] ===1 ? '<tr><th>Collapsed tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Collapsed tabs</th> <td> &#10008;</td></tr>');
       $itemContent .= ($tabsSettings[0]['deep_linking'] ===1 ? '<tr><th>Deep linking</th> <td> &#10004;</td></tr>' : '<tr><th>Deep linking</th> <td> &#10008;</td></tr>');
       $itemContent .= '</tbody>';
+        $itemContent .= '</table>';
+        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+        $itemContent .= '<table class="foundation_table content_table">';
+          $itemContent .= '<tbody>';
+           $itemContent .= '<tr><th class="listing"></th><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
+            $listNumber = 0;
+            foreach ($tabsContent as $tabContent) {
+              $listNumber++;
+              if($tabContent['image']==1) {
+                $fileExist = 'File exists';
+              }
+              else {
+                $fileExist = 'File does not exist';
+              }
+              $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($tabContent['title'], 0, 30) .'</td><td>'.substr($tabContent['text'], 0, 30).'</td><td>'. $fileExist .'</td></tr>';
+              }
+          $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $drawItem = false;
     }
