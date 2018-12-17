@@ -22,7 +22,7 @@ return [
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/slider.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, image',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, image, slider_link',
     ],
     'palettes' => [
         'slider_palette_0' => [
@@ -37,7 +37,7 @@ return [
     'types' => [
         '1' => ['showitem' => '
             --palette--;;slider_palette_0, 
-            second_modus, title, text, image, 
+            second_modus, slider_link, title, text, image, 
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
@@ -142,6 +142,14 @@ return [
                 ],
                 'default' => 0,
             ]
+        ],
+        'slider_link' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_content_link',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+            ],
         ],
         'title' => [
             'exclude' => true,

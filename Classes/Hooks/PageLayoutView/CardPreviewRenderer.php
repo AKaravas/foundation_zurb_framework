@@ -48,7 +48,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardcontent');
         $cardContent = $queryBuilderContent 
-        ->select('title', 'text', 'files', 'uid')
+        ->select('title', 'text', 'files', 'uid', 'card_link')
         ->from('foundation_zurb_cardcontent')
         ->where(
           $queryBuilderContent->expr()->eq('foundation_zurb_cardsettings',  $queryBuilderContent->createNamedParameter($cardSettings[0]['uid'], \PDO::PARAM_INT))
@@ -73,7 +73,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
         $itemContent .= '<table class="foundation_table content_table">';
           $itemContent .= '<tbody>';
-           $itemContent .= '<tr><th class="listing"></th><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
+           $itemContent .= '<tr><th class="listing"></th><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Link</th><th class="secondaryStyle">Files</th></tr>';
             $listNumber = 0;
             foreach ($cardContent as $caContent) {
               $listNumber++;
@@ -83,7 +83,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
               else {
                 $fileExist = 'File does not exist';
               }
-              $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($caContent['title'], 0, 30) .'</td><td>'.substr($caContent['text'], 0, 60).'</td><td>'. $fileExist .'</td></tr>';
+              $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($caContent['title'], 0, 30) .'</td><td>'.substr($caContent['text'], 0, 60).'</td><td>'. $caContent['card_link'] .'</td><td>'. $fileExist .'</td></tr>';
               }
           $itemContent .= '</tbody>';
         $itemContent .= '</table>';

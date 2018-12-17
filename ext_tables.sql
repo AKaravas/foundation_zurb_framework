@@ -83,6 +83,7 @@ CREATE TABLE foundation_zurb_slidercontent (
 	title varchar(255) DEFAULT '' NOT NULL,
 	text text,
 	image int(11) unsigned NOT NULL default '0',
+	slider_link varchar(255) DEFAULT '' NOT NULL,
 	second_modus smallint(5) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -421,6 +422,7 @@ CREATE TABLE foundation_zurb_cardcontent (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	text text,
+	card_link varchar(255) DEFAULT '' NOT NULL,
 	files int(11) unsigned NOT NULL default '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

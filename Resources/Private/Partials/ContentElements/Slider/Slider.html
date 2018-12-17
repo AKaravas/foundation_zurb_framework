@@ -1,5 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 data-namespace-typo3-fluid="true">
+
 	<div class="orbit" 
 		role="region" 
 		aria-label="Favorite Space Pictures" 
@@ -27,14 +28,31 @@ data-namespace-typo3-fluid="true">
 			<ul class="orbit-container">
 				<f:for each="{sliderContents}" as="sliderContent">
 					<li class="orbit-slide">
-						<f:for each="{sliderContent.images}" as="image">
-							<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
-						</f:for>
-						<f:if condition="{sliderContent.data.title}">
-							<p>{sliderContent.data.title -> f:format.html()}</p>
-						</f:if>
-						<f:if condition="{sliderContent.data.text}">
-							<figcaption>{sliderContent.data.text  -> f:format.html()}</figcaption>
+						<f:if condition="{sliderContent.data.slider_link}">
+							<f:then>
+								<f:link.typolink parameter="{sliderContent.data.slider_link}">
+									<f:for each="{sliderContent.images}" as="image">
+										<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+									</f:for>
+									<f:if condition="{sliderContent.data.title}">
+										<p>{sliderContent.data.title -> f:format.html()}</p>
+									</f:if>
+									<f:if condition="{sliderContent.data.text}">
+										<figcaption>{sliderContent.data.text  -> f:format.html()}</figcaption>
+									</f:if>
+								</f:link.typolink>
+							</f:then>
+							<f:else>
+								<f:for each="{sliderContent.images}" as="image">
+									<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+								</f:for>
+								<f:if condition="{sliderContent.data.title}">
+									<p>{sliderContent.data.title -> f:format.html()}</p>
+								</f:if>
+								<f:if condition="{sliderContent.data.text}">
+									<figcaption>{sliderContent.data.text  -> f:format.html()}</figcaption>
+								</f:if>
+							</f:else>
 						</f:if>
 					</li>
 				</f:for>

@@ -111,6 +111,9 @@
             <trans-unit id="foundation_slider_content_second_modus" xml:space="preserve">
                 <source>Second modus</source>
             </trans-unit>
+            <trans-unit id="foundation_slider_content_link" xml:space="preserve">
+                <source>Slide link</source>
+            </trans-unit>
             <trans-unit id="foundation_slider_content_title" xml:space="preserve">
                 <source>Slide title</source>
             </trans-unit>
@@ -236,6 +239,9 @@
             </trans-unit>
             <trans-unit id="foundation_card_content_files" xml:space="preserve">
                 <source>Card files</source>
+            </trans-unit>
+            <trans-unit id="foundation_card_content_link" xml:space="preserve">
+                <source>Card link</source>
             </trans-unit>
 
             <!--Foundation Zurb Reveal/Modal-->

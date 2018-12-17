@@ -5,13 +5,28 @@ data-namespace-typo3-fluid="true">
 			<f:for each="{cardSettings}" as="card">
 				<f:for each="{cardSettings.0.cardContents}" as="cardContent">
 					<div class="card">
-						<f:for each="{cardContent.images}" as="image">
-							<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
-						</f:for>
-						<div class="card-section">
-					        <h4>{cardContent.data.title}</h4>
-					        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
-					    </div>
+						<f:if condition="{cardContent.data.card_link}">
+							<f:then>
+								<f:link.typolink parameter="{cardContent.data.card_link}">
+								<f:for each="{cardContent.images}" as="image">
+										<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+									</f:for>
+									<div class="card-section">
+								        <h4>{cardContent.data.title}</h4>
+								        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
+								    </div>
+								</f:link.typolink>
+							</f:then>
+							<f:else>
+								<f:for each="{cardContent.images}" as="image">
+									<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+								</f:for>
+								<div class="card-section">
+							        <h4>{cardContent.data.title}</h4>
+							        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
+							    </div>
+							</f:else>
+						</f:if>
 					</div>
 				</f:for>
 			</f:for>
@@ -23,13 +38,28 @@ data-namespace-typo3-fluid="true">
 						<f:for each="{cardSettings.0.cardContents}" as="cardContent">
 							<div class="cell">
 								<div class="card">
-									<f:for each="{cardContent.images}" as="image">
-										<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
-									</f:for>
-									<div class="card-section">
-								        <h4>{cardContent.data.title}</h4>
-								        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
-								    </div>
+									<f:if condition="{cardContent.data.card_link}">
+										<f:then>
+											<f:link.typolink parameter="{cardContent.data.card_link}">
+											<f:for each="{cardContent.images}" as="image">
+													<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+												</f:for>
+												<div class="card-section">
+											        <h4>{cardContent.data.title}</h4>
+											        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
+											    </div>
+											</f:link.typolink>
+										</f:then>
+										<f:else>
+											<f:for each="{cardContent.images}" as="image">
+												<f:image image="{image}" alt="{file.properties.alt}" cropVariant="desktop"/>
+											</f:for>
+											<div class="card-section">
+										        <h4>{cardContent.data.title}</h4>
+										        <f:format.html><p>{cardContent.data.text}</p></f:format.html>
+										    </div>
+										</f:else>
+									</f:if>
 								</div>
 							</div>
 						</f:for>

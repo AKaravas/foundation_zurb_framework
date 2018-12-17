@@ -1,0 +1,11 @@
+
+
+9.0.2 - 2018/12/17
+------------------
+
+::
+
+	* 2018-12-17 [VERSIONING] Version changed to 9.0.4 (Commit: 911a5e7)
+	* 2018-12-17 [ADDON] Show content on Backend (Commit: 911a5e7)
+	* 2018-12-17 [BUGFIXES] Button and ButtonGroup container and alignment didnt work properly  (Commit: 911a5e7)
+	* 2018-12-17 [BUGFIXES] Css inheritence on ButtonGroup didnt work properly (Commit: 911a5e7)

@@ -22,7 +22,7 @@ return [
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/card.png',
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, card_link',
     ],
     'palettes' => [
         'card_palette_0' => [
@@ -39,7 +39,7 @@ return [
             'showitem' => '
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_title,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation;card_palette_0,
-                title, text, files,
+                card_link, title, text, files,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
@@ -132,7 +132,14 @@ return [
                 ],
             ],
         ],
-
+        'card_link' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_link',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+            ],
+        ],
         'title' => [
             'exclude' => true,
             'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_title',
