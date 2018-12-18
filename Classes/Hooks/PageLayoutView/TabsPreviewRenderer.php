@@ -38,7 +38,7 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabssettings');
       $tabsSettings = $queryBuilder
-        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'uid')
+        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'title_crop', 'text_crop', 'uid')
         ->from('foundation_zurb_tabssettings')
         ->where( 
           $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
@@ -81,7 +81,12 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
               else {
                 $fileExist = 'File does not exist';
               }
-              $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($tabContent['title'], 0, 30) .'</td><td>'.substr($tabContent['text'], 0, 30).'</td><td>'. $fileExist .'</td></tr>';
+              $itemContent .= '<tr>';
+              $itemContent .='<td>'.$listNumber .'</td>';
+              $itemContent .='<td>'.substr($tabContent['title'], 0, $tabsSettings[0]['title_crop']) .'</td>';
+              $itemContent .='<td>'.strip_tags(substr($tabContent['text'], 0, $tabsSettings[0]['text_crop'])).'</td>';
+              $itemContent .='<td>'. $fileExist .'</td>';
+              $itemContent .= '</tr>';
               }
           $itemContent .= '</tbody>';
         $itemContent .= '</table>';

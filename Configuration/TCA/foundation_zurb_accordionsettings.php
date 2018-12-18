@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,accordion_speed,accordion_multiexpand,accordion_all_closed,accordion_disabled,accordion_content_relation',
+        'searchFields' => 'title,accordion_speed,accordion_multiexpand,accordion_all_closed,accordion_disabled,accordion_content_relation, title_crop, text_crop ',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/accordion.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, accordion_speed, accordion_multiexpand, accordion_all_closed, accordion_disabled, accordion_content_relation',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, accordion_speed, accordion_multiexpand, accordion_all_closed, accordion_disabled, accordion_content_relation, title_crop, text_crop',
     ],
     'palettes' => [
         'accordion_palette_0' => [
@@ -46,6 +46,12 @@ return [
             accordion_speed,
             ',
         ],
+        'accordion_palette_4' => [
+            'showitem' => '
+                title_crop,
+                text_crop,
+            ',
+        ],
     ],
     'types' => [
         '1' => [
@@ -56,6 +62,8 @@ return [
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;accordion_palette_2,
             --palette--;;accordion_palette_3,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;accordion_palette_4,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime
         '],
     ],
@@ -216,6 +224,44 @@ return [
                 'default' => 0,
             ]
 
+        ],
+        'title_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
+        ],
+        'text_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_text_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
         ],
         'accordion_content_relation' => [
             'exclude' => true,

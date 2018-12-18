@@ -137,6 +137,8 @@ CREATE TABLE foundation_zurb_accordionsettings (
 	accordion_all_closed smallint(5) unsigned DEFAULT '0' NOT NULL,
 	accordion_disabled smallint(5) unsigned DEFAULT '0' NOT NULL,
 	accordion_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
+	title_crop int(11) DEFAULT '0' NOT NULL,
+	text_crop int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -229,6 +231,8 @@ CREATE TABLE foundation_zurb_tabssettings (
 	collapse_tabs smallint(5) unsigned DEFAULT '0' NOT NULL,
 	deep_linking smallint(5) unsigned DEFAULT '0' NOT NULL,
 	tabs_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
+	title_crop int(11) DEFAULT '0' NOT NULL,
+	text_crop int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -382,6 +386,8 @@ CREATE TABLE foundation_zurb_cardsettings (
 	large_items varchar(255) DEFAULT '' NOT NULL,
 	use_container smallint(5) unsigned DEFAULT '0' NOT NULL,
 	card_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
+	title_crop int(11) DEFAULT '0' NOT NULL,
+	text_crop int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -688,13 +694,15 @@ CREATE TABLE foundation_zurb_callout (
 	tt_content int(11) unsigned DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
-	text varchar(255) DEFAULT '' NOT NULL,
-	files varchar(255) DEFAULT '' NOT NULL,
+	text text,
+	files int(11) unsigned NOT NULL default '0',
 	color varchar(255) DEFAULT '' NOT NULL,
 	size varchar(255) DEFAULT '' NOT NULL,
 	is_closable smallint(5) unsigned DEFAULT '0' NOT NULL,
 	animation_out varchar(255) DEFAULT '' NOT NULL,
 	container smallint(5) unsigned DEFAULT '0' NOT NULL,
+	title_crop int(11) DEFAULT '0' NOT NULL,
+	text_crop int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

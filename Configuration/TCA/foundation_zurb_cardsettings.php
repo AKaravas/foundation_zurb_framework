@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,small_items,medium_items,large_items,use_container',
+        'searchFields' => 'title,small_items,medium_items,large_items,use_container, title_crop, text_crop',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/card.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, small_items, medium_items, large_items, use_container',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, small_items, medium_items, large_items, use_container, title_crop, text_crop',
     ],
     'palettes' => [
         'card_palette_0' => [
@@ -48,6 +48,12 @@ return [
                 use_container,
             ',
         ],
+        'card_palette_4' => [
+            'showitem' => '
+                title_crop, 
+                text_crop
+            ',
+        ],
     ],
     'types' => [
         '1' => [
@@ -58,6 +64,8 @@ return [
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_container;card_palette_3,
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;card_palette_2,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;card_palette_4,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime
         '],
     ],
@@ -166,6 +174,9 @@ return [
                 'type' => 'input',
                 'size' => 10,
                 'eval' => 'trim,int',
+                'range' => [
+                    'lower' => 1
+                ],
             ],
         ],
         'medium_items' => [
@@ -175,6 +186,9 @@ return [
                 'type' => 'input',
                 'size' => 10,
                 'eval' => 'trim,int',
+                'range' => [
+                    'lower' => 1
+                ],
             ],
         ],
         'large_items' => [
@@ -184,6 +198,9 @@ return [
                 'type' => 'input',
                 'size' => 10,
                 'eval' => 'trim,int',
+                'range' => [
+                    'lower' => 1
+                ],
             ],
         ],
         'use_container' => [
@@ -199,6 +216,44 @@ return [
                 'default' => 0,
             ]
 
+        ],
+        'title_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
+        ],
+        'text_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_text_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
         ],
         'card_content_relation' => [
             'exclude' => true,

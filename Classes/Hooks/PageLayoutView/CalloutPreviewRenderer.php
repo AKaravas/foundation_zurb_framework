@@ -37,7 +37,7 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_callout');
         $calloutSettings = $queryBuilder
-          ->select('container', 'animation_out', 'is_closable', 'size', 'title', 'color')
+          ->select('container', 'animation_out', 'is_closable', 'size', 'title', 'color', 'title_crop', 'text_crop', 'files', 'text')
           ->from('foundation_zurb_callout')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
@@ -50,9 +50,8 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
         $itemContent .= '<table class="foundation_table one_table">';
         $itemContent .= '<tbody>';
-        $itemContent .= '<tr><th>Title</th><th>Size</th><th>Color</th><th>Animation</th><th>Closable</th><th>Container</th></tr>';
+        $itemContent .= '<tr><th>Size</th><th>Color</th><th>Animation</th><th>Closable</th><th>Container</th></tr>';
         $itemContent .= '<tr>';
-        $itemContent .= '<td> '. $calloutSettings[0]['title'] .'</td>';
         $itemContent .= ($calloutSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$calloutSettings[0]['size'].'</td>');
         $itemContent .= '<td> '. $calloutSettings[0]['color'] .'</td>';
         $itemContent .= ($calloutSettings[0]['animation_out'] ==='' ? '<td> fade-out</td>' : '<td>'.$calloutSettings[0]['animation_out'] .'</td>');
@@ -60,6 +59,23 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         $itemContent .= ($calloutSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
         $itemContent .= '</tr>';
         $itemContent .= '</tbody>';
+        $itemContent .= '</table>';
+        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+        $itemContent .= '<table class="foundation_table content_table">';
+          $itemContent .= '<tbody>';
+            $itemContent .= '<tr><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
+            if($calloutSettings[0]['files']==1) {
+              $fileExist = 'File exists';
+            }
+            else {
+              $fileExist = 'File does not exist';
+            }
+            $itemContent .= '<tr>';
+            $itemContent .= '<td>'.substr($calloutSettings[0]['title'], 0, $calloutSettings[0]['title_crop']).'</td>';
+            $itemContent .= '<td>'.strip_tags(substr($calloutSettings[0]['text'], 0, $calloutSettings[0]['text_crop'])).'</td>';
+            $itemContent .= '<td>'. $fileExist .'</td>';
+            $itemContent .= '</tr>';
+          $itemContent .= '</tbody>';
         $itemContent .= '</table>';
         $drawItem = false;
     }

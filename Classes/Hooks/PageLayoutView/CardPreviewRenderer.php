@@ -36,7 +36,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardsettings');
         $cardSettings = $queryBuilder
-          ->select('large_items', 'medium_items', 'small_items', 'use_container','uid')
+          ->select('large_items', 'medium_items', 'small_items', 'use_container','uid', 'title_crop', 'text_crop' )
           ->from('foundation_zurb_cardsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
@@ -83,7 +83,13 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
               else {
                 $fileExist = 'File does not exist';
               }
-              $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($caContent['title'], 0, 30) .'</td><td>'.substr($caContent['text'], 0, 60).'</td><td>'. $caContent['card_link'] .'</td><td>'. $fileExist .'</td></tr>';
+              $itemContent .= '<tr>';
+            $itemContent .= '<td>'.$listNumber.'</td>';
+            $itemContent .= '<td>'.substr($caContent['title'], 0, $cardSettings[0]['title_crop']).'</td>';
+            $itemContent .= '<td>'.strip_tags(substr($caContent['text'], 0, $cardSettings[0]['text_crop'])).'</td>';
+            $itemContent .= '<td>'.$caContent['card_link'].'</td>';
+            $itemContent .= '<td>'.$fileExist .'</td>';
+            $itemContent .= '</tr>';
               }
           $itemContent .= '</tbody>';
         $itemContent .= '</table>';

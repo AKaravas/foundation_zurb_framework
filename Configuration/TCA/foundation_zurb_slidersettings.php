@@ -25,35 +25,40 @@ return [
     'palettes' => [
         'slider_palette_0' => [
             'showitem' => '
-            sys_language_uid, 
-            l10n_parent, 
-            l10n_diffsource, 
-            hidden, 
+                sys_language_uid, 
+                l10n_parent, 
+                l10n_diffsource, 
+                hidden, 
             ',
         ],
         'slider_palette_1' => [
             'showitem' => '
-            slider_content_relation,
+                slider_content_relation,
             ',
         ],
         'slider_palette_2' => [
             'showitem' => '
-            hide_arrows, hide_bullets, auto_play, infinite_wrap,
+                hide_arrows, hide_bullets, auto_play, infinite_wrap,
             ',
         ],
         'slider_palette_3' => [
             'showitem' => '
-            swipe, accessible_buttons, pause_on_hover, use_m_u_i,
+                swipe, accessible_buttons, pause_on_hover, use_m_u_i,
             ',
         ],
         'slider_palette_4' => [
             'showitem' => '
-            slide_direction_in_left, slide_direction_out_left, slide_direction_in_right, slide_direction_out_right,
+                slide_direction_in_left, slide_direction_out_left, slide_direction_in_right, slide_direction_out_right,
             ',
         ],
         'slider_palette_5' => [
             'showitem' => '
-            timer_delay,
+                timer_delay,
+            ',
+        ],
+        'slider_palette_6' => [
+            'showitem' => '
+
             ',
         ],
     ],
@@ -66,10 +71,11 @@ return [
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;slider_palette_2,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_advanced,
-            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_advanced;slider_palette_3,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animations;slider_palette_4,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_timer;slider_palette_5,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;slider_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],

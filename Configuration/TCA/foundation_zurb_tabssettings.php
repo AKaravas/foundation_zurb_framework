@@ -16,29 +16,37 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,vertical_tabs,collapse_tabs,deep_linking',
+        'searchFields' => 'title,vertical_tabs,collapse_tabs,deep_linking, title_crop, text_crop',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/tabs.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, vertical_tabs, collapse_tabs, deep_linking, tabs_content_relation',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, vertical_tabs, collapse_tabs, deep_linking, tabs_content_relation, title_crop, text_crop',
     ],
     'palettes' => [
         'tabs_palette_0' => [
             'showitem' => '
-            sys_language_uid, 
-            l10n_parent, 
-            l10n_diffsource, 
-            hidden, 
+                sys_language_uid, 
+                l10n_parent, 
+                l10n_diffsource, 
+                hidden, 
             ',
         ],
         'tabs_palette_1' => [
             'showitem' => '
-            tabs_content_relation,
+                tabs_content_relation,
             ',
         ],
         'tabs_palette_2' => [
             'showitem' => '
-            vertical_tabs, collapse_tabs, deep_linking,
+                vertical_tabs, 
+                collapse_tabs, 
+                deep_linking,
+            ',
+        ],
+        'tabs_palette_3' => [
+            'showitem' => '
+                title_crop,
+                text_crop
             ',
         ],
     ],
@@ -50,6 +58,8 @@ return [
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_create_tab;tabs_palette_1,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;tabs_palette_2,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;tabs_palette_3,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime
         '],
     ],
@@ -192,6 +202,44 @@ return [
                 'default' => 0,
             ]
 
+        ],
+        'title_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
+        ],
+        'text_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_text_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
         ],
         'tabs_content_relation' => [
             'exclude' => true,

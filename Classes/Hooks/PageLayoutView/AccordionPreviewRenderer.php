@@ -36,7 +36,7 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_accordionsettings');
         $accordionSettings = $queryBuilder
-          ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed', 'uid')
+          ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed', 'uid', 'title_crop', 'text_crop')
           ->from('foundation_zurb_accordionsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['accordion_settings_relation'],\PDO::PARAM_INT)),
@@ -79,8 +79,13 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
             else {
               $fileExist = 'File does not exist';
             }
-            $itemContent .= '<tr><td>'.$listNumber .'.</td><td>'.substr($accContent['title'], 0, 30) .'</td><td>'.substr($accContent['text'], 0, 30).'</td><td>'. $fileExist .'</td></tr>';
-            }
+            $itemContent .= '<tr>';
+            $itemContent .= '<td>'.$listNumber.'</td>';
+            $itemContent .= '<td>'.substr($accContent['title'], 0, $accordionSettings[0]['title_crop']).'</td>';
+            $itemContent .= '<td>'.strip_tags(substr($accContent['text'], 0, $accordionSettings[0]['text_crop'])).'</td>';
+            $itemContent .= '<td>'.$fileExist .'</td>';
+            $itemContent .= '</tr>';
+          }
         $itemContent .= '</tbody>';
       $itemContent .= '</table>';
       $drawItem = false;

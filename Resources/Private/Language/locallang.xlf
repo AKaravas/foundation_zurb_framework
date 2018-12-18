@@ -59,6 +59,15 @@
             <trans-unit id="foundation_general" xml:space="preserve">
                 <source>Foundation</source>
             </trans-unit>
+            <trans-unit id="foundation_cropping" xml:space="preserve">
+                <source>Cropping</source>
+            </trans-unit>
+            <trans-unit id="foundation_title_crop" xml:space="preserve">
+                <source>Crop title</source>
+            </trans-unit>
+            <trans-unit id="foundation_text_crop" xml:space="preserve">
+                <source>Crop text</source>
+            </trans-unit>
             <trans-unit id="menu_icons" xml:space="preserve">
                 <source>Icons / Images</source>
             </trans-unit>

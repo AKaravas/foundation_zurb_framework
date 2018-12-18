@@ -1,8 +1,9 @@
 
 
-9.0.2 - 2018/12/17
+9.0.5 - 2018/12/17
 ------------------
 
 ::
 
-	
+	* 2018-12-17 [DOC] changelog added (Commit: efb565e)
+	* 2018-12-17 [Expandation] Link input on slider and card items added (Commit: efb565e)
