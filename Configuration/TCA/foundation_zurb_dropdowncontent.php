@@ -18,11 +18,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,text,files,hover,position,alignment,hover_delay,hover_panel,v_offset,h_offset,allow_overlap,allow_bottom_overlap,trap_focus,auto_focus,close_on_click, size, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop',
+        'searchFields' => 'title,text,files,hover,position,alignment,hover_delay,hover_panel,v_offset,h_offset,allow_overlap,allow_bottom_overlap,trap_focus,auto_focus,close_on_click, size, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop, limit_content',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/dropdown.png',
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, title, text, files, hover, position, alignment, hover_delay, hover_panel, v_offset, h_offset, allow_overlap, allow_bottom_overlap, trap_focus, auto_focus, close_on_click, size, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, title, text, files, hover, position, alignment, hover_delay, hover_panel, v_offset, h_offset, allow_overlap, allow_bottom_overlap, trap_focus, auto_focus, close_on_click, size, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop, limit_content',
     ],
     'palettes' => [
         'dropdown_palette_0' => [
@@ -75,6 +75,7 @@ return [
             'showitem' => '
                 title_crop,
                 text_crop,
+                limit_content
             ',
         ],
         'dropdown_palette_7' => [
@@ -609,6 +610,24 @@ return [
                     [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling_clear', 'dropdown_clear' ],
                     [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_disabled', 'dropdown_disabled' ],
 
+                ],
+            ],
+        ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
                 ],
             ],
         ],

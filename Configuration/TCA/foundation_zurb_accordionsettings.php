@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,accordion_speed,accordion_multiexpand,accordion_all_closed,accordion_disabled,accordion_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items',
+        'searchFields' => 'title,accordion_speed,accordion_multiexpand,accordion_all_closed,accordion_disabled,accordion_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items, content_limit',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/accordion.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, accordion_speed, accordion_multiexpand, accordion_all_closed, accordion_disabled, accordion_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, accordion_speed, accordion_multiexpand, accordion_all_closed, accordion_disabled, accordion_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items, content_limit',
     ],
     'palettes' => [
         'accordion_palette_0' => [
@@ -50,6 +50,7 @@ return [
             'showitem' => '
                 title_crop,
                 text_crop,
+                limit_content
             ',
         ],
         'accordion_palette_5' => [
@@ -318,6 +319,24 @@ return [
                 ],
                 'default' => 0,
             ]
+        ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
+                ],
+            ],
         ],
         'accordion_content_relation' => [
             'exclude' => true,

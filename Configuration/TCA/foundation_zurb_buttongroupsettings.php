@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title, size, color, stacked, expanded, container, hide_settings, hide_content, hide_advanced, selected_items, title_crop, link_crop',
+        'searchFields' => 'title, size, color, stacked, expanded, container, hide_settings, hide_content, hide_advanced, selected_items, title_crop, link_crop, limit_content',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/group_button.jpg'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, size, color, stacked, expanded, position, container, buttongroup_content_relation, hide_settings, hide_content, hide_advanced, selected_items, title_crop, link_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, size, color, stacked, expanded, position, container, buttongroup_content_relation, hide_settings, hide_content, hide_advanced, selected_items, title_crop, link_crop, limit_content',
     ],
     'palettes' => [
         'group_button_palette_0' => [
@@ -53,7 +53,8 @@ return [
         'group_button_palette_4' => [
             'showitem' => '
                 title_crop, 
-                link_crop
+                link_crop,
+                limit_content
             ',
         ],
         'group_button_palette_5' => [
@@ -375,6 +376,24 @@ return [
                     ],
                 ],
             ]
+        ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
+                ],
+            ],
         ],
         'buttongroup_content_relation' => [
             'exclude' => true,

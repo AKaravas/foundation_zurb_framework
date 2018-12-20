@@ -35,7 +35,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_buttongroupsettings');
         $groupButtonSettings = $queryBuilder
-          ->select('position', 'container', 'expanded', 'stacked', 'color', 'size', 'uid', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'title_crop', 'link_crop')
+          ->select('position', 'container', 'expanded', 'stacked', 'color', 'size', 'uid', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'title_crop', 'link_crop', 'limit_content')
           ->from('foundation_zurb_buttongroupsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'],\PDO::PARAM_INT)),
@@ -58,31 +58,30 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
 
-
         $itemContent .= '<table class="foundation_table one_table">';
           $itemContent .= '<tbody>';
           if ($groupButtonSettings[0]['selected_items'] && $groupButtonSettings[0]['hide_settings'] != 1) {
             $itemContent .= '<tr>';
-            if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
-              $itemContent .= '<th>Size</th>';
-            }
-            if (strpos($groupButtonSettings[0]['selected_items'], 'button_color') !== false) {
-              $itemContent .= '<th>Color</th>';
-            }
-            if (strpos($groupButtonSettings[0]['selected_items'], 'button_stacked') !== false) {
-              $itemContent .= '<th>Stacked</th>';
-            }
-            $itemContent .= '</tr>';
-            $itemContent .= '<tr>';
-            if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
-              $itemContent .= ($groupButtonSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$groupButtonSettings[0]['size'].'</td>');
-            }
-            if (strpos($groupButtonSettings[0]['selected_items'], 'button_color') !== false) {
-              $itemContent .= '<td>'.$groupButtonSettings[0]['color'].'</td>';
-            }
-            if (strpos($groupButtonSettings[0]['selected_items'], 'button_stacked') !== false) {
-              $itemContent .= ($groupButtonSettings[0]['stacked'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-            }
+              if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                $itemContent .= '<th>Size</th>';
+              }
+              if (strpos($groupButtonSettings[0]['selected_items'], 'button_color') !== false) {
+                $itemContent .= '<th>Color</th>';
+              }
+              if (strpos($groupButtonSettings[0]['selected_items'], 'button_stacked') !== false) {
+                $itemContent .= '<th>Stacked</th>';
+              }
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+              if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                $itemContent .= ($groupButtonSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$groupButtonSettings[0]['size'].'</td>');
+              }
+              if (strpos($groupButtonSettings[0]['selected_items'], 'button_color') !== false) {
+                $itemContent .= '<td>'.$groupButtonSettings[0]['color'].'</td>';
+              }
+              if (strpos($groupButtonSettings[0]['selected_items'], 'button_stacked') !== false) {
+                $itemContent .= ($groupButtonSettings[0]['stacked'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+              }
             $itemContent .= '</tr>';
           } elseif ($groupButtonSettings[0]['selected_items'] != 1 && $groupButtonSettings[0]['hide_settings'] == 1) {
             
@@ -170,7 +169,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 }
               $itemContent .= '</tr>';
               $listNumber = 0;
-              foreach ($buttonGroupContent as $bgContent) {
+              foreach (array_slice($buttonGroupContent, 0, $groupButtonSettings[0]['limit_content']) as $bgContent) {
                 $listNumber++;
                 $itemContent .= '<tr>';
                   if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_listing') !== false) {
@@ -195,6 +194,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $itemContent .= '<td>'.($bgContent['disabled'] ===1 ? '&#10004;' : '&#10008').'</td>';
                   }
                 $itemContent .= '</tr>';
+                $countNumber +=1;
               }
             $itemContent .= '</tbody>';
           $itemContent .= '</table>';
@@ -214,7 +214,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= '<th class="secondaryStyle">Disabled</th>';
               $itemContent .= '</tr>';
               $listNumber = 0;
-              foreach ($buttonGroupContent as $bgContent) {
+              foreach (array_slice($buttonGroupContent, 0, $groupButtonSettings[0]['limit_content']) as $bgContent) {
                 $listNumber++;
                 $itemContent .= '<tr>';
                   $itemContent .= '<td>'.$listNumber .'.</td>';
@@ -225,6 +225,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                   $itemContent .= '<td>'.($bgContent['clear'] ===1 ? '&#10004;' : '&#10008').'</td>';
                   $itemContent .= '<td>'.($bgContent['disabled'] ===1 ? '&#10004;' : '&#10008').'</td>';
                 $itemContent .= '</tr>';
+                $countNumber +=1;
               }
             $itemContent .= '</tbody>';
           $itemContent .= '</table>';

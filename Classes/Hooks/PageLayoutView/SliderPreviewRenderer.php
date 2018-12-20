@@ -36,7 +36,7 @@ class SliderPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_slidersettings');
       $sliderSettings = $queryBuilder
-        ->select('hide_arrows', 'uid', 'hide_bullets', 'auto_play', 'infinite_wrap', 'swipe', 'pause_on_hover', 'timer_delay', 'slide_direction_in_right', 'slide_direction_out_right', 'slide_direction_out_left', 'slide_direction_in_left', 'use_m_u_i', 'accessible_buttons', 'hide_settings', 'hide_content', 'hide_animations', 'hide_timings')
+        ->select('hide_arrows', 'uid', 'hide_bullets', 'auto_play', 'infinite_wrap', 'swipe', 'pause_on_hover', 'timer_delay', 'slide_direction_in_right', 'slide_direction_out_right', 'slide_direction_out_left', 'slide_direction_in_left', 'use_m_u_i', 'accessible_buttons', 'hide_settings', 'hide_content', 'hide_animations', 'hide_timings', 'limit_content')
         ->from('foundation_zurb_slidersettings')
         ->where( 
           $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['slider_settings_relation'],\PDO::PARAM_INT)),
@@ -134,7 +134,7 @@ class SliderPreviewRenderer implements PageLayoutViewDrawItemHookInterface
             $itemContent .= '<tbody>';
              $itemContent .= '<tr>';
              $searchText=" (auto-created)";
-            foreach ($sortedCombined as $imaged) {  
+            foreach (array_slice($sortedCombined, 0, $sliderSettings[0]['limit_content']) as $imaged) {  
               $itemContent .= '<td>'. str_replace($searchText, '', $imaged[0]) .'</td>';
             }
             $itemContent .= '</tr>';

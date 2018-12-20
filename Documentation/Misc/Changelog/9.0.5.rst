@@ -4,6 +4,11 @@
 ------------------
 
 ::
-
+	
+	* 2018-12-20 [Expandation] You can choose how many IRRE items you want to be displayed on the backend (Commit:)
+	* 2018-12-20 [Bugfixes] Missing settings have been added on reveal.html and dropdown.html (Commit: 15b72b6)
+	* 2018-12-20 [language] Language file updated (locallang.xlf) (Commit: 15b72b6)
+	* 2018-12-20 [Expandation] Option to choose which information are shown on the backend (Commit: 15b72b6)
+	* 2018-12-18 [Addons] Added backend Settings. Area cropping added (Commit: 0fd6de4)
 	* 2018-12-17 [DOC] changelog added (Commit: efb565e)
 	* 2018-12-17 [Expandation] Link input on slider and card items added (Commit: efb565e)

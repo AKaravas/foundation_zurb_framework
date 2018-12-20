@@ -119,6 +119,9 @@
             <trans-unit id="magellan_animation" xml:space="preserve">
                 <source>Magellan animations</source>
             </trans-unit>
+            <trans-unit id="foundation_limit_content" xml:space="preserve">
+                <source>Limit shown content to: </source>
+            </trans-unit>
 
             <!--Foundation Zurb Viewports-->
             <trans-unit id="foundation_viewport_small_size" xml:space="preserve">

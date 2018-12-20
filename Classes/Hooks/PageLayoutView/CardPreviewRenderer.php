@@ -36,7 +36,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardsettings');
         $cardSettings = $queryBuilder
-          ->select('large_items', 'medium_items', 'small_items', 'use_container','uid', 'title_crop', 'text_crop', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'link_crop' )
+          ->select('large_items', 'medium_items', 'small_items', 'use_container','uid', 'title_crop', 'text_crop', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'link_crop', 'limit_content' )
           ->from('foundation_zurb_cardsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'],\PDO::PARAM_INT)),
@@ -146,7 +146,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 }
               $itemContent .= '</tr>';
               $listNumber = 0;
-              foreach ($cardContent as $caContent) {
+              foreach (array_slice($cardContent, 0, $cardSettings[0]['limit_content']) as $caContent) {
                 $listNumber++;
                 if($caContent['files']==1) {
                   $fileExist = 'File exists';
@@ -188,7 +188,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= '<th class="secondaryStyle">Files</th>';
               $itemContent .= '</tr>';
               $listNumber = 0;
-              foreach ($cardContent as $caContent) {
+              foreach (array_slice($cardContent, 0, $cardSettings[0]['limit_content']) as $caContent) {
                 $listNumber++;
                 if($caContent['files']==1) {
                   $fileExist = 'File exists';

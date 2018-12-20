@@ -115,7 +115,7 @@ class DropdownPreviewRenderer implements PageLayoutViewDrawItemHookInterface
           }
         $itemContent .= '</tr>';
         $listNumber = 0;
-        foreach ($dropDownInfos as $dropdown) {
+        foreach (array_slice($dropDownInfos, 0, $dropDownInfos[0]['limit_content']) as $dropdown) {
           $listNumber++;
           if($dropdown['files']==1) {
               $fileExist = 'File exists';
@@ -199,7 +199,7 @@ class DropdownPreviewRenderer implements PageLayoutViewDrawItemHookInterface
           $itemContent .= '<th>Hover</th>';
         $itemContent .= '</tr>';
         $listNumber = 0;
-        foreach ($dropDownInfos as $dropdown) {
+        foreach (array_slice($dropDownInfos, 0, $dropDownInfos[0]['limit_content']) as $dropdown) {
           $listNumber++;
           $itemContent .= '<tr>';
           $itemContent .= '<td>'.$listNumber .'.</td>';

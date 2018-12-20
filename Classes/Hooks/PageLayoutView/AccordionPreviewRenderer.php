@@ -36,7 +36,7 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_accordionsettings');
         $accordionSettings = $queryBuilder
-          ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed', 'uid', 'title_crop', 'text_crop', 'selected_items', 'hide_settings', 'hide_content')
+          ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed', 'uid', 'title_crop', 'text_crop', 'selected_items', 'hide_settings', 'hide_content', 'limit_content')
           ->from('foundation_zurb_accordionsettings')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['accordion_settings_relation'],\PDO::PARAM_INT)),
@@ -128,7 +128,7 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
             }
             $itemContent .= '</tr>';
             $listNumber = 0;
-            foreach ($accordionContent as $accContent) {
+            foreach (array_slice($accordionContent, 0, $accordionSettings[0]['limit_content']) as $accContent) {
               $listNumber++;
               if($accContent['files']==1) {
                 $fileExist = 'File exists';
@@ -168,7 +168,8 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
               $itemContent .= '<th class="secondaryStyle">Files</th>';
             $itemContent .= '</tr>';
             $listNumber = 0;
-            foreach ($accordionContent as $accContent) {
+            $countNumber = 0;
+            foreach (array_slice($accordionContent, 0, $accordionSettings[0]['limit_content']) as $accContent){
               $listNumber++;
               if($accContent['files']==1) {
                 $fileExist = 'File exists';

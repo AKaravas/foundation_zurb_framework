@@ -46,6 +46,7 @@ CREATE TABLE foundation_zurb_slidersettings (
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
 	hide_animations smallint(5) unsigned DEFAULT '0' NOT NULL,
 	hide_timings smallint(5) unsigned DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -146,6 +147,7 @@ CREATE TABLE foundation_zurb_accordionsettings (
 	selected_items varchar(255) DEFAULT '' NOT NULL,
 	hide_settings smallint(5) unsigned DEFAULT '0' NOT NULL,
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -196,6 +198,7 @@ CREATE TABLE foundation_zurb_accordioncontent (
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
 
+
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
 	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
@@ -243,6 +246,7 @@ CREATE TABLE foundation_zurb_tabssettings (
 	selected_items varchar(255) DEFAULT '' NOT NULL,
 	hide_settings smallint(5) unsigned DEFAULT '0' NOT NULL,
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -356,6 +360,7 @@ CREATE TABLE foundation_zurb_revealcontent (
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
 	title_crop int(11) DEFAULT '0' NOT NULL,
 	text_crop int(11) DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -412,6 +417,7 @@ CREATE TABLE foundation_zurb_cardsettings (
 	hide_settings smallint(5) unsigned DEFAULT '0' NOT NULL,
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
 	hide_advanced smallint(5) unsigned DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -525,6 +531,7 @@ CREATE TABLE foundation_zurb_dropdowncontent (
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
 	title_crop int(11) DEFAULT '0' NOT NULL,
 	text_crop int(11) DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -643,6 +650,7 @@ CREATE TABLE foundation_zurb_buttongroupsettings (
 	hide_content smallint(5) unsigned DEFAULT '0' NOT NULL,
 	title_crop int(11) DEFAULT '0' NOT NULL,
 	link_crop int(11) DEFAULT '0' NOT NULL,
+	limit_content int(11) DEFAULT '0' NOT NULL,
 
 	buttongroup_content_relation int(11) unsigned DEFAULT '0' NOT NULL,
 

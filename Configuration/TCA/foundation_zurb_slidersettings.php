@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,hide_arrows,hide_bullets,slide_direction_in_left,slide_direction_out_left,slide_direction_in_right,slide_direction_out_right,auto_play,timer_delay,infinite_wrap,swipe,pause_on_hover,accessible_buttons,use_m_u_i,slider_content_relation, hide_settings, hide_content, hide_animations, hide_timings',
+        'searchFields' => 'title,hide_arrows,hide_bullets,slide_direction_in_left,slide_direction_out_left,slide_direction_in_right,slide_direction_out_right,auto_play,timer_delay,infinite_wrap,swipe,pause_on_hover,accessible_buttons,use_m_u_i,slider_content_relation, hide_settings, hide_content, hide_animations, hide_timings, limit_content',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/slider.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, hide_arrows, hide_bullets, slide_direction_in_left, slide_direction_out_left, slide_direction_in_right, slide_direction_out_right, auto_play, timer_delay, infinite_wrap, swipe, pause_on_hover, accessible_buttons, use_m_u_i, slider_content_relation, hide_settings, hide_content, hide_animations, hide_timings',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, hide_arrows, hide_bullets, slide_direction_in_left, slide_direction_out_left, slide_direction_in_right, slide_direction_out_right, auto_play, timer_delay, infinite_wrap, swipe, pause_on_hover, accessible_buttons, use_m_u_i, slider_content_relation, hide_settings, hide_content, hide_animations, hide_timings, limit_content',
     ],
     'palettes' => [
         'slider_palette_0' => [
@@ -64,6 +64,11 @@ return [
                 hide_content
             ',
         ],
+        'slider_palette_7' => [
+            'showitem' => '
+                limit_content
+            ',
+        ],
     ],
     'types' => [
         '1' => [
@@ -78,6 +83,7 @@ return [
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animations;slider_palette_4,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_timer;slider_palette_5,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
+            --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;slider_palette_7,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_items;slider_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
@@ -503,6 +509,24 @@ return [
                 'default' => 0,
             ]
         ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
+                ],
+            ],
+        ],
         'slider_content_relation' => [
             'exclude' => true,
             'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_create_item',
@@ -529,7 +553,6 @@ return [
                     ],
                 ],
             ],
-
         ],
     ]
 ];

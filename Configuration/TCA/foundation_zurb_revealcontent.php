@@ -18,11 +18,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,text,files,size,no_overlay,no_animation,animation_in,animation_out,animation_speed_in,animation_speed_out,show_delay,hide_delay,close_on_click,close_on_esc,v_offset,h_offset,reset_on_close, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop',
+        'searchFields' => 'title,text,files,size,no_overlay,no_animation,animation_in,animation_out,animation_speed_in,animation_speed_out,show_delay,hide_delay,close_on_click,close_on_esc,v_offset,h_offset,reset_on_close, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop, limit_content',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/reveal.png',
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, size,no_overlay,no_animation,animation_in,animation_out,animation_speed_in,animation_speed_out, show_delay,hide_delay,close_on_click,close_on_esc,v_offset,h_offset,reset_on_close, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, size,no_overlay,no_animation,animation_in,animation_out,animation_speed_in,animation_speed_out, show_delay,hide_delay,close_on_click,close_on_esc,v_offset,h_offset,reset_on_close, color, hollow, disabled, clear, selected_items, hide_content, title_crop, text_crop, limit_content',
     ],
     'palettes' => [
         'reveal_palette_0' => [
@@ -79,6 +79,7 @@ return [
             'showitem' => '
                 title_crop,
                 text_crop,
+                limit_content
             ',
         ],
         'reveal_palette_8' => [
@@ -655,6 +656,24 @@ return [
                     [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling_hollow', 'reveal_hollow' ],
                     [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling_clear', 'reveal_clear' ],
                     [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_disabled', 'reveal_disabled' ],
+                ],
+            ],
+        ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
                 ],
             ],
         ],

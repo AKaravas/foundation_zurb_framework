@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,vertical_tabs,collapse_tabs,deep_linking, title_crop, text_crop, hide_settings, hide_content, selected_items,',
+        'searchFields' => 'title,vertical_tabs,collapse_tabs,deep_linking, title_crop, text_crop, hide_settings, hide_content, selected_items, limit_content',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/tabs.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, vertical_tabs, collapse_tabs, deep_linking, tabs_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items,',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, vertical_tabs, collapse_tabs, deep_linking, tabs_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items, limit_content',
     ],
     'palettes' => [
         'tabs_palette_0' => [
@@ -46,7 +46,8 @@ return [
         'tabs_palette_3' => [
             'showitem' => '
                 title_crop,
-                text_crop
+                text_crop,
+                limit_content
             ',
         ],
         'tabs_palette_4' => [
@@ -295,6 +296,24 @@ return [
                 ],
                 'default' => 0,
             ]
+        ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
+                ],
+            ],
         ],
         'tabs_content_relation' => [
             'exclude' => true,

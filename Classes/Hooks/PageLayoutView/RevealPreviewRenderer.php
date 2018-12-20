@@ -117,7 +117,7 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 }
               $itemContent .= '</tr>';
               $listNumber = 0;
-              foreach ($revealInfos as $reveal) {
+              foreach (array_slice($revealInfos, 0, $revealInfos[0]['limit_content']) as $reveal) {
                 $listNumber++;
                 if($reveal['files']==1) {
                     $fileExist = 'File exists';
@@ -205,16 +205,16 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
               $itemContent .= '<th>Color</th>';
             $itemContent .= '</tr>';
             $listNumber = 0;
-              foreach ($revealInfos as $reveal) {
-                $listNumber++;
-                $itemContent .= '<tr>';
-                  $itemContent .= '<td>'.$listNumber .'.</td>';
-                  $itemContent .= '<td>'.substr($reveal['title'], 0, $revealInfos[0]['title_crop']).'</td>';
-                  $itemContent .= '<td>'.strip_tags(substr($reveal['text'], 0, $revealInfos[0]['text_crop'])).'</td>';
-                  $itemContent .= '<td>'.$reveal['size'].'</td>';
-                  $itemContent .= '<td>'.$reveal['color'].'</td>';
-                $itemContent .= '</tr>';
-              }
+            foreach (array_slice($revealInfos, 0, $revealInfos[0]['limit_content']) as $reveal) {
+              $listNumber++;
+              $itemContent .= '<tr>';
+                $itemContent .= '<td>'.$listNumber .'.</td>';
+                $itemContent .= '<td>'.substr($reveal['title'], 0, $revealInfos[0]['title_crop']).'</td>';
+                $itemContent .= '<td>'.strip_tags(substr($reveal['text'], 0, $revealInfos[0]['text_crop'])).'</td>';
+                $itemContent .= '<td>'.$reveal['size'].'</td>';
+                $itemContent .= '<td>'.$reveal['color'].'</td>';
+              $itemContent .= '</tr>';
+            }
           }
         $itemContent .= '</tbody>';
       $itemContent .= '</table>';

@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,small_items,medium_items,large_items,use_container, title_crop, text_crop, hide_settings, hide_content, selected_items, hide_advanced, link_crop',
+        'searchFields' => 'title,small_items,medium_items,large_items,use_container, title_crop, text_crop, hide_settings, hide_content, selected_items, hide_advanced, link_crop, limit_content',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/card.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, small_items, medium_items, large_items, use_container, title_crop, text_crop, hide_settings, hide_content, selected_items, hide_advanced, link_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, small_items, medium_items, large_items, use_container, title_crop, text_crop, hide_settings, hide_content, selected_items, hide_advanced, link_crop, limit_content',
     ],
     'palettes' => [
         'card_palette_0' => [
@@ -52,7 +52,8 @@ return [
             'showitem' => '
                 title_crop, 
                 text_crop,
-                link_crop
+                link_crop,
+                limit_content
             ',
         ],
         'card_palette_5' => [
@@ -345,6 +346,24 @@ return [
                 ],
                 'default' => 0,
             ]
+        ],
+        'limit_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_limit_content',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => '10',
+                'valuePicker' => [
+                    'items' => [
+                        [ '5', '5', ],
+                        [ '10', '10', ],
+                        [ '15', '15', ],
+                        [ '20', '20', ],
+                    ],
+                ],
+            ],
         ],
         'card_content_relation' => [
             'exclude' => true,

@@ -38,7 +38,7 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabssettings');
       $tabsSettings = $queryBuilder
-        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'title_crop', 'text_crop', 'uid', 'selected_items', 'hide_settings', 'hide_content')
+        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'title_crop', 'text_crop', 'uid', 'selected_items', 'hide_settings', 'hide_content', 'limit_content')
         ->from('foundation_zurb_tabssettings')
         ->where( 
           $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
@@ -121,7 +121,7 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
               }
             $itemContent .= '</tr>';
             $listNumber = 0;
-            foreach ($tabsContent as $tabContent) {
+            foreach (array_slice($tabsContent, 0, $tabsSettings[0]['limit_content']) as $tabContent)  {
               $listNumber++;
               if($tabContent['image']==1) {
                 $fileExist = 'File exists';
@@ -160,7 +160,7 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= '<th>Files</th>';
               $itemContent .= '</tr>';
               $listNumber = 0;
-            foreach ($tabsContent as $tabContent) {
+            foreach (array_slice($tabsContent, 0, $tabsSettings[0]['limit_content']) as $tabContent) {
               $listNumber++;
               if($tabContent['image']==1) {
                 $fileExist = 'File exists';
