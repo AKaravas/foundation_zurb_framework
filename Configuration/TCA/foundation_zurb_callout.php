@@ -17,11 +17,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title, text, files, size, animation_in, animation_out, color, is_closable, container, title_crop, text_crop',
+        'searchFields' => 'title, text, files, size, animation_in, animation_out, color, is_closable, container, title_crop, text_crop, hide_settings, hide_content, selected_items',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/callout.png',
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, size, animation_out, color, is_closable, container, title_crop, text_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, text, files, size, animation_out, color, is_closable, container, title_crop, text_crop, hide_settings, hide_content, selected_items',
     ],
     'palettes' => [
         'callout_palette_0' => [
@@ -51,6 +51,17 @@ return [
                 text_crop,
             ',
         ],
+        'callout_palette_5' => [
+            'showitem' => '
+                selected_items
+            ',
+        ],
+        'callout_palette_6' => [
+            'showitem' => '
+                hide_settings,
+                hide_content,
+            ',
+        ],
     ],
     'types' => [
         '1' => [
@@ -63,6 +74,8 @@ return [
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;callout_palette_3,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;callout_palette_4,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_select_items;callout_palette_5,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_items;callout_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
@@ -329,6 +342,49 @@ return [
                         [ '50', '50', ],
                     ],
                 ],
+            ]
+        ],
+        'selected_items' => [
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:selected_items',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'items' => [
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_sizing', 'foundation_sizing' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling', 'callout_color' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animations', 'callout_animation' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_closeable', 'callout_closeable' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_container', 'callout_container' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_callout_content_title', 'callout_title' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_callout_content_text', 'callout_text' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_callout_content_files', 'callout_files' ],
+                ],
+            ],
+        ],
+        'hide_settings' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_settings',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_content',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
             ]
         ],
         'animation_out' => [

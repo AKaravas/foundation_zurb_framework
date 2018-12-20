@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,hide_arrows,hide_bullets,slide_direction_in_left,slide_direction_out_left,slide_direction_in_right,slide_direction_out_right,auto_play,timer_delay,infinite_wrap,swipe,pause_on_hover,accessible_buttons,use_m_u_i,slider_content_relation',
+        'searchFields' => 'title,hide_arrows,hide_bullets,slide_direction_in_left,slide_direction_out_left,slide_direction_in_right,slide_direction_out_right,auto_play,timer_delay,infinite_wrap,swipe,pause_on_hover,accessible_buttons,use_m_u_i,slider_content_relation, hide_settings, hide_content, hide_animations, hide_timings',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/slider.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, hide_arrows, hide_bullets, slide_direction_in_left, slide_direction_out_left, slide_direction_in_right, slide_direction_out_right, auto_play, timer_delay, infinite_wrap, swipe, pause_on_hover, accessible_buttons, use_m_u_i, slider_content_relation',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, hide_arrows, hide_bullets, slide_direction_in_left, slide_direction_out_left, slide_direction_in_right, slide_direction_out_right, auto_play, timer_delay, infinite_wrap, swipe, pause_on_hover, accessible_buttons, use_m_u_i, slider_content_relation, hide_settings, hide_content, hide_animations, hide_timings',
     ],
     'palettes' => [
         'slider_palette_0' => [
@@ -58,7 +58,10 @@ return [
         ],
         'slider_palette_6' => [
             'showitem' => '
-
+                hide_settings,  
+                hide_animations,
+                hide_timings,
+                hide_content
             ',
         ],
     ],
@@ -75,7 +78,7 @@ return [
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_animations;slider_palette_4,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_timer;slider_palette_5,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
-                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;slider_palette_6,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_items;slider_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
@@ -207,7 +210,7 @@ return [
         ],
         'slide_direction_in_left' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_slide_in_left',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_in_left',
             'config' => [
                 'type' => 'select',
                 'default' => 'slide-in-left',
@@ -241,7 +244,7 @@ return [
         ],
         'slide_direction_out_left' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_slide_out_left',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_out_left',
             'config' => [
                 'type' => 'select',
                 'default' => 'slide-out-left',
@@ -275,7 +278,7 @@ return [
         ],
         'slide_direction_in_right' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_slide_in_right',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_in_right',
             'config' => [
                 'type' => 'select',
                 'default' => 'slide-in-right',
@@ -309,7 +312,7 @@ return [
         ],
         'slide_direction_out_right' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_slide_out_right',
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_slider_out_right',
             'config' => [
                 'type' => 'select',
                 'default' => 'slide-out-right',
@@ -447,6 +450,58 @@ return [
                 'default' => 0,
             ]
 
+        ],
+        'hide_settings' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_settings',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_content',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_animations' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_animations',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_timings' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_timings',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
         ],
         'slider_content_relation' => [
             'exclude' => true,

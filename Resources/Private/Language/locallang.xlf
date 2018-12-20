@@ -17,6 +17,33 @@
             <trans-unit id="foundation_elements" xml:space="preserve">
                 <source>Foundation Zurb Elements</source>
             </trans-unit>
+            <trans-unit id="foundation_select_items" xml:space="preserve">
+                <source>Backend items to be shown</source>
+            </trans-unit>
+            <trans-unit id="foundation_hide_items" xml:space="preserve">
+                <source>Hide</source>
+            </trans-unit>
+            <trans-unit id="foundation_selected_items" xml:space="preserve">
+                <source>Select the available items from the list</source>
+            </trans-unit>
+            <trans-unit id="foundation_hide_settings" xml:space="preserve">
+                <source>Hide settings</source>
+            </trans-unit>
+            <trans-unit id="foundation_listing" xml:space="preserve">
+                <source>Item listing</source>
+            </trans-unit>
+            <trans-unit id="foundation_hide_content" xml:space="preserve">
+                <source>Hide content</source>
+            </trans-unit>
+            <trans-unit id="foundation_hide_advanced" xml:space="preserve">
+                <source>Hide advanced</source>
+            </trans-unit>
+            <trans-unit id="foundation_hide_animations" xml:space="preserve">
+                <source>Hide animations</source>
+            </trans-unit>
+            <trans-unit id="foundation_hide_timings" xml:space="preserve">
+                <source>Hide timings</source>
+            </trans-unit>
             <trans-unit id="foundation_create_item" xml:space="preserve">
                 <source>Create a new item</source>
             </trans-unit>
@@ -25,6 +52,9 @@
             </trans-unit>
             <trans-unit id="foundation_close_on_esc" xml:space="preserve">
                 <source>Disable Close-On-ESC</source>
+            </trans-unit>
+            <trans-unit id="foundation_closeable" xml:space="preserve">
+                <source>Closable</source>
             </trans-unit>
             <trans-unit id="foundation_container" xml:space="preserve">
                 <source>Container</source>
@@ -67,6 +97,9 @@
             </trans-unit>
             <trans-unit id="foundation_text_crop" xml:space="preserve">
                 <source>Crop text</source>
+            </trans-unit>
+            <trans-unit id="foundation_link_crop" xml:space="preserve">
+                <source>Crop link</source>
             </trans-unit>
             <trans-unit id="menu_icons" xml:space="preserve">
                 <source>Icons / Images</source>
@@ -424,6 +457,9 @@
             <trans-unit id="foundation_styling" xml:space="preserve">
                 <source>Styling</source>
             </trans-unit>
+            <trans-unit id="foundation_styling_color_content" xml:space="preserve">
+                <source>Color unique</source>
+            </trans-unit>
             <trans-unit id="foundation_styling_not_defined" xml:space="preserve">
                 <source>Not Defined</source>
             </trans-unit>
@@ -531,16 +567,16 @@
             <trans-unit id="foundation_speed_out" xml:space="preserve">
                 <source>Animation Speed Out</source>
             </trans-unit>
-            <trans-unit id="foundation_title_slide_in_left" xml:space="preserve">
+            <trans-unit id="foundation_slider_in_left" xml:space="preserve">
                 <source>Animation in left</source>
             </trans-unit>
-             <trans-unit id="foundation_title_slide_out_left" xml:space="preserve">
+             <trans-unit id="foundation_slider_out_left" xml:space="preserve">
                 <source>Animation out left</source>
             </trans-unit>
-            <trans-unit id="foundation_title_slide_in_right" xml:space="preserve">
+            <trans-unit id="foundation_slider_in_right" xml:space="preserve">
                 <source>Animation in right</source>
             </trans-unit>
-            <trans-unit id="foundation_title_slide_out_right" xml:space="preserve">
+            <trans-unit id="foundation_slider_out_right" xml:space="preserve">
                 <source>Animation out right</source>
             </trans-unit>
             <trans-unit id="foundation_no_animation" xml:space="preserve">

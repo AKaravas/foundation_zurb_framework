@@ -17,7 +17,7 @@
 .foundation_table tr th, .foundation_table tr td {
 	padding: 5px 10px;
 }
-.foundation_table tr th:nth-child(3) {
+.foundation_slider tr th:nth-child(3) {
 	border-left:1px solid #ccc;
 	padding-left:30px;
 }

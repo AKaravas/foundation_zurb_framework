@@ -38,7 +38,7 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabssettings');
       $tabsSettings = $queryBuilder
-        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'title_crop', 'text_crop', 'uid')
+        ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'title_crop', 'text_crop', 'uid', 'selected_items', 'hide_settings', 'hide_content')
         ->from('foundation_zurb_tabssettings')
         ->where( 
           $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'],\PDO::PARAM_INT)),
@@ -62,16 +62,64 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
       $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
       $itemContent .= '<table class="foundation_table">';
-      $itemContent .= '<tbody>';
-      $itemContent .= ($tabsSettings[0]['vertical_tabs'] ===1 ? '<tr><th>Vertical Tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Vertical Tabs</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($tabsSettings[0]['collapse_tabs'] ===1 ? '<tr><th>Collapsed tabs</th> <td> &#10004;</td></tr>' : '<tr><th>Collapsed tabs</th> <td> &#10008;</td></tr>');
-      $itemContent .= ($tabsSettings[0]['deep_linking'] ===1 ? '<tr><th>Deep linking</th> <td> &#10004;</td></tr>' : '<tr><th>Deep linking</th> <td> &#10008;</td></tr>');
-      $itemContent .= '</tbody>';
-        $itemContent .= '</table>';
+        $itemContent .= '<tbody>';
+          if ($tabsSettings[0]['selected_items'] && $tabsSettings[0]['hide_settings'] != 1) {
+            if (strpos($tabsSettings[0]['selected_items'], 'tabs_vertical_tabs') !== false) {
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Vertical Tabs</th>';
+                $itemContent .= ($tabsSettings[0]['vertical_tabs']===1 ? '<td> &#10004;</td></tr>' : '<td> &#10008;</td>');
+              $itemContent .= '</tr>';
+            }
+            if (strpos($tabsSettings[0]['selected_items'], 'tabs_collapse_tabs') !== false) {
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Collapsed Tabs</th>';
+                $itemContent .= ($tabsSettings[0]['collapse_tabs']===1 ? '<td> &#10004;</td></tr>' : '<td> &#10008;</td>');
+              $itemContent .= '</tr>';
+            }
+            if (strpos($tabsSettings[0]['selected_items'], 'tabs_deep_linking') !== false) {
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Deep Linking</th>';
+                $itemContent .= ($tabsSettings[0]['deep_liniking']===1 ? '<td> &#10004;</td></tr>' : '<td> &#10008;</td>');
+              $itemContent .= '</tr>';
+            }
+          } elseif ($tabsSettings[0]['selected_items'] != 1 && $tabsSettings[0]['hide_settings']) {
+            
+          } else {
+            $itemContent .= '<tr>';
+              $itemContent .= '<th>Vertical Tabs</th>';
+                $itemContent .= ($tabsSettings[0]['vertical_tabs']===1 ? '<td> &#10004;</td></tr>' : '<td> &#10008;</td>');
+            $itemContent .= '</tr>';
+            $itemContent .= '<tr>';
+              $itemContent .= '<th>Collapsed Tabs</th>';
+              $itemContent .= ($tabsSettings[0]['collapse_tabs']===1 ? '<td> &#10004;</td></tr>' : '<td> &#10008;</td>');
+            $itemContent .= '</tr>';
+            $itemContent .= '<tr>';
+              $itemContent .= '<th>Deep Linking</th>';
+              $itemContent .= ($tabsSettings[0]['deep_liniking']===1 ? '<td> &#10004;</td></tr>' : '<td> &#10008;</td>');
+            $itemContent .= '</tr>';
+          }
+
+        $itemContent .= '</tbody>';
+      $itemContent .= '</table>';
+
+      if ($tabsSettings[0]['selected_items'] && $tabsSettings[0]['hide_content'] != 1) {
         $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
         $itemContent .= '<table class="foundation_table content_table">';
           $itemContent .= '<tbody>';
-           $itemContent .= '<tr><th class="listing"></th><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
+            $itemContent .= '<tr>';
+              if (strpos($tabsSettings[0]['selected_items'], 'foundation_listing') !== false) {
+                $itemContent .= '<th class="listing"></th>';
+              }
+              if (strpos($tabsSettings[0]['selected_items'], 'tabs_title') !== false) {
+                $itemContent .= '<th>Title</th>';
+              }
+              if (strpos($tabsSettings[0]['selected_items'], 'tabs_text') !== false) {
+                $itemContent .= '<th>Text</th>';
+              }
+              if (strpos($tabsSettings[0]['selected_items'], 'tabs_image') !== false) {
+                $itemContent .= '<th>Files</th>';
+              }
+            $itemContent .= '</tr>';
             $listNumber = 0;
             foreach ($tabsContent as $tabContent) {
               $listNumber++;
@@ -82,15 +130,55 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $fileExist = 'File does not exist';
               }
               $itemContent .= '<tr>';
-              $itemContent .='<td>'.$listNumber .'</td>';
-              $itemContent .='<td>'.substr($tabContent['title'], 0, $tabsSettings[0]['title_crop']) .'</td>';
-              $itemContent .='<td>'.strip_tags(substr($tabContent['text'], 0, $tabsSettings[0]['text_crop'])).'</td>';
-              $itemContent .='<td>'. $fileExist .'</td>';
+                if (strpos($tabsSettings[0]['selected_items'], 'foundation_listing') !== false) {
+                  $itemContent .='<td>'.$listNumber .'</td>';
+                }
+                if (strpos($tabsSettings[0]['selected_items'], 'tabs_title') !== false) {
+                  $itemContent .='<td>'.substr($tabContent['title'], 0, $tabsSettings[0]['title_crop']) .'</td>';
+                }
+                if (strpos($tabsSettings[0]['selected_items'], 'tabs_text') !== false) {
+                  $itemContent .='<td>'.strip_tags(substr($tabContent['text'], 0, $tabsSettings[0]['text_crop'])).'</td>';
+                }
+                if (strpos($tabsSettings[0]['selected_items'], 'tabs_image') !== false) {
+                   $itemContent .='<td>'. $fileExist .'</td>';
+                }
               $itemContent .= '</tr>';
-              }
+            }
           $itemContent .= '</tbody>';
         $itemContent .= '</table>';
-        $drawItem = false;
+
+      } elseif ($tabsSettings[0]['selected_items'] !=1 && $tabsSettings[0]['hide_content']) {
+        
+      } else {
+        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+          $itemContent .= '<table class="foundation_table content_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                $itemContent .= '<th class="listing"></th>';
+                $itemContent .= '<th>Title</th>';
+                $itemContent .= '<th>Text</th>';
+                $itemContent .= '<th>Files</th>';
+              $itemContent .= '</tr>';
+              $listNumber = 0;
+            foreach ($tabsContent as $tabContent) {
+              $listNumber++;
+              if($tabContent['image']==1) {
+                $fileExist = 'File exists';
+              }
+              else {
+                $fileExist = 'File does not exist';
+              }
+              $itemContent .= '<tr>';
+                $itemContent .='<td>'.$listNumber .'</td>';
+                $itemContent .='<td>'.substr($tabContent['title'], 0, $tabsSettings[0]['title_crop']) .'</td>';
+                $itemContent .='<td>'.strip_tags(substr($tabContent['text'], 0, $tabsSettings[0]['text_crop'])).'</td>';
+                $itemContent .='<td>'. $fileExist .'</td>';
+              $itemContent .= '</tr>';
+            }
+            $itemContent .= '</tbody>';
+        $itemContent .= '</table>';
+      }
+      $drawItem = false;
     }
   }
 }

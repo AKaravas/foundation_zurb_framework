@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,small_items,medium_items,large_items,use_container, title_crop, text_crop',
+        'searchFields' => 'title,small_items,medium_items,large_items,use_container, title_crop, text_crop, hide_settings, hide_content, selected_items, hide_advanced, link_crop',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/card.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, small_items, medium_items, large_items, use_container, title_crop, text_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, small_items, medium_items, large_items, use_container, title_crop, text_crop, hide_settings, hide_content, selected_items, hide_advanced, link_crop',
     ],
     'palettes' => [
         'card_palette_0' => [
@@ -51,7 +51,20 @@ return [
         'card_palette_4' => [
             'showitem' => '
                 title_crop, 
-                text_crop
+                text_crop,
+                link_crop
+            ',
+        ],
+        'card_palette_5' => [
+            'showitem' => '
+                selected_items
+            ',
+        ],
+        'card_palette_6' => [
+            'showitem' => '
+                hide_settings, 
+                hide_advanced,
+                hide_content
             ',
         ],
     ],
@@ -66,6 +79,8 @@ return [
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;card_palette_2,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;card_palette_4,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_select_items;card_palette_5,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_items;card_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime
         '],
     ],
@@ -253,6 +268,82 @@ return [
                         [ '50', '50', ],
                     ],
                 ],
+            ]
+        ],
+        'link_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_link_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
+        ],
+        'selected_items' => [
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:selected_items',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'items' => [
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_small_items', 'items_on_small' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_medium_items', 'items_on_medium' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_large_items', 'items_on_large' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_container', 'card_container' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_listing', 'foundation_listing' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_title', 'card_title' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_text', 'card_text' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_link', 'card_link' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_card_content_files', 'card_files' ],
+                ],
+            ],
+        ],
+        'hide_advanced' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_advanced',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_settings' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_settings',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_content',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
             ]
         ],
         'card_content_relation' => [

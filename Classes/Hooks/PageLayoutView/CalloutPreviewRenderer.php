@@ -37,7 +37,7 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_callout');
         $calloutSettings = $queryBuilder
-          ->select('container', 'animation_out', 'is_closable', 'size', 'title', 'color', 'title_crop', 'text_crop', 'files', 'text')
+          ->select('container', 'animation_out', 'is_closable', 'size', 'title', 'color', 'title_crop', 'text_crop', 'files', 'text', 'selected_items', 'hide_settings', 'hide_content')
           ->from('foundation_zurb_callout')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'],\PDO::PARAM_INT)),
@@ -46,37 +46,122 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         )
         ->execute()
         ->fetchAll();
+        if($calloutSettings[0]['files']==1) {
+          $fileExist = 'File exists';
+        }
+        else {
+          $fileExist = 'File does not exist';
+        }
 
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
+
         $itemContent .= '<table class="foundation_table one_table">';
-        $itemContent .= '<tbody>';
-        $itemContent .= '<tr><th>Size</th><th>Color</th><th>Animation</th><th>Closable</th><th>Container</th></tr>';
-        $itemContent .= '<tr>';
-        $itemContent .= ($calloutSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$calloutSettings[0]['size'].'</td>');
-        $itemContent .= '<td> '. $calloutSettings[0]['color'] .'</td>';
-        $itemContent .= ($calloutSettings[0]['animation_out'] ==='' ? '<td> fade-out</td>' : '<td>'.$calloutSettings[0]['animation_out'] .'</td>');
-        $itemContent .= ($calloutSettings[0]['is_closable'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($calloutSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= '</tr>';
-        $itemContent .= '</tbody>';
-        $itemContent .= '</table>';
-        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
-        $itemContent .= '<table class="foundation_table content_table">';
           $itemContent .= '<tbody>';
-            $itemContent .= '<tr><th class="secondaryStyle">Title</th><th class="secondaryStyle">Text</th><th class="secondaryStyle">Files</th></tr>';
-            if($calloutSettings[0]['files']==1) {
-              $fileExist = 'File exists';
+            if ($calloutSettings[0]['selected_items'] && $calloutSettings[0]['hide_settings'] != 1) {
+              $itemContent .= '<tr>';
+                if (strpos($calloutSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                  $itemContent .= '<th>Size</th>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_color') !== false) {
+                  $itemContent .= '<th>Color</th>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_animation') !== false) {
+                  $itemContent .= '<th>Animation</th>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_closeable') !== false) {
+                  $itemContent .= '<th>Closable</th>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_container') !== false) {
+                  $itemContent .= '<th>Container</th>';
+                }
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                if (strpos($calloutSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                  $itemContent .= ($calloutSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$calloutSettings[0]['size'].'</td>');
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_color') !== false) {
+                  $itemContent .= '<td> '. $calloutSettings[0]['color'] .'</td>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_animation') !== false) {
+                  $itemContent .= ($calloutSettings[0]['animation_out'] ==='' ? '<td> fade-out</td>' : '<td>'.$calloutSettings[0]['animation_out'] .'</td>');
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_closeable') !== false) {
+                  $itemContent .= ($calloutSettings[0]['is_closable'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_container') !== false) {
+                  $itemContent .= ($calloutSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                }
+              $itemContent .= '</tr>';
+            } elseif ($calloutSettings[0]['selected_items'] != 1 && $calloutSettings[0]['hide_settings']) {
+              
+            } else {
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Size</th>';
+                $itemContent .= '<th>Color</th>';
+                $itemContent .= '<th>Animation</th>';
+                $itemContent .= '<th>Closable</th>';
+                $itemContent .= '<th>Container</th>';
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                $itemContent .= ($calloutSettings[0]['size'] ==='' ? '<td> Normal</td>' : '<td>'.$calloutSettings[0]['size'].'</td>');
+                $itemContent .= '<td> '. $calloutSettings[0]['color'] .'</td>';
+                $itemContent .= ($calloutSettings[0]['animation_out'] ==='' ? '<td> fade-out</td>' : '<td>'.$calloutSettings[0]['animation_out'] .'</td>');
+                $itemContent .= ($calloutSettings[0]['is_closable'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($calloutSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+              $itemContent .= '</tr>';
             }
-            else {
-              $fileExist = 'File does not exist';
-            }
-            $itemContent .= '<tr>';
-            $itemContent .= '<td>'.substr($calloutSettings[0]['title'], 0, $calloutSettings[0]['title_crop']).'</td>';
-            $itemContent .= '<td>'.strip_tags(substr($calloutSettings[0]['text'], 0, $calloutSettings[0]['text_crop'])).'</td>';
-            $itemContent .= '<td>'. $fileExist .'</td>';
-            $itemContent .= '</tr>';
           $itemContent .= '</tbody>';
         $itemContent .= '</table>';
+
+        if ($calloutSettings[0]['selected_items'] && $calloutSettings[0]['hide_content'] != 1) {
+          $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+          $itemContent .= '<table class="foundation_table content_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_title') !== false) {
+                  $itemContent .= '<th class="secondaryStyle">Title</th>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_text') !== false) {
+                  $itemContent .= '<th class="secondaryStyle">Text</th>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_files') !== false) {
+                  $itemContent .= '<th class="secondaryStyle">Files</th>';
+                }
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_title') !== false) {
+                  $itemContent .= '<td>'.substr($calloutSettings[0]['title'], 0, $calloutSettings[0]['title_crop']).'</td>';
+                }
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_text') !== false) {
+                  $itemContent .= '<td>'.strip_tags(substr($calloutSettings[0]['text'], 0, $calloutSettings[0]['text_crop'])).'</td>';
+                }
+
+                if (strpos($calloutSettings[0]['selected_items'], 'callout_files') !== false) {
+                  $itemContent .= '<td>'. $fileExist .'</td>';
+                }
+              $itemContent .= '</tr>';
+            $itemContent .= '</tbody>';
+          $itemContent .= '</table>';
+        } elseif ($calloutSettings[0]['selected_items'] != 1 && $calloutSettings[0]['hide_content']) {
+         
+        } else {
+          $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+          $itemContent .= '<table class="foundation_table content_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                $itemContent .= '<th class="secondaryStyle">Title</th>';
+                $itemContent .= '<th class="secondaryStyle">Text</th>';
+                $itemContent .= '<th class="secondaryStyle">Files</th>';
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                $itemContent .= '<td>'.substr($calloutSettings[0]['title'], 0, $calloutSettings[0]['title_crop']).'</td>';
+                $itemContent .= '<td>'.strip_tags(substr($calloutSettings[0]['text'], 0, $calloutSettings[0]['text_crop'])).'</td>';
+                $itemContent .= '<td>'. $fileExist .'</td>';
+              $itemContent .= '</tr>';
+            $itemContent .= '</tbody>';
+          $itemContent .= '</table>';
+        }
+
         $drawItem = false;
     }
   }

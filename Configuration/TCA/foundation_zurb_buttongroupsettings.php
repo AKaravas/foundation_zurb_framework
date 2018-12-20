@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title, size, color, stacked, expanded, container',
+        'searchFields' => 'title, size, color, stacked, expanded, container, hide_settings, hide_content, hide_advanced, selected_items, title_crop, link_crop',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/group_button.jpg'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, size, color, stacked, expanded, position, container, buttongroup_content_relation',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, size, color, stacked, expanded, position, container, buttongroup_content_relation, hide_settings, hide_content, hide_advanced, selected_items, title_crop, link_crop',
     ],
     'palettes' => [
         'group_button_palette_0' => [
@@ -50,6 +50,24 @@ return [
                 position,
             ',
         ],
+        'group_button_palette_4' => [
+            'showitem' => '
+                title_crop, 
+                link_crop
+            ',
+        ],
+        'group_button_palette_5' => [
+            'showitem' => '
+                selected_items
+            ',
+        ],
+        'group_button_palette_6' => [
+            'showitem' => '
+                hide_settings, 
+                hide_advanced, 
+                hide_content
+            ',
+        ],
     ],
     'types' => [
         '1' => [
@@ -60,6 +78,10 @@ return [
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;group_button_palette_2,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_container;group_button_palette_3,
+            --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;group_button_palette_4,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_select_items;group_button_palette_5,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_items;group_button_palette_6,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
@@ -255,6 +277,104 @@ return [
                 'maxitems' => 1,
                 'eval' => '',
             ],
+        ],
+        'selected_items' => [
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:selected_items',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'items' => [
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_sizing', 'foundation_sizing' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling', 'button_color' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_stacked', 'button_stacked' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_container', 'button_container' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_position', 'button_position' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_listing', 'foundation_listing' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_button_content_title', 'button_title' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_button_content_link', 'button_link' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling_color_content', 'button_color_content' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling_hollow', 'button_hollow' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_disabled', 'button_disabled' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_styling_clear', 'button_clear' ],
+                ],
+            ],
+        ],
+        'hide_settings' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_settings',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_content',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_advanced' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_advanced',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'title_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_title_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
+        ],
+        'link_crop' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_link_crop',
+            'config' => [
+                'type' => 'input',
+                'size' => 4,
+                'eval' => 'int',
+                'default' => '30',
+                'valuePicker' => [
+                    'items' => [
+                        [ '10', '10', ],
+                        [ '20', '20', ],
+                        [ '30', '30', ],
+                        [ '40', '40', ],
+                        [ '50', '50', ],
+                    ],
+                ],
+            ]
         ],
         'buttongroup_content_relation' => [
             'exclude' => true,

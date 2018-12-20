@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,vertical_tabs,collapse_tabs,deep_linking, title_crop, text_crop',
+        'searchFields' => 'title,vertical_tabs,collapse_tabs,deep_linking, title_crop, text_crop, hide_settings, hide_content, selected_items,',
         'iconfile' => 'EXT:foundation_zurb_framework/Resources/Public/Icons/FoundationElements/tabs.png'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, vertical_tabs, collapse_tabs, deep_linking, tabs_content_relation, title_crop, text_crop',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, vertical_tabs, collapse_tabs, deep_linking, tabs_content_relation, title_crop, text_crop, hide_settings, hide_content, selected_items,',
     ],
     'palettes' => [
         'tabs_palette_0' => [
@@ -49,6 +49,17 @@ return [
                 text_crop
             ',
         ],
+        'tabs_palette_4' => [
+            'showitem' => '
+                selected_items
+            ',
+        ],
+        'tabs_palette_5' => [
+            'showitem' => '
+                hide_settings,
+                hide_content
+            ',
+        ],
     ],
     'types' => [
         '1' => [
@@ -60,6 +71,8 @@ return [
             --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_main;tabs_palette_2,
             --div--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_settings_backend,
                 --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_cropping;tabs_palette_3,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_select_items;tabs_palette_4,
+                --palette--;LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_items;tabs_palette_5,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime
         '],
     ],
@@ -239,6 +252,48 @@ return [
                         [ '50', '50', ],
                     ],
                 ],
+            ]
+        ],
+        'selected_items' => [
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:selected_items',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'items' => [
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_vertical', 'tabs_vertical_tabs' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_collapse', 'tabs_collapse_tabs' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_deep_link', 'tabs_deep_link' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_listing', 'foundation_listing' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_title', 'tabs_title' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_text', 'tabs_text' ],
+                    [ 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_tabs_image', 'tabs_image' ],
+                ],
+            ],
+        ],
+        'hide_settings' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_settings',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],
+        'hide_content' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:foundation_zurb_framework/Resources/Private/Language/locallang.xlf:foundation_hide_content',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
             ]
         ],
         'tabs_content_relation' => [

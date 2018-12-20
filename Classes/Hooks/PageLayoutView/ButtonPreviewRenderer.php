@@ -37,7 +37,7 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_button');
         $buttonSettings = $queryBuilder
-          ->select('position', 'container', 'clear', 'disabled', 'hollow', 'color', 'size', 'title', 'link')
+          ->select('position', 'container', 'clear', 'disabled', 'hollow', 'color', 'size', 'title', 'link', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'title_crop', 'link_crop')
           ->from('foundation_zurb_button')
           ->where( 
             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['button_content_relation'],\PDO::PARAM_INT)),
@@ -46,39 +46,150 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
         )
         ->execute()
         ->fetchAll();
+
+
         $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
+
+
         $itemContent .= '<table class="foundation_table one_table">';
-        $itemContent .= '<tbody>';
-        $itemContent .= '<tr><th>Size</th><th>Color</th><th>Hollow</th><th>Clear</th><th>Disabled</th></tr>';
-        $itemContent .= '<tr>';
-        $itemContent .= '<td> '. $buttonSettings[0]['size'] .'</td>';
-        $itemContent .= '<td> '. $buttonColor .'</td>';
-        $itemContent .= ($buttonSettings[0]['hollow'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($buttonSettings[0]['clear'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($buttonSettings[0]['disabled'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= '</tr>';
-        $itemContent .= '</tbody>';
+          $itemContent .= '<tbody>';
+          if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_settings'] != 1) {
+            $itemContent .= '<tr>';
+              if (strpos($buttonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                $itemContent .= '<th>Size</th>';
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_color') !== false) {
+                $itemContent .= '<th>Color</th>';
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_hollow') !== false) {
+                $itemContent .= '<th>Hollow</th>';
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_clear') !== false) {
+                $itemContent .= '<th>Clear</th>';
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_disabled') !== false) {
+                $itemContent .= '<th>Disabled</th>';
+              }
+            $itemContent .= '</tr>';
+            $itemContent .= '<tr>';
+            if (strpos($buttonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                $itemContent .= (empty($buttonSettings[0]['size']) ? '<td>Normal</td>' : '<td>'.$buttonSettings[0]['size'].'</td>');
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_color') !== false) {
+                $itemContent .= '<td> '. $buttonSettings[0]['color'] .'</td>';
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_hollow') !== false) {
+                $itemContent .= ($buttonSettings[0]['hollow'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_clear') !== false) {
+                $itemContent .= ($buttonSettings[0]['clear'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+              }
+              if (strpos($buttonSettings[0]['selected_items'], 'button_disabled') !== false) {
+                $itemContent .= ($buttonSettings[0]['disabled'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+              }
+            $itemContent .= '</tr>';
+          }elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_settings'] == 1){
+            
+          } else {
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Size</th>';
+                $itemContent .= '<th>Color</th>';
+                $itemContent .= '<th>Hollow</th>';
+                $itemContent .= '<th>Clear</th>';
+                $itemContent .= '<th>Disabled</th>';
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                $itemContent .= (empty($buttonSettings[0]['size']) ? '<td>Normal</td>' : '<td>'.$buttonSettings[0]['size'].'</td>');
+                $itemContent .= '<td> '. $buttonSettings[0]['color'] .'</td>';
+                $itemContent .= ($buttonSettings[0]['hollow'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($buttonSettings[0]['clear'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($buttonSettings[0]['disabled'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+              $itemContent .= '</tr>';
+          }
+          $itemContent .= '</tbody>';
         $itemContent .= '</table>';
-        $itemContent .= '<strong class="foundation_subtitle">Advanced</strong>';
-        $itemContent .= '<table class="foundation_table">';
-        $itemContent .= '<tbody>';
-        $itemContent .= '<tr><th>Container</th><th>Align</th>';
-        $itemContent .= '<tr>';
-        $itemContent .= ($buttonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-        $itemContent .= ($buttonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$buttonAlignment .'</td>'));
-        $itemContent .= '</tr>';
-        $itemContent .= '</tbody>';
-        $itemContent .= '</table>';
-        $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
-        $itemContent .= '<table class="foundation_table content_table">';
-        $itemContent .= '<tbody>';
-         $itemContent .= '<tr><th>Title</th><th>Link</th></tr>';
-          $itemContent .= '<tr>';
-        $itemContent .= '<td> '. $buttonSettings[0]['title'] .'</td>';
-        $itemContent .= '<td> '. $buttonSettings[0]['link'] .'</td>';
-         $itemContent .= '</tr>';
-        $itemContent .= '</tbody>';
-        $itemContent .= '</table>';
+
+        
+        if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_advanced'] != 1) {
+          $itemContent .= '<strong class="foundation_subtitle">Advanced</strong>';
+          $itemContent .= '<table class="foundation_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                if (strpos($buttonSettings[0]['selected_items'], 'button_container') !== false) {
+                  $itemContent .= '<th>Container</th>';
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_position') !== false) {
+                  $itemContent .= '<th>Align</th>';
+                }
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                if (strpos($buttonSettings[0]['selected_items'], 'button_container') !== false) {
+                  $itemContent .= ($buttonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_position') !== false) {
+                  $itemContent .= ($buttonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$buttonAlignment .'</td>'));
+                }
+              $itemContent .= '</tr>';
+            $itemContent .= '</tbody>';
+          $itemContent .= '</table>';
+        } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_advanced']) {
+              
+        } else {
+          $itemContent .= '<strong class="foundation_subtitle">Advanced</strong>';
+          $itemContent .= '<table class="foundation_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Container</th>';
+                $itemContent .= '<th>Align</th>';
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                $itemContent .= ($buttonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($buttonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$buttonAlignment .'</td>'));
+              $itemContent .= '</tr>';
+            $itemContent .= '</tbody>';
+          $itemContent .= '</table>';
+        }
+
+        if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_content'] != 1) {
+          $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+          $itemContent .= '<table class="foundation_table content_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                if (strpos($buttonSettings[0]['selected_items'], 'button_title') !== false) {
+                  $itemContent .= '<th>Title</th>';
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_link') !== false) {
+                  $itemContent .= '<th>Link</th>';
+                }
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                if (strpos($buttonSettings[0]['selected_items'], 'button_title') !== false) {
+                  $itemContent .= '<td> '. substr($buttonSettings[0]['title'], 0, $buttonSettings[0]['title_crop']) .'</td>';
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_link') !== false) {
+                  $itemContent .= '<td> '. substr($buttonSettings[0]['link'], 0, $buttonSettings[0]['link_crop']) .'</td>';
+                }
+              $itemContent .= '</tr>';
+            $itemContent .= '</tbody>';
+          $itemContent .= '</table>';
+        } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_content']) {
+          
+        } else {
+          $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
+          $itemContent .= '<table class="foundation_table content_table">';
+            $itemContent .= '<tbody>';
+              $itemContent .= '<tr>';
+                $itemContent .= '<th>Title</th>';
+                $itemContent .= '<th>Link</th>';
+              $itemContent .= '</tr>';
+              $itemContent .= '<tr>';
+                $itemContent .= '<td> '. substr($buttonSettings[0]['title'], 0, $buttonSettings[0]['title_crop']) .'</td>';
+                $itemContent .= '<td> '. substr($buttonSettings[0]['link'], 0, $buttonSettings[0]['link_crop']) .'</td>';
+              $itemContent .= '</tr>';
+            $itemContent .= '</tbody>';
+          $itemContent .= '</table>';
+        }
+
         $drawItem = false;
     }
   }

@@ -4,7 +4,7 @@ data-namespace-typo3-fluid="true">
 		<div class="grid-x">
 			<f:for each="{revealContent}" as="reveal">
 				<div class="cell auto">
-					<p><button class="button" data-open="modal-{reveal.data.uid}">{reveal.data.title}</button></p>
+					<p><button class="button {reveal.data.size} {reveal.data.color} {reveal.data.button_size} <f:if condition='{reveal.data.hollow}'>hollow</f:if> <f:if condition='{reveal.data.clear}'>clear</f:if>" data-open="modal-{reveal.data.uid}" <f:if condition="{reveal.data.disabled}">disabled</f:if>>{reveal.data.title}</button></p>
 					<div class="{reveal.data.size} reveal" 
 						id="modal-{reveal.data.uid}" 
 						data-reveal 

@@ -4,7 +4,7 @@ data-namespace-typo3-fluid="true">
 		<div class="grid-x">
 			<f:for each="{dropdownContent}" as="dropdown">
 				<div class="cell small-6">
-					<button class="button" type="button" data-toggle="dropdown-{dropdown.data.uid}">{dropdown.data.title}</button>
+					<button class="button {dropdown.data.color} {dropdown.data.size} <f:if condition='{dropdown.data.hollow}'>hollow</f:if> <f:if condition='{dropdown.data.clear}'>clear</f:if>" type="button" data-toggle="dropdown-{dropdown.data.uid}" <f:if condition="{dropdown.data.disabled}">disabled</f:if>>{dropdown.data.title}</button>
 					<div 
 						class="dropdown-pane" 
 						data-position="{dropdown.data.position}" 
