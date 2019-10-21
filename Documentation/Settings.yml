@@ -4,10 +4,10 @@
 
 ---
 conf.py:
-  copyright: 2018
+  copyright: by Aristeidis Karavs
   project: Foundation Zurb Framework
-  version: 1.0
-  release: 1.0.1
+  version: 9.0.0
+  release: 9.0.7
   latex_documents:
   - - Index
     - foundation_zurb_framework.tex

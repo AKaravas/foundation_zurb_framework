@@ -30,7 +30,7 @@ Foundation Zurb Framework
                 foundation zurb, content elements, framework, templates
 
         :Copyright:
-                2018
+                2019
 
         :Author:
                 Karavas Aristeidis
@@ -39,8 +39,9 @@ Foundation Zurb Framework
                 aristeidis.karavas@gmail.com
 
         :License:
-                This document is published under the Open Publication License
-                available from http://www.opencontent.org/openpub/
+                This document is published under the Open Content License
+                available from http://www.opencontent.org/opl.shtml
+
 
         :Rendered:
                 |today|
@@ -58,8 +59,8 @@ Foundation Zurb Framework
 
         Introduction/Index
         UsersManual/Index
-        ForAdminstrators/Index
-        ForDevelopers/Index
+        AdministratorManual/Index
+        DeveloperManual/Index
         Misc/Index
         ToDoList/Index
         Links
