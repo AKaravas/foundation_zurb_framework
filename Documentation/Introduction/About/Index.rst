@@ -19,23 +19,23 @@ The content elements are inspired from `Foundation Zurb <https://foundation.zurb
 Screenshots
 -----------
 
-Some content on the Slider content element
+**Some content on the Slider content element**
 
 .. figure:: ../../Images/slider_content.png
     :class: with-shadow
-    :width: 100%
+    :width: 80%
     :alt: Slider Content
 
-This is the slider's main settings
+**This is the slider's main settings**
 
 .. figure:: ../../Images/main_settings.png
     :class: with-shadow
-    :width: 100%
+    :width: 80%
     :alt: Main Settings
 
-This is the slider's advanced settings
+**This is the slider's advanced settings**
 
 .. figure:: ../../Images/advanced_settings.png
     :class: with-shadow
-    :width: 100%
+    :width: 80%
     :alt: Advanced Settings
