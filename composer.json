@@ -1,0 +1,29 @@
+{
+    "name": "Vendor/foundation-zurb-framework",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "Karavas Aristeidis",
+            "role": "Developer"
+        }
+    ],
+    "version": "9.0.6",
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vendor\\FoundationZurbFramework\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vendor\\FoundationZurbFramework\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "foundation_zurb_framework": "self.version",
+        "typo3-ter/foundation-zurb-framework": "self.version"
+    }
+}
