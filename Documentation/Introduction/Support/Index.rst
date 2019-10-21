@@ -8,11 +8,11 @@
 
 Need Support?
 =============
-There is not much to get support for. The extension is very simple and the documentation covers everything. Even so, if there is someone who needs help, he can contact me. 
+There is not much to get support for. The extension is very simple and the documentation covers everything. Even so, if there is someone who needs help, he/she can contact me.
 
 Stackoverflow
 -------------
-Please use https://stackoverflow.com to get best support. Tags you should use are `typo3`. The most experienced developers will be able to help you, since the extension uses TYPO3 Core functions and elements.
+Please use https://stackoverflow.com to get the best support. Tags you should use are **`typo3`**. Since the extension uses TYPO3 Core functions and elements, the most experienced developers will be able to help you.
 
 Slack
 -----

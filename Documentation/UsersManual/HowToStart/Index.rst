@@ -29,14 +29,14 @@ Create an element
 5. Choose your content element
 
 
-.. figure:: ../../Images/Introduction/newContent.png
-   :width: 700px
-   :align: left
-   :alt: New Content
+.. figure:: ../../Images/newContent.png
+    :class: with-shadow
+    :width: 80%
+    :alt: New Content
 
-.. figure:: ../../Images/Introduction/choose.png
-   :width: 700px
-   :align: left
-   :alt: Choose
+.. figure:: ../../Images/choose.png
+    :class: with-shadow
+    :width: 80%
+    :alt: Choose
 
    

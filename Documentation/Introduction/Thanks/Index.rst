@@ -11,8 +11,7 @@ Help supporting further development
 ===========
 
 This extension and manual has been created in several hours, only by me.
-It is actively maintained to fit TYPO3 8.7.
-
+It is actively maintained to fit TYPO3 8.7.* - 9.5.99.
 If this extension helps you in anyway to achieve your requirements, please think about giving something back.
 
 PayPal
