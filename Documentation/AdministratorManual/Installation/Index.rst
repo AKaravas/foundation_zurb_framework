@@ -31,10 +31,10 @@ The extension needs to be installed as any other extension of TYPO3 CMS:
 4. Click on the cloud icon and download the extension
 
 
-.. figure:: ../../../Images/Introduction/installation.png
-   :width: 700px
-   :align: left
-   :alt: Installation
+.. figure:: ../../../Images/installation.png
+    :class: with-shadow
+    :width: 80%
+    :alt: Installation
 
 .. _preparation:
 
@@ -51,15 +51,15 @@ The extension ships some TypoScript code which needs to be included.
 6. Save and close your settings
 
 
-.. figure:: ../../../Images/Introduction/template_edit.png
-   :width: 700px
-   :align: left
-   :alt: Template Edit
+.. figure:: ../../../Images/template_edit.png
+    :class: with-shadow
+    :width: 80%
+    :alt: Template Edit
 
-.. figure:: ../../../Images/Introduction/static.png
-   :width: 700px
-   :align: left
-   :alt: Static Template
+.. figure:: ../../../Images/static.png
+    :class: with-shadow
+    :width: 80%
+    :alt: Static Template
 
 
 Include PageTS

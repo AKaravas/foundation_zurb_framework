@@ -26,15 +26,15 @@ The extension does not ship the Foundation Zurb CSS/JS files. This way, you can 
 .. code-block:: typoscript 
 
 	page.includeJSFooterlibs {
-		jQuery = EXT:yourExtenstion/Resources/Public/JavaScript/Vendor/jquery.min.js
+		jQuery = EXT:yourExtension/Resources/Public/JavaScript/Vendor/jquery.min.js
 		jQuery {
        		allWrap = <!--[if gte IE 9]><!-->|<!--<![endif]-->
         	forceOnTop = 1
     	}
-		jqueryUI = EXT:yourExtenstion/Resources/Public/Vendor/jquery-ui.js
-		foundationCore = EXT:yourExtenstion/Resources/Public/Vendor/foundation.min.js
+		jqueryUI = EXT:yourExtension/Resources/Public/Vendor/jquery-ui.js
+		foundationCore = EXT:yourExtension/Resources/Public/Vendor/foundation.min.js
 		 # load older jQuery version for older browsers < IE9
-	    jQueryOld = EXT:yourExtenstion/Resources/Public/JavaScript/Vendor/jquery-1.12.0.min.js
+	    jQueryOld = EXT:yourExtension/Resources/Public/JavaScript/Vendor/jquery-1.12.0.min.js
 	    jQueryOld {
 	        allWrap = <!--[if lt IE 9]>|<![endif]-->
 	        forceOnTop = 1
@@ -46,12 +46,12 @@ The extension does not ship the Foundation Zurb CSS/JS files. This way, you can 
 
 **CSS**
 
-	.. code-block:: typoscript 
+.. code-block:: typoscript
 
-		page.includeCSS {
-			foundationCss = EXT:yourExtenstion/Resources/Public/Css/foundation.min.css
-			motionUi = EXT:yourExtenstion/Resources/Public/Css/motion-ui.min.css
-		}
+    page.includeCSS {
+        foundationCss = EXT:yourExtension/Resources/Public/Css/foundation.min.css
+        motionUi = EXT:yourExtension/Resources/Public/Css/motion-ui.min.css
+    }
 
 You can find the Motion-UI library here: https://zurb.com/playground/motion-ui
 
@@ -64,8 +64,8 @@ Define on your TypoScript file the path that your templates are located.
 
    	tt_content {
       	foundation_reveal {
-			templateRootPaths.500 = EXT:yourExtention/Resources/Private/Templates/
-			partialRootPaths.500 = EXT:yourExtention/Resources/Private/Partials/
+			templateRootPaths.500 = EXT:yourExtension/Resources/Private/Templates/
+			partialRootPaths.500 = EXT:yourExtension/Resources/Private/Partials/
 			templateName = Reveal.html
 		}
    	}
