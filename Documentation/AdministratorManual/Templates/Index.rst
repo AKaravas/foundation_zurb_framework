@@ -33,7 +33,8 @@ The extension does not ship the Foundation Zurb CSS/JS files. This way, you can 
     	}
 		jqueryUI = EXT:yourExtension/Resources/Public/Vendor/jquery-ui.js
 		foundationCore = EXT:yourExtension/Resources/Public/Vendor/foundation.min.js
-		 # load older jQuery version for older browsers < IE9
+
+        # load older jQuery version for older browsers < IE9
 	    jQueryOld = EXT:yourExtension/Resources/Public/JavaScript/Vendor/jquery-1.12.0.min.js
 	    jQueryOld {
 	        allWrap = <!--[if lt IE 9]>|<![endif]-->
@@ -63,7 +64,7 @@ Define on your TypoScript file the path that your templates are located.
 .. code-block:: typoscript
 
    	tt_content {
-      	foundation_reveal {
+        foundation_reveal {
 			templateRootPaths.500 = EXT:yourExtension/Resources/Private/Templates/
 			partialRootPaths.500 = EXT:yourExtension/Resources/Private/Partials/
 			templateName = Reveal.html
