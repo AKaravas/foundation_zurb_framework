@@ -1,5 +1,5 @@
 {
-    "name": "vendor/foundation-zurb-framework",
+    "name": "karavas/foundation-zurb-framework",
     "type": "typo3-cms-extension",
     "description": "",
     "authors": [
@@ -14,12 +14,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vendor\\FoundationZurbFramework\\": "Classes"
+            "Karavas\\FoundationZurbFramework\\": "Classes"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vendor\\FoundationZurbFramework\\Tests\\": "Tests"
+            "Karavas\\FoundationZurbFramework\\Tests\\": "Tests"
         }
     },
     "replace": {

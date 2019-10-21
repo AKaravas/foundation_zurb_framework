@@ -1,5 +1,5 @@
 <?php
-namespace Vendor\FoundationZurbFramework\Hooks\PageLayoutView;
+namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
 use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use \TYPO3\CMS\Backend\View\PageLayoutView;
