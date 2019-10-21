@@ -7,7 +7,7 @@
 
 .. _Introduction:
 
-_Introduction
+Introduction
 ================
 
 This extension gives you the capability to create Foundation Zurb content elements.

@@ -21,21 +21,21 @@ Screenshots
 
 Some content on the Slider content element
 
-.. figure:: ../../Images/Introduction/slider_content.png
+.. figure:: ../../Images/slider_content.png
    :width: 700px
    :align: left
    :alt: Slider Content
 
 This is the slider's main settings
 
-.. figure:: ../../Images/Introduction/main_settings.png
+.. figure:: ../../Images/main_settings.png
    :width: 700px
    :align: left
    :alt: Main Settings
 
 This is the slider's advanced settings
 
-.. figure:: ../../Images/Introduction/advanced_settings.png
+.. figure:: ../../Images/advanced_settings.png
    :width: 700px
    :align: left
    :alt: Advanced Settings
