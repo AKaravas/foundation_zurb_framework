@@ -2,10 +2,9 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -35,18 +34,7 @@ class DropdownPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         if ($row['CType'] === 'foundation_dropdown') {
 
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_dropdowncontent');
-            $dropDownInfos = $queryBuilder
-                ->select('*')
-                ->from('foundation_zurb_dropdowncontent')
-                ->where(
-                    $queryBuilder->expr()->eq('tt_content',$queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
+            $dropDownInfos = DatabaseQueries::getTableInfosByUid('foundation_zurb_dropdowncontent', $row['uid'], 'tt_content');
 
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
             $itemContent .= '<table class="foundation_table one_table">';

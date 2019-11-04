@@ -2,11 +2,10 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use Karavas\FoundationZurbFramework\Helper\Helper;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -36,33 +35,11 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         if ($row['CType'] === 'foundation_card') {
 
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardsettings');
-            $cardSettings = $queryBuilder
-                ->select('large_items', 'medium_items', 'small_items', 'use_container', 'uid', 'title_crop',
-                    'text_crop', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'link_crop',
-                    'limit_content')
-                ->from('foundation_zurb_cardsettings')
-                ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['card_settings_relation'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
-            $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_cardcontent');
-            $cardContent = $queryBuilderContent
-                ->select('title', 'text', 'files', 'uid', 'card_link')
-                ->from('foundation_zurb_cardcontent')
-                ->where(
-                    $queryBuilderContent->expr()->eq('foundation_zurb_cardsettings',
-                        $queryBuilderContent->createNamedParameter($cardSettings[0]['uid'], \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
+            $cardFields = ['title', 'text', 'files', 'uid', 'card_link'];
+            $cardSettings = DatabaseQueries::getTableInfosByUid('foundation_zurb_cardsettings', $row['card_settings_relation'], 'uid');
+            $cardContent = DatabaseQueries::getTableInfosByUid('foundation_zurb_cardcontent', $cardSettings[0]['uid'], 'foundation_zurb_cardsettings', $cardFields);
 
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
-
             $itemContent .= '<table class="foundation_table">';
             $itemContent .= '<tbody>';
             if ($cardSettings[0]['selected_items'] && $cardSettings[0]['hide_settings'] != 1) {

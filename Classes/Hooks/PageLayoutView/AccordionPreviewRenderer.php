@@ -2,10 +2,9 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -35,30 +34,8 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         if ($row['CType'] === 'foundation_accordion') {
 
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_accordionsettings');
-            $accordionSettings = $queryBuilder
-                ->select('accordion_disabled', 'accordion_all_closed', 'accordion_multiexpand', 'accordion_speed',
-                    'uid', 'title_crop', 'text_crop', 'selected_items', 'hide_settings', 'hide_content',
-                    'limit_content')
-                ->from('foundation_zurb_accordionsettings')
-                ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['accordion_settings_relation'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
-            $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_accordioncontent');
-            $accordionContent = $queryBuilderContent
-                ->select('title', 'text', 'files', 'uid')
-                ->from('foundation_zurb_accordioncontent')
-                ->where(
-                    $queryBuilderContent->expr()->eq('foundation_zurb_accordionsettings', $queryBuilderContent->createNamedParameter($accordionSettings[0]['uid'], \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
+            $accordionSettings = DatabaseQueries::getTableInfosByUid('foundation_zurb_accordionsettings', $row['accordion_settings_relation'], 'uid');
+            $accordionContent = DatabaseQueries::getTableInfosByUid('foundation_zurb_accordioncontent', $accordionSettings[0]['uid'], 'foundation_zurb_accordionsettings');
 
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
 

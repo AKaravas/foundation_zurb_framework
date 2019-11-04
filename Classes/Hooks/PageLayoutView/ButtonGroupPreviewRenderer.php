@@ -2,12 +2,10 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use Karavas\FoundationZurbFramework\Helper\Helper;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\LinkHandling\LinkService;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -36,31 +34,8 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
     ) {
         if ($row['CType'] === 'foundation_group_button') {
 
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_buttongroupsettings');
-            $groupButtonSettings = $queryBuilder
-                ->select('position', 'container', 'expanded', 'stacked', 'color', 'size', 'uid', 'selected_items',
-                    'hide_settings', 'hide_content', 'hide_advanced', 'title_crop', 'link_crop', 'limit_content')
-                ->from('foundation_zurb_buttongroupsettings')
-                ->where(
-                    $queryBuilder->expr()->eq('uid',
-                        $queryBuilder->createNamedParameter($row['buttongroup_settings_relation'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
-            $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_buttongroupcontent');
-            $buttonGroupContent = $queryBuilderContent
-                ->select('title', 'link', 'uid', 'color', 'hollow', 'clear', 'disabled')
-                ->from('foundation_zurb_buttongroupcontent')
-                ->where(
-                    $queryBuilderContent->expr()->eq('foundation_zurb_buttongroupsettings',
-                        $queryBuilderContent->createNamedParameter($groupButtonSettings[0]['uid'], \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
+            $groupButtonSettings = DatabaseQueries::getTableInfosByUid('foundation_zurb_buttongroupsettings', $row['buttongroup_settings_relation'], 'uid');
+            $buttonGroupContent = DatabaseQueries::getTableInfosByUid('foundation_zurb_buttongroupcontent', $groupButtonSettings[0]['uid'], 'foundation_zurb_buttongroupsettings');
 
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
 
@@ -184,7 +159,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                         $itemContent .= '<td>' . substr($bgContent['title'], 0, $groupButtonSettings[0]['title_crop']) . '</td>';
                     }
                     if (strpos($groupButtonSettings[0]['selected_items'], 'button_link') !== false) {
-                        $itemContent .= Helper::createLink($bgContent['link'], $bgContent['link_crop']);
+                        $itemContent .= Helper::createLink($bgContent['link'], $groupButtonSettings[0]['link_crop']);
                     }
                     if (strpos($groupButtonSettings[0]['selected_items'], 'button_color_content') !== false) {
                         $itemContent .= '<td>' . ($groupButtonSettings[0]['color'] === 'undefined' ? $bgContent['color'] : 'Defined on parent') . '</td>';
@@ -223,7 +198,7 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $itemContent .= '<tr>';
                     $itemContent .= '<td>' . $listNumber . '.</td>';
                     $itemContent .= '<td>' . substr($bgContent['title'], 0, $groupButtonSettings[0]['title_crop']) . '</td>';
-                    $itemContent .= Helper::createLink($bgContent['link'], $bgContent['link_crop']);
+                    $itemContent .= Helper::createLink($bgContent['link'], $groupButtonSettings[0]['link_crop']);
                     $itemContent .= '<td>' . ($groupButtonSettings[0]['color'] === 'undefined' ? $bgContent['color'] : 'Defined on parent') . '</td>';
                     $itemContent .= '<td>' . ($bgContent['hollow'] === 1 ? '&#10004;' : '&#10008') . '</td>';
                     $itemContent .= '<td>' . ($bgContent['clear'] === 1 ? '&#10004;' : '&#10008') . '</td>';

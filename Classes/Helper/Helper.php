@@ -3,12 +3,11 @@
 
 namespace Karavas\FoundationZurbFramework\Helper;
 
-
-use phpDocumentor\Reflection\Types\String_;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\LinkHandling\LinkService;
+use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Helper
@@ -21,25 +20,16 @@ class Helper
      * */
     public static function getPageInfo($uid) : array
     {
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
-        $getQuery = $queryBuilder
-            ->select('*')
-            ->from('pages')
-            ->where(
-                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid,\PDO::PARAM_INT)),
-                $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-            )
-            ->execute()
-            ->fetchAll();
-
+        $getQuery = DatabaseQueries::getTableInfosByUid('pages', $uid, 'uid', $fields = null);
         $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
+
         $getIconForPage = $iconFactory->getIconForRecord('pages', $getQuery[0], Icon::SIZE_SMALL)->render();
 
         $results = [
             $getQuery,
             'icon' => $getIconForPage
         ];
+
         return $results;
     }
 
@@ -56,14 +46,38 @@ class Helper
             $resolveLink = GeneralUtility::makeInstance(LinkService::class);
             $getUrlDetails = $resolveLink->resolve($link);
             $pageConf = self::getPageInfo($getUrlDetails['pageuid']);
-            $link = $pageConf[0][0]['title'];
+            $title= $pageConf[0][0]['title'];
             $pageIcon = $pageConf['icon'];
-            $fullLink = '<td>' . $pageIcon. ' '. substr($link, 0, $cropText) . '</td>';
+            $fullLink = '<td>' . $pageIcon. ' '. substr($title, 0, $cropText) . '</td>';
         }
         else
         {
             $fullLink = '<td>' . substr($link, 0, $cropText) . '</td>';
         }
         return $fullLink;
+    }
+
+    public static function getSliderImages($sliderImages) : array
+    {
+        $renderedImage = array();
+        $sorting = array();
+        $sorted = array();
+
+        for ($i = 0; $i < count($sliderImages); $i++) {
+            $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
+            $fileObjects = $fileRepository->findByRelation('foundation_zurb_slidercontent', 'image', $sliderImages[$i]['uid']);
+            $imagesPath = $fileObjects[0]->getProperty('identifier');
+            $basePath = substr($fileObjects[0]->getOriginalFile()->getStorage()->getConfiguration()['basePath'], 0,-1);
+            $sorting[] = $sliderImages[$i]['sorting'];
+            $buildImage = $basePath.$imagesPath;
+            $finalImage = "<img src='../" . $buildImage . "'/>";
+            $renderedImage[] = $finalImage;
+        }
+        array_push($sorted, $renderedImage, $sorting);
+        $sortedCombined = array_map(null, ...$sorted);
+        usort($sortedCombined, function ($a, $b) {
+            return $a[1] <=> $b[1];
+        });
+        return $sortedCombined;
     }
 }

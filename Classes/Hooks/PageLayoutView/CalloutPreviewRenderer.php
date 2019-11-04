@@ -2,10 +2,9 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -36,18 +35,8 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         if ($row['CType'] === 'foundation_callout') {
 
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_callout');
-            $calloutSettings = $queryBuilder
-                ->select('container', 'animation_out', 'is_closable', 'size', 'title', 'color', 'title_crop',
-                    'text_crop', 'files', 'text', 'selected_items', 'hide_settings', 'hide_content')
-                ->from('foundation_zurb_callout')
-                ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['callout_content_relation'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
+            $calloutSettings = DatabaseQueries::getTableInfosByUid('foundation_zurb_callout', $row['callout_content_relation'], 'uid');
+
             if ($calloutSettings[0]['files'] == 1) {
                 $fileExist = 'File exists';
             } else {

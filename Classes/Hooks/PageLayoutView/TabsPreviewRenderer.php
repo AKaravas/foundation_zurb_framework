@@ -2,10 +2,9 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -36,30 +35,9 @@ class TabsPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 
         if ($row['CType'] === 'foundation_tabs') {
 
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabssettings');
-            $tabsSettings = $queryBuilder
-                ->select('deep_linking', 'collapse_tabs', 'vertical_tabs', 'title_crop', 'text_crop', 'uid',
-                    'selected_items', 'hide_settings', 'hide_content', 'limit_content')
-                ->from('foundation_zurb_tabssettings')
-                ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['tabs_settings_relation'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
-            $queryBuilderContent = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_tabscontent');
-            $tabsContent = $queryBuilderContent
-                ->select('title', 'text', 'image', 'uid')
-                ->from('foundation_zurb_tabscontent')
-                ->where(
-                    $queryBuilderContent->expr()->eq('foundation_zurb_tabssettings',
-                        $queryBuilderContent->createNamedParameter($tabsSettings[0]['uid'], \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
-
+            $tabFields = ['title', 'text', 'image', 'uid'];
+            $tabsSettings = DatabaseQueries::getTableInfosByUid('foundation_zurb_tabssettings', $row['tabs_settings_relation'], 'uid');
+            $tabsContent = DatabaseQueries::getTableInfosByUid('foundation_zurb_tabscontent', $tabsSettings[0]['uid'], 'foundation_zurb_tabssettings', $tabFields);
 
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
             $itemContent .= '<table class="foundation_table">';

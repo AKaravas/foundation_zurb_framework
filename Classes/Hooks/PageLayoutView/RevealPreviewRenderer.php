@@ -2,10 +2,9 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\DatabaseQueries;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -34,17 +33,9 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
     ) {
 
         if ($row['CType'] === 'foundation_reveal') {
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_revealcontent');
-            $revealInfos = $queryBuilder
-                ->select('*')
-                ->from('foundation_zurb_revealcontent')
-                ->where(
-                    $queryBuilder->expr()->eq('tt_content', $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-                )
-                ->execute()
-                ->fetchAll();
+
+            $revealInfos = DatabaseQueries::getTableInfosByUid('foundation_zurb_revealcontent', $row['uid'], 'tt_content');
+
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
             $itemContent .= '<table class="foundation_table one_table">';
             $itemContent .= '<tbody>';
