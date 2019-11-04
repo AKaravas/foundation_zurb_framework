@@ -4,10 +4,8 @@ data-namespace-typo3-fluid="true">
 		<div class="grid-x">
 			<f:for each="{revealContent}" as="reveal">
 				<div class="cell auto">
-					<p><button class="button {reveal.data.size} {reveal.data.color} {reveal.data.button_size} <f:if condition='{reveal.data.hollow}'>hollow</f:if> <f:if condition='{reveal.data.clear}'>clear</f:if>" data-open="modal-{reveal.data.uid}" <f:if condition="{reveal.data.disabled}">disabled</f:if>>{reveal.data.title}</button></p>
-					<div class="{reveal.data.size} reveal" 
-						id="modal-{reveal.data.uid}" 
-						data-reveal 
+					<p><button class="button {reveal.data.buttonSize} {reveal.data.color} {reveal.data.button_size} <f:if condition='{reveal.data.hollow}'>hollow</f:if> <f:if condition='{reveal.data.clear}'>clear</f:if>" data-open="modal-{reveal.data.uid}" <f:if condition="{reveal.data.disabled}">disabled</f:if>>{reveal.data.title}</button></p>
+					<div class="{reveal.data.size} reveal" id="modal-{reveal.data.uid}" data-reveal
 						<f:if condition="{reveal.data.no_overlay}">data-overlay="false"</f:if>
 						<f:if condition="{reveal.data.close_on_click}">data-close-on-click="false"</f:if>
 						<f:if condition="{reveal.data.close_on_esc}">data-close-on-esc="false"</f:if>
@@ -32,7 +30,6 @@ data-namespace-typo3-fluid="true">
 					  <button class="close-button" data-close aria-label="Close modal" type="button">
 					    <span aria-hidden="true">&times;</span>
 					  </button>
-					</div>
 				</div>
 			</f:for>
 		</div>

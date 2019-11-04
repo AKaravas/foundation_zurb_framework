@@ -366,6 +366,9 @@
             <trans-unit id="foundation_reveal_content_files" xml:space="preserve">
                 <source>Reveal files</source>
             </trans-unit>
+            <trans-unit id="foundation_reveal_size" xml:space="preserve">
+                <source>Reveal size</source>
+            </trans-unit>
             <trans-unit id="foundation_reveal_settings_full_screen" xml:space="preserve">
                 <source>Enable full screen</source>
             </trans-unit>
@@ -414,6 +417,9 @@
             <!--Foundation Zurb Button-->
             <trans-unit id="foundation_button_title" xml:space="preserve">
                 <source>Button</source>
+            </trans-unit>
+            <trans-unit id="foundation_button_size" xml:space="preserve">
+                <source>Button size</source>
             </trans-unit>
             <trans-unit id="foundation_button_description" xml:space="preserve">
                 <source>Create a singe Foundation button element</source>

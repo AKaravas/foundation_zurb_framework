@@ -63,7 +63,10 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_files', 'FoundationZurbFramework') . "</th>";
                 }
                 if (strpos($revealInfos[0]['selected_items'], 'reveal_size') !== false) {
-                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_size', 'FoundationZurbFramework') . "</th>";
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_reveal_size', 'FoundationZurbFramework') . "</th>";
+                }
+                if (strpos($revealInfos[0]['selected_items'], 'button_size') !== false) {
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_button_size', 'FoundationZurbFramework') . "</th>";
                 }
                 if (strpos($revealInfos[0]['selected_items'], 'reveal_no_overlay') !== false) {
                     $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_reveal_settings_no_overlay', 'FoundationZurbFramework') . "</th>";
@@ -141,6 +144,9 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     if (strpos($revealInfos[0]['selected_items'], 'reveal_size') !== false) {
                         $itemContent .= '<td>' . $reveal['size'] . '</td>';
                     }
+                    if (strpos($revealInfos[0]['selected_items'], 'button_size') !== false) {
+                        $itemContent .= (empty($reveal['button_size']) ? '<td>Normal</td>' : '<td>' . $reveal['button_size'] . '</td>');
+                    }
                     if (strpos($revealInfos[0]['selected_items'], 'reveal_no_overlay') !== false) {
                         $itemContent .= '<td>' . ($reveal['no_overlay'] === 1 ? '&#10004; </td>' : '&#10008; </td>');
                     }
@@ -201,7 +207,8 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= '<th class="listing"></th>';
                 $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_title', 'FoundationZurbFramework') . "</th>";
                 $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_text', 'FoundationZurbFramework') . "</th>";
-                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_size', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_reveal_size', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_button_size', 'FoundationZurbFramework') . "</th>";
                 $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_color', 'FoundationZurbFramework') . "</th>";
                 $itemContent .= '</tr>';
                 $listNumber = 0;
@@ -212,6 +219,7 @@ class RevealPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $itemContent .= '<td>' . substr($reveal['title'], 0, $revealInfos[0]['title_crop']) . '</td>';
                     $itemContent .= '<td>' . strip_tags(substr($reveal['text'], 0, $revealInfos[0]['text_crop'])) . '</td>';
                     $itemContent .= '<td>' . $reveal['size'] . '</td>';
+                    $itemContent .= (empty($reveal['button_size']) ? '<td>Normal</td>' : '<td>' . $reveal['button_size'] . '</td>');
                     $itemContent .= '<td>' . $reveal['color'] . '</td>';
                     $itemContent .= '</tr>';
                 }
