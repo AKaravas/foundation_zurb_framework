@@ -10,7 +10,7 @@ $EM_CONF[$_EXTKEY] = [
     'dependencies' => '',
     'priority' => '',
     'module' => '',
-    'state' => 'beta',
+    'state' => 'stable',
     'internal' => '',
     'uploadfolder' => 0,
     'createDirs' => '',
@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '9.0.6',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.4-9.5.99',
+            'typo3' => '8.7.4-10.1.99',
         ],
         'conflicts' => [
         ],

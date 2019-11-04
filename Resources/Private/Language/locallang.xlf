@@ -44,6 +44,9 @@
             <trans-unit id="foundation_hide_timings" xml:space="preserve">
                 <source>Hide timings</source>
             </trans-unit>
+            <trans-unit id="foundation_advanced" xml:space="preserve">
+                <source>Advanced</source>
+            </trans-unit>
             <trans-unit id="foundation_create_item" xml:space="preserve">
                 <source>Create a new item</source>
             </trans-unit>
@@ -61,6 +64,9 @@
             </trans-unit>
             <trans-unit id="foundation_use_container" xml:space="preserve">
                 <source>Remove container</source>
+            </trans-unit>
+            <trans-unit id="foundation_container_disabled" xml:space="preserve">
+                <source>Container disabled</source>
             </trans-unit>
             <trans-unit id="foundation_deep_link" xml:space="preserve">
                 <source>Enable deep_link</source>
@@ -122,6 +128,52 @@
             <trans-unit id="foundation_limit_content" xml:space="preserve">
                 <source>Limit shown content to: </source>
             </trans-unit>
+            <trans-unit id="foundation_images" xml:space="preserve">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="foundation_content" xml:space="preserve">
+                <source>Content</source>
+            </trans-unit>
+            <trans-unit id="foundation_title" xml:space="preserve">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="foundation_text" xml:space="preserve">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="foundation_files" xml:space="preserve">
+                <source>Files</source>
+            </trans-unit>
+            <trans-unit id="foundation_color" xml:space="preserve">
+                <source>Color</source>
+            </trans-unit>
+            <trans-unit id="foundation_link" xml:space="preserve">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="foundation_hover" xml:space="preserve">
+                <source>Hover</source>
+            </trans-unit>
+            <trans-unit id="foundation_hover_pane" xml:space="preserve">
+                <source>Hover pane</source>
+            </trans-unit>
+            <trans-unit id="foundation_bottom_overlap" xml:space="preserve">
+                <source>Bottom overlap</source>
+            </trans-unit>
+            <trans-unit id="foundation_trap_focus" xml:space="preserve">
+                <source>Trap focus</source>
+            </trans-unit>
+            <trans-unit id="foundation_auto_focus" xml:space="preserve">
+                <source>Auto focus</source>
+            </trans-unit>
+            <trans-unit id="foundation_v_offset" xml:space="preserve">
+                <source>V-offset</source>
+            </trans-unit>
+            <trans-unit id="foundation_h_offset" xml:space="preserve">
+                <source>H-offset</source>
+            </trans-unit>
+            <trans-unit id="foundation_close_on_click" xml:space="preserve">
+                <source>Disable close on click</source>
+            </trans-unit>
+
 
             <!--Foundation Zurb Viewports-->
             <trans-unit id="foundation_viewport_small_size" xml:space="preserve">
@@ -175,25 +227,25 @@
                 <source>Hide bullets</source>
             </trans-unit>
             <trans-unit id="foundation_slider_auto_play" xml:space="preserve">
-                <source>Stop auto play</source>
+                <source>Disable auto play</source>
             </trans-unit>
             <trans-unit id="foundation_slider_timer_delay" xml:space="preserve">
                 <source>Time to next slide (1s = 1000)</source>
             </trans-unit>
             <trans-unit id="foundation_slider_infinite_wrap" xml:space="preserve">
-                <source>Stop infinite Wrap</source>
+                <source>Disable infinite wrap</source>
             </trans-unit>
             <trans-unit id="foundation_slider_swipe" xml:space="preserve">
-                <source>Deactivate swipe (Mobile)</source>
+                <source>Deactivate swipe</source>
             </trans-unit>
              <trans-unit id="foundation_slider_pause_on_hover" xml:space="preserve">
-                <source>Deactivate pause on mouse over the slider</source>
+                <source>Deactivate pause on hover</source>
             </trans-unit>
             <trans-unit id="foundation_slider_keyboard_navigation" xml:space="preserve">
-                <source>Stop keyboard Navigation</source>
+                <source>Disable keyboard Navigation</source>
             </trans-unit>
             <trans-unit id="foundation_slider_use_mui" xml:space="preserve">
-                <source>Stop use m.u.i.</source>
+                <source>Disable use m.u.i.</source>
             </trans-unit>
             
             <!--Foundation Zurb Accordion-->
@@ -287,6 +339,9 @@
             </trans-unit>
             <trans-unit id="foundation_card_content_link" xml:space="preserve">
                 <source>Card link</source>
+            </trans-unit>
+            <trans-unit id="foundation_card_content_container" xml:space="preserve">
+                <source>Card container</source>
             </trans-unit>
 
             <!--Foundation Zurb Reveal/Modal-->

@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Karavas\\FoundationZurbFramework\\": "Classes"
+            "Karavas\\FoundationZurbFramework\\": "Classes/"
         }
     },
     "autoload-dev": {

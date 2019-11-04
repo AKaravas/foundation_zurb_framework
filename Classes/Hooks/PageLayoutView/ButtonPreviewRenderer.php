@@ -1,10 +1,12 @@
 <?php
+
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
-use \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use \TYPO3\CMS\Backend\View\PageLayoutView;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
-use \TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Backend\View\PageLayoutView;
+use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * Contains a preview rendering for the page module of CType="foundation_card"
@@ -12,185 +14,189 @@ use \TYPO3\CMS\Core\Database\ConnectionPool;
 class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 {
 
-   /**
-    * Preprocesses the preview rendering of a content element of type "Foundation Tabs"
-    *
-    * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
-    * @param bool $drawItem Whether to draw the item using the default functionality
-    * @param string $headerContent Header content
-    * @param string $itemContent Item content
-    * @param array $row Record row of tt_content
-    *
-    * @return void
-    */
-   public function preProcess(
-      PageLayoutView &$parentObject,
-      &$drawItem,
-      &$headerContent,
-      &$itemContent,
-      array &$row
-   )
-   {
+    /**
+     * Preprocesses the preview rendering of a content element of type "Foundation Tabs"
+     *
+     * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
+     * @param bool $drawItem Whether to draw the item using the default functionality
+     * @param string $headerContent Header content
+     * @param string $itemContent Item content
+     * @param array $row Record row of tt_content
+     *
+     * @return void
+     */
+    public function preProcess(
+        PageLayoutView &$parentObject,
+        &$drawItem,
+        &$headerContent,
+        &$itemContent,
+        array &$row
+    ) {
 
 
-    if ($row['CType'] === 'foundation_button') {
+        if ($row['CType'] === 'foundation_button') {
 
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_button');
-        $buttonSettings = $queryBuilder
-          ->select('position', 'container', 'clear', 'disabled', 'hollow', 'color', 'size', 'title', 'link', 'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'title_crop', 'link_crop')
-          ->from('foundation_zurb_button')
-          ->where( 
-            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['button_content_relation'],\PDO::PARAM_INT)),
-            $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
-            $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
-        )
-        ->execute()
-        ->fetchAll();
-
-
-        $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('foundation_zurb_button');
+            $buttonSettings = $queryBuilder
+                ->select('position', 'container', 'clear', 'disabled', 'hollow', 'color', 'size', 'title', 'link',
+                    'selected_items', 'hide_settings', 'hide_content', 'hide_advanced', 'title_crop', 'link_crop')
+                ->from('foundation_zurb_button')
+                ->where(
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['button_content_relation'], \PDO::PARAM_INT)),
+                    $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
+                    $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
+                )
+                ->execute()
+                ->fetchAll();
 
 
-        $itemContent .= '<table class="foundation_table one_table">';
-          $itemContent .= '<tbody>';
-          if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_settings'] != 1) {
-            $itemContent .= '<tr>';
-              if (strpos($buttonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
-                $itemContent .= '<th>Size</th>';
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_color') !== false) {
-                $itemContent .= '<th>Color</th>';
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_hollow') !== false) {
-                $itemContent .= '<th>Hollow</th>';
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_clear') !== false) {
-                $itemContent .= '<th>Clear</th>';
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_disabled') !== false) {
-                $itemContent .= '<th>Disabled</th>';
-              }
-            $itemContent .= '</tr>';
-            $itemContent .= '<tr>';
-            if (strpos($buttonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
-                $itemContent .= (empty($buttonSettings[0]['size']) ? '<td>Normal</td>' : '<td>'.$buttonSettings[0]['size'].'</td>');
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_color') !== false) {
-                $itemContent .= '<td> '. $buttonSettings[0]['color'] .'</td>';
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_hollow') !== false) {
-                $itemContent .= ($buttonSettings[0]['hollow'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_clear') !== false) {
-                $itemContent .= ($buttonSettings[0]['clear'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-              }
-              if (strpos($buttonSettings[0]['selected_items'], 'button_disabled') !== false) {
-                $itemContent .= ($buttonSettings[0]['disabled'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-              }
-            $itemContent .= '</tr>';
-          }elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_settings'] == 1){
-            
-          } else {
-              $itemContent .= '<tr>';
-                $itemContent .= '<th>Size</th>';
-                $itemContent .= '<th>Color</th>';
-                $itemContent .= '<th>Hollow</th>';
-                $itemContent .= '<th>Clear</th>';
-                $itemContent .= '<th>Disabled</th>';
-              $itemContent .= '</tr>';
-              $itemContent .= '<tr>';
-                $itemContent .= (empty($buttonSettings[0]['size']) ? '<td>Normal</td>' : '<td>'.$buttonSettings[0]['size'].'</td>');
-                $itemContent .= '<td> '. $buttonSettings[0]['color'] .'</td>';
-                $itemContent .= ($buttonSettings[0]['hollow'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-                $itemContent .= ($buttonSettings[0]['clear'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-                $itemContent .= ($buttonSettings[0]['disabled'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-              $itemContent .= '</tr>';
-          }
-          $itemContent .= '</tbody>';
-        $itemContent .= '</table>';
+            $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
 
-        
-        if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_advanced'] != 1) {
-          $itemContent .= '<strong class="foundation_subtitle">Advanced</strong>';
-          $itemContent .= '<table class="foundation_table">';
+
+            $itemContent .= '<table class="foundation_table one_table">';
             $itemContent .= '<tbody>';
-              $itemContent .= '<tr>';
+            if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_settings'] != 1) {
+                $itemContent .= '<tr>';
+                if (strpos($buttonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_size', 'FoundationZurbFramework') . "</th>";
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_color') !== false) {
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_color', 'FoundationZurbFramework') . "</th>";
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_hollow') !== false) {
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_styling_hollow', 'FoundationZurbFramework') . "</th>";
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_clear') !== false) {
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_styling_clear', 'FoundationZurbFramework') . "</th>";
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_disabled') !== false) {
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_disabled', 'FoundationZurbFramework') . "</th>";
+                }
+                $itemContent .= '</tr>';
+                $itemContent .= '<tr>';
+                if (strpos($buttonSettings[0]['selected_items'], 'foundation_sizing') !== false) {
+                    $itemContent .= (empty($buttonSettings[0]['size']) ? '<td>Normal</td>' : '<td>' . $buttonSettings[0]['size'] . '</td>');
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_color') !== false) {
+                    $itemContent .= '<td> ' . $buttonSettings[0]['color'] . '</td>';
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_hollow') !== false) {
+                    $itemContent .= ($buttonSettings[0]['hollow'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_clear') !== false) {
+                    $itemContent .= ($buttonSettings[0]['clear'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                }
+                if (strpos($buttonSettings[0]['selected_items'], 'button_disabled') !== false) {
+                    $itemContent .= ($buttonSettings[0]['disabled'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                }
+                $itemContent .= '</tr>';
+            } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_settings'] == 1) {
+
+            } else {
+                $itemContent .= '<tr>';
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_size', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_color', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_styling_hollow', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_styling_clear', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_disabled', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= '</tr>';
+                $itemContent .= '<tr>';
+                $itemContent .= (empty($buttonSettings[0]['size']) ? '<td>Normal</td>' : '<td>' . $buttonSettings[0]['size'] . '</td>');
+                $itemContent .= '<td> ' . $buttonSettings[0]['color'] . '</td>';
+                $itemContent .= ($buttonSettings[0]['hollow'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($buttonSettings[0]['clear'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($buttonSettings[0]['disabled'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= '</tr>';
+            }
+            $itemContent .= '</tbody>';
+            $itemContent .= '</table>';
+
+
+            if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_advanced'] != 1) {
+                $itemContent .= "<strong class='foundation_subtitle'>" . LocalizationUtility::translate('foundation_advanced', 'FoundationZurbFramework') . "</strong>";
+                $itemContent .= '<table class="foundation_table">';
+                $itemContent .= '<tbody>';
+                $itemContent .= '<tr>';
                 if (strpos($buttonSettings[0]['selected_items'], 'button_container') !== false) {
-                  $itemContent .= '<th>Container</th>';
+                    $itemContent .=  "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_container', 'FoundationZurbFramework') . "</th>";
                 }
                 if (strpos($buttonSettings[0]['selected_items'], 'button_position') !== false) {
-                  $itemContent .= '<th>Align</th>';
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_alignment', 'FoundationZurbFramework') . "</th>";
                 }
-              $itemContent .= '</tr>';
-              $itemContent .= '<tr>';
+                $itemContent .= '</tr>';
+                $itemContent .= '<tr>';
                 if (strpos($buttonSettings[0]['selected_items'], 'button_container') !== false) {
-                  $itemContent .= ($buttonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                    $itemContent .= ($buttonSettings[0]['container'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
                 }
                 if (strpos($buttonSettings[0]['selected_items'], 'button_position') !== false) {
-                  $itemContent .= ($buttonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$buttonAlignment .'</td>'));
+                    $itemContent .= ($buttonSettings[0]['container'] != 1 ? "<td>" . LocalizationUtility::translate('foundation_container_disabled', 'FoundationZurbFramework') . "</td>" : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>' . $buttonAlignment . '</td>'));
                 }
-              $itemContent .= '</tr>';
-            $itemContent .= '</tbody>';
-          $itemContent .= '</table>';
-        } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_advanced']) {
-              
-        } else {
-          $itemContent .= '<strong class="foundation_subtitle">Advanced</strong>';
-          $itemContent .= '<table class="foundation_table">';
-            $itemContent .= '<tbody>';
-              $itemContent .= '<tr>';
-                $itemContent .= '<th>Container</th>';
-                $itemContent .= '<th>Align</th>';
-              $itemContent .= '</tr>';
-              $itemContent .= '<tr>';
-                $itemContent .= ($buttonSettings[0]['container'] ===1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-                $itemContent .= ($buttonSettings[0]['container'] !=1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>'.$buttonAlignment .'</td>'));
-              $itemContent .= '</tr>';
-            $itemContent .= '</tbody>';
-          $itemContent .= '</table>';
-        }
+                $itemContent .= '</tr>';
+                $itemContent .= '</tbody>';
+                $itemContent .= '</table>';
+            } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_advanced']) {
 
-        if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_content'] != 1) {
-          $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
-          $itemContent .= '<table class="foundation_table content_table">';
-            $itemContent .= '<tbody>';
-              $itemContent .= '<tr>';
+            } else {
+                $itemContent .= "<strong class='foundation_subtitle'>" . LocalizationUtility::translate('foundation_advanced', 'FoundationZurbFramework') . "</strong>";
+                $itemContent .= '<table class="foundation_table">';
+                $itemContent .= '<tbody>';
+                $itemContent .= '<tr>';
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_container', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_alignment', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= '</tr>';
+                $itemContent .= '<tr>';
+                $itemContent .= ($buttonSettings[0]['container'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
+                $itemContent .= ($buttonSettings[0]['container'] != 1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>' . $buttonAlignment . '</td>'));
+                $itemContent .= '</tr>';
+                $itemContent .= '</tbody>';
+                $itemContent .= '</table>';
+            }
+
+            if ($buttonSettings[0]['selected_items'] && $buttonSettings[0]['hide_content'] != 1) {
+                $itemContent .= "<strong class='foundation_subtitle'>" . LocalizationUtility::translate('foundation_content', 'FoundationZurbFramework') . "</strong>";
+                $itemContent .= '<table class="foundation_table content_table">';
+                $itemContent .= '<tbody>';
+                $itemContent .= '<tr>';
                 if (strpos($buttonSettings[0]['selected_items'], 'button_title') !== false) {
-                  $itemContent .= '<th>Title</th>';
+                    $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_title', 'FoundationZurbFramework') . "</th>";
                 }
                 if (strpos($buttonSettings[0]['selected_items'], 'button_link') !== false) {
-                  $itemContent .= '<th>Link</th>';
+                    $itemContent .="<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_link', 'FoundationZurbFramework') . "</th>";
                 }
-              $itemContent .= '</tr>';
-              $itemContent .= '<tr>';
+                $itemContent .= '</tr>';
+                $itemContent .= '<tr>';
                 if (strpos($buttonSettings[0]['selected_items'], 'button_title') !== false) {
-                  $itemContent .= '<td> '. substr($buttonSettings[0]['title'], 0, $buttonSettings[0]['title_crop']) .'</td>';
+                    $itemContent .= '<td> ' . substr($buttonSettings[0]['title'], 0,
+                            $buttonSettings[0]['title_crop']) . '</td>';
                 }
                 if (strpos($buttonSettings[0]['selected_items'], 'button_link') !== false) {
-                  $itemContent .= '<td> '. substr($buttonSettings[0]['link'], 0, $buttonSettings[0]['link_crop']) .'</td>';
+                    $itemContent .= '<td> ' . substr($buttonSettings[0]['link'], 0,
+                            $buttonSettings[0]['link_crop']) . '</td>';
                 }
-              $itemContent .= '</tr>';
-            $itemContent .= '</tbody>';
-          $itemContent .= '</table>';
-        } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_content']) {
-          
-        } else {
-          $itemContent .= '<strong class="foundation_subtitle">Content</strong>';
-          $itemContent .= '<table class="foundation_table content_table">';
-            $itemContent .= '<tbody>';
-              $itemContent .= '<tr>';
-                $itemContent .= '<th>Title</th>';
-                $itemContent .= '<th>Link</th>';
-              $itemContent .= '</tr>';
-              $itemContent .= '<tr>';
-                $itemContent .= '<td> '. substr($buttonSettings[0]['title'], 0, $buttonSettings[0]['title_crop']) .'</td>';
-                $itemContent .= '<td> '. substr($buttonSettings[0]['link'], 0, $buttonSettings[0]['link_crop']) .'</td>';
-              $itemContent .= '</tr>';
-            $itemContent .= '</tbody>';
-          $itemContent .= '</table>';
-        }
+                $itemContent .= '</tr>';
+                $itemContent .= '</tbody>';
+                $itemContent .= '</table>';
+            } elseif ($buttonSettings[0]['selected_items'] != 1 && $buttonSettings[0]['hide_content']) {
 
-        $drawItem = false;
+            } else {
+                $itemContent .= "<strong class='foundation_subtitle'>" . LocalizationUtility::translate('foundation_content', 'FoundationZurbFramework') . "</strong>";
+                $itemContent .= '<table class="foundation_table content_table">';
+                $itemContent .= '<tbody>';
+                $itemContent .= '<tr>';
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_title', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_link', 'FoundationZurbFramework') . "</th>";
+                $itemContent .= '</tr>';
+                $itemContent .= '<tr>';
+                $itemContent .= '<td> ' . substr($buttonSettings[0]['title'], 0,
+                        $buttonSettings[0]['title_crop']) . '</td>';
+                $itemContent .= '<td> ' . substr($buttonSettings[0]['link'], 0,
+                        $buttonSettings[0]['link_crop']) . '</td>';
+                $itemContent .= '</tr>';
+                $itemContent .= '</tbody>';
+                $itemContent .= '</table>';
+            }
+
+            $drawItem = false;
+        }
     }
-  }
 }
