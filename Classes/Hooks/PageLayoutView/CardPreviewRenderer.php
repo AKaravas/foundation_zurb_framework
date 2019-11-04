@@ -2,6 +2,7 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\Helper;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -168,7 +169,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                         $itemContent .= '<td>' . strip_tags(substr($caContent['text'], 0, $cardSettings[0]['text_crop'])) . '</td>';
                     }
                     if (strpos($cardSettings[0]['selected_items'], 'card_link') !== false) {
-                        $itemContent .= '<td>' . substr($caContent['card_link'], 0, $cardSettings[0]['link_crop']) . '</td>';
+                        $itemContent .=  Helper::createLink($caContent['card_link'],  $cardSettings[0]['link_crop']);
                     }
                     if (strpos($cardSettings[0]['selected_items'], 'card_files') !== false) {
                         $itemContent .= '<td>' . $fileExist . '</td>';
@@ -202,7 +203,7 @@ class CardPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $itemContent .= '<td>' . $listNumber . '</td>';
                     $itemContent .= '<td>' . substr($caContent['title'], 0, $cardSettings[0]['title_crop']) . '</td>';
                     $itemContent .= '<td>' . strip_tags(substr($caContent['text'], 0, $cardSettings[0]['text_crop'])) . '</td>';
-                    $itemContent .= '<td>' . substr($caContent['card_link'], 0, $cardSettings[0]['link_crop']) . '</td>';
+                    $itemContent .= Helper::createLink($caContent['card_link'],  $cardSettings[0]['link_crop']);
                     $itemContent .= '<td>' . $fileExist . '</td>';
                     $itemContent .= '</tr>';
                 }

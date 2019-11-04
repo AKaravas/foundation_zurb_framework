@@ -2,9 +2,11 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\Helper;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\LinkHandling\LinkService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
@@ -176,16 +178,13 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 foreach (array_slice($buttonGroupContent, 0, $groupButtonSettings[0]['limit_content']) as $bgContent) {
                     $listNumber++;
                     $itemContent .= '<tr>';
-                    if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_listing') !== false) {
-                        $itemContent .= '<td>' . $listNumber . '.</td>';
+                    if (strpos($groupButtonSettings[0]['selected_items'], 'foundation_listing') !== false) {$itemContent .= '<td>' . $listNumber . '.</td>';
                     }
                     if (strpos($groupButtonSettings[0]['selected_items'], 'button_title') !== false) {
-                        $itemContent .= '<td>' . substr($bgContent['title'], 0,
-                                $groupButtonSettings[0]['title_crop']) . '</td>';
+                        $itemContent .= '<td>' . substr($bgContent['title'], 0, $groupButtonSettings[0]['title_crop']) . '</td>';
                     }
                     if (strpos($groupButtonSettings[0]['selected_items'], 'button_link') !== false) {
-                        $itemContent .= '<td>' . substr($bgContent['link'], 0,
-                                $groupButtonSettings[0]['link_crop']) . '</td>';
+                        $itemContent .= Helper::createLink($bgContent['link'], $bgContent['link_crop']);
                     }
                     if (strpos($groupButtonSettings[0]['selected_items'], 'button_color_content') !== false) {
                         $itemContent .= '<td>' . ($groupButtonSettings[0]['color'] === 'undefined' ? $bgContent['color'] : 'Defined on parent') . '</td>';
@@ -223,10 +222,8 @@ class ButtonGroupPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $listNumber++;
                     $itemContent .= '<tr>';
                     $itemContent .= '<td>' . $listNumber . '.</td>';
-                    $itemContent .= '<td>' . substr($bgContent['title'], 0,
-                            $groupButtonSettings[0]['title_crop']) . '</td>';
-                    $itemContent .= '<td>' . substr($bgContent['link'], 0,
-                            $groupButtonSettings[0]['link_crop']) . '</td>';
+                    $itemContent .= '<td>' . substr($bgContent['title'], 0, $groupButtonSettings[0]['title_crop']) . '</td>';
+                    $itemContent .= Helper::createLink($bgContent['link'], $bgContent['link_crop']);
                     $itemContent .= '<td>' . ($groupButtonSettings[0]['color'] === 'undefined' ? $bgContent['color'] : 'Defined on parent') . '</td>';
                     $itemContent .= '<td>' . ($bgContent['hollow'] === 1 ? '&#10004;' : '&#10008') . '</td>';
                     $itemContent .= '<td>' . ($bgContent['clear'] === 1 ? '&#10004;' : '&#10008') . '</td>';

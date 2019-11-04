@@ -157,10 +157,8 @@ class CalloutPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_files', 'FoundationZurbFramework') . "</th>";
                 $itemContent .= '</tr>';
                 $itemContent .= '<tr>';
-                $itemContent .= '<td>' . substr($calloutSettings[0]['title'], 0,
-                        $calloutSettings[0]['title_crop']) . '</td>';
-                $itemContent .= '<td>' . strip_tags(substr($calloutSettings[0]['text'], 0,
-                        $calloutSettings[0]['text_crop'])) . '</td>';
+                $itemContent .= '<td>' . substr($calloutSettings[0]['title'], 0, $calloutSettings[0]['title_crop']) . '</td>';
+                $itemContent .= '<td>' . strip_tags(substr($calloutSettings[0]['text'], 0, $calloutSettings[0]['text_crop'])) . '</td>';
                 $itemContent .= '<td>' . $fileExist . '</td>';
                 $itemContent .= '</tr>';
                 $itemContent .= '</tbody>';

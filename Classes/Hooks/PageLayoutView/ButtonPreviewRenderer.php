@@ -2,11 +2,18 @@
 
 namespace Karavas\FoundationZurbFramework\Hooks\PageLayoutView;
 
+use Karavas\FoundationZurbFramework\Helper\Helper;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Imaging\Icon;
+use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\LinkHandling\LinkService;
+use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
  * Contains a preview rendering for the page module of CType="foundation_card"
@@ -48,7 +55,6 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 )
                 ->execute()
                 ->fetchAll();
-
 
             $headerContent = '<strong class="foundation_title">' . $parentObject->CType_labels[$row['CType']] . '</strong>';
 
@@ -166,12 +172,10 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= '</tr>';
                 $itemContent .= '<tr>';
                 if (strpos($buttonSettings[0]['selected_items'], 'button_title') !== false) {
-                    $itemContent .= '<td> ' . substr($buttonSettings[0]['title'], 0,
-                            $buttonSettings[0]['title_crop']) . '</td>';
+                    $itemContent .= '<td> ' . substr($buttonSettings[0]['title'], 0, $buttonSettings[0]['title_crop']) . '</td>';
                 }
                 if (strpos($buttonSettings[0]['selected_items'], 'button_link') !== false) {
-                    $itemContent .= '<td> ' . substr($buttonSettings[0]['link'], 0,
-                            $buttonSettings[0]['link_crop']) . '</td>';
+                    $itemContent .= Helper::createLink($buttonSettings[0]['link'], $buttonSettings[0]['link_crop']);
                 }
                 $itemContent .= '</tr>';
                 $itemContent .= '</tbody>';
@@ -187,10 +191,8 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_link', 'FoundationZurbFramework') . "</th>";
                 $itemContent .= '</tr>';
                 $itemContent .= '<tr>';
-                $itemContent .= '<td> ' . substr($buttonSettings[0]['title'], 0,
-                        $buttonSettings[0]['title_crop']) . '</td>';
-                $itemContent .= '<td> ' . substr($buttonSettings[0]['link'], 0,
-                        $buttonSettings[0]['link_crop']) . '</td>';
+                $itemContent .= '<td> ' . substr($buttonSettings[0]['title'], 0, $buttonSettings[0]['title_crop']) . '</td>';
+                $itemContent .= Helper::createLink($buttonSettings[0]['link'], $buttonSettings[0]['link_crop']);
                 $itemContent .= '</tr>';
                 $itemContent .= '</tbody>';
                 $itemContent .= '</table>';
@@ -199,4 +201,5 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
             $drawItem = false;
         }
     }
+
 }
