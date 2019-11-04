@@ -129,7 +129,7 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     $itemContent .= ($buttonSettings[0]['container'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
                 }
                 if (strpos($buttonSettings[0]['selected_items'], 'button_position') !== false) {
-                    $itemContent .= ($buttonSettings[0]['container'] != 1 ? "<td>" . LocalizationUtility::translate('foundation_container_disabled', 'FoundationZurbFramework') . "</td>" : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>' . $buttonAlignment . '</td>'));
+                    $itemContent .= ($buttonSettings[0]['container'] != 1 ? "<td>" . LocalizationUtility::translate('foundation_container_disabled', 'FoundationZurbFramework') . "</td>" : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>' . $buttonSettings[0]['position'] . '</td>'));
                 }
                 $itemContent .= '</tr>';
                 $itemContent .= '</tbody>';
@@ -146,7 +146,7 @@ class ButtonPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= '</tr>';
                 $itemContent .= '<tr>';
                 $itemContent .= ($buttonSettings[0]['container'] === 1 ? '<td> &#10004;</td>' : '<td> &#10008;</td>');
-                $itemContent .= ($buttonSettings[0]['container'] != 1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>' . $buttonAlignment . '</td>'));
+                $itemContent .= ($buttonSettings[0]['container'] != 1 ? '<td>Container not active</td>' : ($buttonSettings[0]['position'] === '' ? '<td> align-left</td>' : '<td>' . $buttonSettings[0]['position'] . '</td>'));
                 $itemContent .= '</tr>';
                 $itemContent .= '</tbody>';
                 $itemContent .= '</table>';

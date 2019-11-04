@@ -1,0 +1,8 @@
+
+
+9.0.5 - 2018/12/17
+------------------
+
+::
+	
+	* 2019-11-04 [Feature] BackEnd Translation option added. (Commit: d5f1950)
