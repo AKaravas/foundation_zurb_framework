@@ -19,7 +19,9 @@ List of versions
    :maxdepth: 5
    :titlesonly:
    :glob:
-   
+
+   10.0.0
+   9.0.6
    9.0.5
    9.0.4
    9.0.2
