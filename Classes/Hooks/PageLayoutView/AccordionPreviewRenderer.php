@@ -89,6 +89,7 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
             $itemContent .= '</tbody>';
             $itemContent .= '</table>';
 
+
             if ($accordionSettings[0]['selected_items'] && $accordionSettings[0]['hide_content'] != 1) {
                 $itemContent .= "<strong class='foundation_subtitle'>" . LocalizationUtility::translate('foundation_content', 'FoundationZurbFramework') . "</strong>";
                 $itemContent .= '<table class="foundation_table content_table">';
@@ -97,13 +98,13 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 if (strpos($accordionSettings[0]['selected_items'], 'foundation_listing') !== false) {
                     $itemContent .= '<th class="listing"></th>';
                 }
-                if (strpos($accordionSettings[0]['selected_items'], 'accordion_title') !== false) {
+                if (strpos($accordionSettings[0]['selected_items'], 'title') !== false) {
                     $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_title', 'FoundationZurbFramework') . "</th>";
                 }
-                if (strpos($accordionSettings[0]['selected_items'], 'accordion_text') !== false) {
+                if (strpos($accordionSettings[0]['selected_items'], 'text') !== false) {
                     $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_text', 'FoundationZurbFramework') . "</th>";
                 }
-                if (strpos($accordionSettings[0]['selected_items'], 'accordion_files') !== false) {
+                if (strpos($accordionSettings[0]['selected_items'], 'files') !== false) {
                     $itemContent .= "<th class='secondaryStyle'>" . LocalizationUtility::translate('foundation_files', 'FoundationZurbFramework') . "</th>";
                 }
                 $itemContent .= '</tr>';
@@ -119,13 +120,13 @@ class AccordionPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                     if (strpos($accordionSettings[0]['selected_items'], 'foundation_listing') !== false) {
                         $itemContent .= '<td>' . $listNumber . '</td>';
                     }
-                    if (strpos($accordionSettings[0]['selected_items'], 'accordion_title') !== false) {
+                    if (strpos($accordionSettings[0]['selected_items'], 'title') !== false) {
                         $itemContent .= '<td>' . substr($accContent['title'], 0, $accordionSettings[0]['title_crop']) . '</td>';
                     }
-                    if (strpos($accordionSettings[0]['selected_items'], 'accordion_text') !== false) {
+                    if (strpos($accordionSettings[0]['selected_items'], 'text') !== false) {
                         $itemContent .= '<td>' . strip_tags(substr($accContent['text'], 0, $accordionSettings[0]['text_crop'])) . '</td>';
                     }
-                    if (strpos($accordionSettings[0]['selected_items'], 'accordion_files') !== false) {
+                    if (strpos($accordionSettings[0]['selected_items'], 'files') !== false) {
                         $itemContent .= '<td>' . $fileExist . '</td>';
                     }
                     $itemContent .= '</tr>';
